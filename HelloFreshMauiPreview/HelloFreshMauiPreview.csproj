@@ -4,17 +4,17 @@
 		<TargetFrameworks>net6.0-android;net6.0-ios;net6.0-maccatalyst</TargetFrameworks>
 		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows')) and '$(MSBuildRuntimeType)' == 'Full'">$(TargetFrameworks);net6.0-windows10.0.19041</TargetFrameworks>
 		<OutputType>Exe</OutputType>
-		<RootNamespace>Festifact.Organisation</RootNamespace>
+		<RootNamespace>HelloFreshMauiPreview</RootNamespace>
 		<UseMaui>true</UseMaui>
 		<SingleProject>true</SingleProject>
 		<ImplicitUsings>enable</ImplicitUsings>
 
 		<!-- Display name -->
-		<ApplicationTitle>Festifact.Organisation</ApplicationTitle>
+		<ApplicationTitle>HelloFreshMauiPreview</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.festifact.organisation</ApplicationId>
-		<ApplicationId Condition="$(TargetFramework.Contains('-windows'))">11C22F7B-A8FF-4AAA-94D5-6C2BBD8A5C2E</ApplicationId>
+		<ApplicationId>com.companyname.hellofreshmauipreview</ApplicationId>
+		<ApplicationId Condition="$(TargetFramework.Contains('-windows'))">cf8980ae-2b73-4b9f-ad43-f29f4913b623</ApplicationId>
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
@@ -43,24 +43,6 @@
 
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <None Remove="Resources\Images\festifactlogo.svg" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Services\" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <PackageReference Include="CommunityToolkit.Mvvm" Version="7.1.2" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <MauiXaml Update="View\FestivalOverviewPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	</ItemGroup>
 
 </Project>
