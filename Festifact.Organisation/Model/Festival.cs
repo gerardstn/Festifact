@@ -1,22 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Festifact.Organisation.Model;
 
-namespace Festifact.Organisation.Model
+public class Festival
 {
-    public class Festival
-    {
-        public int FestivalId { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public string Banner { get; set; }
-        public int TicketsAvailable { get; set; }
-        public string Type { get; set; }
-        public string Genre { get; set; }
-        public string AgeCatagory { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
-    }
+    public int FestivalId { get; set; }
+    public string Name { get; set; }
+    public string Description { get; set; }
+    public string Banner { get; set; }
+    public int TicketsAvailable { get; set; }
+    public int TicketsLimit { get; set; }
+    public string Type { get; set; }
+    public string Genre { get; set; }
+    public string AgeCatagory { get; set; }
+    public DateTime StartDate { get; set; }
+    public DateTime EndDate { get; set; }
 }

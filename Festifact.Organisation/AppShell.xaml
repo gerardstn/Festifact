@@ -7,7 +7,7 @@
     Shell.FlyoutBehavior="Disabled">
 
     <ShellContent
-        Title="Hello, World"
+        Title="Festifact Organisation"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 

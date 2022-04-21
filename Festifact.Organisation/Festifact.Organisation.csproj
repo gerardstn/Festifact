@@ -14,7 +14,7 @@
 
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.festifact.organisation</ApplicationId>
-		<ApplicationId Condition="$(TargetFramework.Contains('-windows'))">11C22F7B-A8FF-4AAA-94D5-6C2BBD8A5C2E</ApplicationId>
+		<ApplicationId Condition="$(TargetFramework.Contains('-windows'))">641EBD66-9D19-4BB4-BF06-29BA47847050</ApplicationId>
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
@@ -46,21 +46,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Resources\Images\festifactlogo.svg" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Services\" />
+	  <None Remove="Resources\Images\festifactlogo.png" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <PackageReference Include="CommunityToolkit.Mvvm" Version="7.1.2" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <MauiXaml Update="View\FestivalOverviewPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	</ItemGroup>
 
 </Project>

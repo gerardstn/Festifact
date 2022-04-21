@@ -5,7 +5,9 @@ VisualStudioVersion = 17.0.31611.283
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Festifact.Visitor", "Festifact.Visitor\Festifact.Visitor.csproj", "{12A40221-F792-458E-9851-0A0530F4A2DB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Festifact.Organisation", "Festifact.Organisation\Festifact.Organisation.csproj", "{EE6183EA-9BBF-4C84-9AE6-CFB58745B5BE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Festifact.Organisation", "Festifact.Organisation\Festifact.Organisation.csproj", "{369C96DD-9F92-4472-8241-6087CE8DF3CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Festifact.API", "Festifact.API\Festifact.API.csproj", "{FB727DE7-1A12-47EE-A92A-78E668D9A15A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,12 +21,16 @@ Global
 		{12A40221-F792-458E-9851-0A0530F4A2DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12A40221-F792-458E-9851-0A0530F4A2DB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{12A40221-F792-458E-9851-0A0530F4A2DB}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{EE6183EA-9BBF-4C84-9AE6-CFB58745B5BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EE6183EA-9BBF-4C84-9AE6-CFB58745B5BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EE6183EA-9BBF-4C84-9AE6-CFB58745B5BE}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{EE6183EA-9BBF-4C84-9AE6-CFB58745B5BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EE6183EA-9BBF-4C84-9AE6-CFB58745B5BE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EE6183EA-9BBF-4C84-9AE6-CFB58745B5BE}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{369C96DD-9F92-4472-8241-6087CE8DF3CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{369C96DD-9F92-4472-8241-6087CE8DF3CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{369C96DD-9F92-4472-8241-6087CE8DF3CE}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{369C96DD-9F92-4472-8241-6087CE8DF3CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{369C96DD-9F92-4472-8241-6087CE8DF3CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{369C96DD-9F92-4472-8241-6087CE8DF3CE}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{FB727DE7-1A12-47EE-A92A-78E668D9A15A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB727DE7-1A12-47EE-A92A-78E668D9A15A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB727DE7-1A12-47EE-A92A-78E668D9A15A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB727DE7-1A12-47EE-A92A-78E668D9A15A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

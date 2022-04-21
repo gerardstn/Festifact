@@ -4,9 +4,7 @@
              x:Class="Festifact.Organisation.MainPage">
 
     <ScrollView>
-
         <VerticalStackLayout Spacing="25" Padding="30">
-
             <FlexLayout ZIndex="1" MinimumHeightRequest="120" JustifyContent="SpaceBetween" >
                 <Image
                 Source="festifactlogo.png"
@@ -23,6 +21,19 @@
                  />
             </FlexLayout>
             <Label 
+                Text="Hello, World!"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="32"
+                HorizontalOptions="Center" />
+
+            <Label 
+                Text="Welcome to .NET Multi-platform App UI"
+                SemanticProperties.HeadingLevel="Level1"
+                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
+                FontSize="18"
+                HorizontalOptions="Center" />
+
+            <Label 
                 Text="Current count: 0"
                 FontSize="18"
                 FontAttributes="Bold"
@@ -36,21 +47,13 @@
                 Clicked="OnCounterClicked"
                 HorizontalOptions="Center" />
 
-            <Button Text="Manage Festivals"
-                FontAttributes="Bold"
-                SemanticProperties.Hint="Go to the festival management page"
-                HorizontalOptions="Center"
-                />
-            <Button Text="Manage Executors (Artists, Movies and Drama groups)"
-                FontAttributes="Bold"
-                SemanticProperties.Hint="Go to the executors management page"
-                HorizontalOptions="Center"
-                />
-            <Button Text="Manage locations"
-                FontAttributes="Bold"
-                SemanticProperties.Hint="Go to the locations management page"
-                HorizontalOptions="Center"
-                />
+            <Image
+                Source="dotnet_bot.png"
+                SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                WidthRequest="250"
+                HeightRequest="310"
+                HorizontalOptions="Center" />
+
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

@@ -1,4 +1,4 @@
-﻿namespace Festifact.Organisation.ViewModel;
+﻿namespace Festifact.Visitor.ViewModel;
 
 public partial class BaseViewModel : ObservableObject
 {
