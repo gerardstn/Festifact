@@ -8,9 +8,13 @@ namespace Festifact.Visitor.ViewModel;
         FestivalService festivalService;
         public FestivalsViewModel(FestivalService festivalService)
         {
-            Title = "Festival Finder";
+            Title = "Festifact";
+            Login = "Loggedinuser/register";
             this.festivalService = festivalService;
         }
+
+    [ObservableProperty]
+    bool isRefreshing;
 
     [ICommand]
     async Task GetFestivalsAsync()
@@ -36,6 +40,7 @@ namespace Festifact.Visitor.ViewModel;
         finally
         {
             IsBusy = false;
+            isRefreshing = false;
         }
 
     }

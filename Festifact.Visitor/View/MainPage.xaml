@@ -5,40 +5,53 @@
              xmlns:model="clr-namespace:Festifact.Visitor.Model"
              xmlns:viewmodel="clr-namespace:Festifact.Visitor.ViewModel"
              x:DataType="viewmodel:FestivalsViewModel"
-             Title="{Binding Title}">
+             Title="{Binding Title}" >
 
     <Grid
         ColumnDefinitions="*,*"
         ColumnSpacing="5"
         RowDefinitions="*,Auto"
         RowSpacing="0">
-
-        <CollectionView 
+        <RefreshView
+    Grid.ColumnSpan="2"
+    Command="{Binding GetFestivalsCommand}"
+    IsRefreshing="{Binding IsRefreshing}">
+            <CollectionView 
                 Grid.ColumnSpan="2"
                 ItemsSource="{Binding Festivals}"
                 SelectionChanged="CollectionView_SelectionChanged"
                 SelectionMode="Single">
-            <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="model:Festival">
-                    <Grid Padding="10,5">
-                        <Frame HeightRequest="125" Style="{StaticResource CardView}">
-                            <Grid Padding="0" ColumnDefinitions="125,*">
-                                <Image Aspect="AspectFill" Source="{Binding Image}"
+                <CollectionView.EmptyView>
+                    <StackLayout Padding="100">
+                        <Image
+                        HorizontalOptions="CenterAndExpand"
+                            MaximumHeightRequest="200"
+                        Source="nodata.png"
+                        VerticalOptions="CenterAndExpand" />
+                    </StackLayout>
+                </CollectionView.EmptyView>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:Festival">
+                        <Grid Padding="10,5">
+                            <Frame HeightRequest="125" Style="{StaticResource CardView}">
+                                <Grid Padding="0" ColumnDefinitions="125,*">
+                                    <Image Aspect="AspectFill" Source="{Binding Banner}"
                                        WidthRequest="125"
                                        HeightRequest="125"/>
-                                <StackLayout
+                                    <StackLayout
                                     Grid.Column="1"
                                     Padding="10"
                                     VerticalOptions="Center">
-                                    <Label Style="{StaticResource LargeLabel}" Text="{Binding Name}" />
-                                    <Label Style="{StaticResource MediumLabel}" Text="{Binding Location}" />
-                                </StackLayout>
-                            </Grid>
-                        </Frame>
-                    </Grid>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+                                        <Label Style="{StaticResource LargeLabel}" Text="{Binding Name}" />
+                                        <Label Style="{StaticResource MediumLabel}" Text="{Binding Description}" />
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
 
         <Button Text="Get Festivals" 
                 Command="{Binding GetFestivalsCommand}"

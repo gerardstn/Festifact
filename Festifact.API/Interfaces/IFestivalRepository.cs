@@ -3,7 +3,7 @@ using Festifact.API.Models;
 
 namespace Festifact.API.Interfaces
 {
-    public interface IFestifactRepository
+    public interface IFestivalRepository
     {
         bool DoesFestivalExist(int id);
         IEnumerable<Festival> All { get; }

@@ -27,16 +27,22 @@
         HeightRequest="160"
         HorizontalOptions="Center"
         VerticalOptions="Center"
-        Source="{Binding Festival.Image}"
+        Source="{Binding Festival.Banner}"
         WidthRequest="160"/>
                 </Frame>
 
             </Grid>
 
             <VerticalStackLayout Padding="10" Spacing="10">
-                <Label Style="{StaticResource MediumLabel}" Text="{Binding Festival.Details}" />
-                <Label Style="{StaticResource MicroLabel}" Text="{Binding Festival.Location, StringFormat='Location: {0}'}" />
-                <Label Style="{StaticResource MicroLabel}" Text="{Binding Festival.Population, StringFormat='Population: {0}'}" />
+                <Label Style="{StaticResource MicroLabel}" Text="{Binding Festival.TicketsAvailable, StringFormat='Tickets available: {0}'}" />
+                <Label Style="{StaticResource MediumLabel}" Text="{Binding Festival.Description, StringFormat='Description: {0}'}" />
+                <Label Style="{StaticResource MediumLabel}" Text="{Binding Festival.Type, StringFormat='Type: {0}'}" />
+                <Label Style="{StaticResource MediumLabel}" Text="{Binding Festival.Genre, StringFormat='Genre: {0}'}" />
+                <Label Style="{StaticResource MediumLabel}" Text="{Binding Festival.AgeCatagory, StringFormat='Age: {0}'}" />
+                <Label Style="{StaticResource MediumLabel}" Text="{Binding Festival.Location, StringFormat='Location: {0}'}" />
+                <Label Style="{StaticResource MediumLabel}" Text="{Binding Festival.StartDate, StringFormat='Start date: {0}'}" />
+                <Label Style="{StaticResource MediumLabel}" Text="{Binding Festival.EndDate, StringFormat='End date: {0}'}" />
+
             </VerticalStackLayout>
 
         </VerticalStackLayout>

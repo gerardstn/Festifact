@@ -6,11 +6,11 @@ namespace Festifact.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class FestifactController : ControllerBase
+    public class FestivalController : ControllerBase
     {
-        private readonly IFestifactRepository _festifactRepository;
+        private readonly IFestivalRepository _festifactRepository;
 
-        public FestifactController(IFestifactRepository festifactRepository)
+        public FestivalController(IFestivalRepository festifactRepository)
         {
             _festifactRepository = festifactRepository;
         }

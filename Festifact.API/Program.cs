@@ -9,7 +9,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddSingleton<IFestifactRepository, FestifactRepository>();
+builder.Services.AddSingleton<IFestivalRepository, FestivalRepository>();
 
 var app = builder.Build();
 
