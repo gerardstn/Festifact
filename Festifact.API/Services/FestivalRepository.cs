@@ -2,6 +2,7 @@
 using System.Linq;
 using Festifact.API.Interfaces;
 using Festifact.API.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Festifact.API.Services
 {
@@ -28,6 +29,9 @@ namespace Festifact.API.Services
         {
             return _festivalList.FirstOrDefault(festival => festival.FestivalId == id);
         }
+
+
+
 
         public void Insert(Festival item)
         {
@@ -104,6 +108,51 @@ namespace Festifact.API.Services
             _festivalList.Add(festival1);
             _festivalList.Add(festival2);
             _festivalList.Add(festival3);
+        }
+
+        public Task<OkObjectResult> FindByType(string type)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<OkObjectResult> FindByGenre(string genre)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<OkObjectResult> FindByAge(string age)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<OkObjectResult> FindByLocation(string location)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<OkObjectResult> FindByDate(DateTime newDate)
+        {
+            throw new NotImplementedException();
+        }
+
+
+
+        IEnumerable<Festival> IFestivalRepository.SearchFunction(string name, string type, string genre)
+        {
+            IEnumerable<Festival> FiltredList = _festivalList;
+
+            if (!String.IsNullOrEmpty(type)) {
+                FiltredList = FiltredList.Where(festival => festival.Type == type);
+            };
+            if (!String.IsNullOrEmpty(name))
+            {
+                FiltredList = FiltredList.Where(festival => festival.Name == name);
+            };
+            if (!String.IsNullOrEmpty(genre))
+            {
+                FiltredList = FiltredList.Where(festival => festival.Genre == genre);
+            };
+            return FiltredList;
         }
     }
 }
