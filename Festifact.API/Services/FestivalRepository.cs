@@ -140,19 +140,22 @@ namespace Festifact.API.Services
         IEnumerable<Festival> IFestivalRepository.SearchFunction(string name, string type, string genre)
         {
             IEnumerable<Festival> FiltredList = _festivalList;
-
-            if (!String.IsNullOrEmpty(type)) {
-                FiltredList = FiltredList.Where(festival => festival.Type == type);
-            };
             if (!String.IsNullOrEmpty(name))
             {
-                FiltredList = FiltredList.Where(festival => festival.Name == name);
+                FiltredList = FiltredList.Where(festival => festival.Name.ToLower().Contains(name.ToLower()));
             };
+
+            if (!String.IsNullOrEmpty(type)) 
+            {
+                FiltredList = FiltredList.Where(festival => festival.Type.ToLower().Contains(type.ToLower()));
+            };
+
             if (!String.IsNullOrEmpty(genre))
             {
-                FiltredList = FiltredList.Where(festival => festival.Genre == genre);
+                FiltredList = FiltredList.Where(festival => festival.Genre.ToLower().Contains(genre.ToLower()));
             };
-            return FiltredList;
+
+            return FiltredList; 
         }
     }
 }
