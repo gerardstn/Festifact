@@ -6,7 +6,6 @@ public class Festival
 {
     [Required]
     public int FestivalId { get; set; }
-    [Required]
     public string Name { get; set; }
     public string? Description { get; set; }
     public string? Banner { get; set; }

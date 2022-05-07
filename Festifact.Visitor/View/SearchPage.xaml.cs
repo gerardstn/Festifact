@@ -1,13 +1,12 @@
-﻿namespace Festifact.Visitor.View;
+namespace Festifact.Visitor;
 
-public partial class MainPage : ContentPage
+public partial class SearchPage : ContentPage
 {
-	public MainPage(FestivalsViewModel viewModel)
+	public SearchPage(FestivalSearchViewModel viewModel)
 	{
 		InitializeComponent();
 		BindingContext = viewModel;
 	}
-
 	private async void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
 	{
 		var festival = e.CurrentSelection.FirstOrDefault() as Festival;
@@ -21,20 +20,5 @@ public partial class MainPage : ContentPage
 
 		((CollectionView)sender).SelectedItem = null;
 	}
-
-	async Task SearchPage()
-    {
-		await Shell.Current.GoToAsync(nameof(SearchPage));
-	}
-
-
-	protected override async void OnAppearing()
-	{
-		base.OnAppearing();
-		var vm = (FestivalsViewModel)BindingContext;
-		if (vm.Festivals.Count == 0)
-			await vm.GetFestivalsCommand.ExecuteAsync(null);
-	}
-
 
 }

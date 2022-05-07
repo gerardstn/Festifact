@@ -13,12 +13,7 @@ namespace Festifact.API.Interfaces
         void Update(Festival festival);
         void Delete(int festivalId);
         
-        IEnumerable<Festival> SearchFunction(string name, string type, string genre);
-        Task<OkObjectResult> FindByType(string type);
-        Task<OkObjectResult> FindByGenre(string genre);
-        Task<OkObjectResult> FindByAge(string age);
-        Task<OkObjectResult> FindByLocation(string location);
-        Task<OkObjectResult> FindByDate(DateTime newDate);
+        IEnumerable<Festival> SearchFunction( string type, string genre, string age, string location, DateTime date);
 
     }
 }

@@ -26,8 +26,6 @@
         </ResourceDictionary>
     </Shell.Resources>
 
-
-
     <ShellContent
         Shell.NavBarIsVisible="true"
         Title="Festival Overview"

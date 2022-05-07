@@ -30,9 +30,6 @@ namespace Festifact.API.Services
             return _festivalList.FirstOrDefault(festival => festival.FestivalId == id);
         }
 
-
-
-
         public void Insert(Festival item)
         {
             _festivalList.Add(item);
@@ -109,52 +106,15 @@ namespace Festifact.API.Services
             _festivalList.Add(festival2);
             _festivalList.Add(festival3);
         }
-
-        public Task<OkObjectResult> FindByType(string type)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<OkObjectResult> FindByGenre(string genre)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<OkObjectResult> FindByAge(string age)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<OkObjectResult> FindByLocation(string location)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<OkObjectResult> FindByDate(DateTime newDate)
-        {
-            throw new NotImplementedException();
-        }
-
-
-
-        IEnumerable<Festival> IFestivalRepository.SearchFunction(string name, string type, string genre)
+        
+        IEnumerable<Festival> IFestivalRepository.SearchFunction(string type, string genre, string age, string location, DateTime date)
         {
             IEnumerable<Festival> FiltredList = _festivalList;
-            if (!String.IsNullOrEmpty(name))
-            {
-                FiltredList = FiltredList.Where(festival => festival.Name.ToLower().Contains(name.ToLower()));
-            };
-
-            if (!String.IsNullOrEmpty(type)) 
-            {
                 FiltredList = FiltredList.Where(festival => festival.Type.ToLower().Contains(type.ToLower()));
-            };
-
-            if (!String.IsNullOrEmpty(genre))
-            {
                 FiltredList = FiltredList.Where(festival => festival.Genre.ToLower().Contains(genre.ToLower()));
-            };
-
+                FiltredList = FiltredList.Where(festival => festival.AgeCatagory.ToLower().Contains(age.ToLower()));
+                FiltredList = FiltredList.Where(festival => festival.Location.ToLower().Contains(location.ToLower()));
+                FiltredList = FiltredList.Where(festival => festival.StartDate.Date <= (date.Date));
             return FiltredList; 
         }
     }

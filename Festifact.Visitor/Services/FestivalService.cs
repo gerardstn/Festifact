@@ -25,7 +25,6 @@ namespace Festifact.Visitor.Services;
             festivalList = await response.Content.ReadFromJsonAsync<List<Festival>>();
         }
 
-
         return festivalList;
     }
 }

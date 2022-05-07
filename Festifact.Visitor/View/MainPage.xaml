@@ -10,13 +10,27 @@
     <Grid
         ColumnDefinitions="*,*"
         ColumnSpacing="5"
-        RowDefinitions="*,Auto"
         RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <Button Text="Search Festivals"
+                Command="{Binding SearchFestivalsCommand}"
+                IsEnabled="{Binding IsNotBusy}"
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Style="{StaticResource ButtonOutline}"
+                Margin="8"/>
         <RefreshView
-    Grid.ColumnSpan="2"
-    Command="{Binding GetFestivalsCommand}"
-    IsRefreshing="{Binding IsRefreshing}">
+                Grid.Row="1"
+                Grid.ColumnSpan="2"
+                Command="{Binding GetFestivalsCommand}"
+                IsRefreshing="{Binding IsRefreshing}">
             <CollectionView 
+                Grid.Row="1"
                 Grid.ColumnSpan="2"
                 ItemsSource="{Binding Festivals}"
                 SelectionChanged="CollectionView_SelectionChanged"
@@ -53,10 +67,10 @@
             </CollectionView>
         </RefreshView>
 
-        <Button Text="Get Festivals" 
+        <Button Text="Refresh Festivals" 
                 Command="{Binding GetFestivalsCommand}"
                 IsEnabled="{Binding IsNotBusy}"
-                Grid.Row="1"
+                Grid.Row="3"
                 Grid.Column="0"
                 Style="{StaticResource ButtonOutline}"
                 Margin="8"/>

@@ -1,17 +1,20 @@
-﻿using Festifact.Visitor.Services;
+using Festifact.Visitor.Services;
 
 namespace Festifact.Visitor.ViewModel;
 
-    public partial class FestivalsViewModel : BaseViewModel
-    {
-        public ObservableCollection<Festival> Festivals { get; } = new();
+[QueryProperty(nameof(Festival), "Festival")]
+public partial class FestivalSearchViewModel : BaseViewModel
+{
+    public ObservableCollection<Festival> Festivals { get; } = new();
 
-        FestivalService festivalService;
-        public FestivalsViewModel(FestivalService festivalService)
-        {
-            Title = "Festifact";
-            this.festivalService = festivalService;
-        }
+    FestivalService festivalService;
+    public FestivalSearchViewModel(FestivalService festivalService)
+    {
+        Title = "Search Festival";
+        this.festivalService = festivalService;
+    }
+    [ObservableProperty]
+    Festival festival;
 
     [ObservableProperty]
     bool isRefreshing;
@@ -43,12 +46,6 @@ namespace Festifact.Visitor.ViewModel;
             isRefreshing = false;
         }
 
-    }
-    [ICommand]
-    async Task SearchFestivals()
-    {
-        var route = $"{nameof(SearchPage)}";
-        await Shell.Current.GoToAsync(route);
     }
 
 }

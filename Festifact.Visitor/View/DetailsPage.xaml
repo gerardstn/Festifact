@@ -19,8 +19,11 @@
     Grid.RowSpan="2"
     Grid.Column="1"
     Margin="0,80,0,0"
+    HeightRequest="160"
+    WidthRequest="160"
     HorizontalOptions="Center" 
     Padding="0"
+    IsClippedToBounds="True"
     CornerRadius="80">
                     <Image
         Aspect="AspectFill"
