@@ -6,13 +6,13 @@
              xmlns:viewmodel="clr-namespace:Festifact.Visitor.ViewModel"
              x:DataType="viewmodel:FestivalSearchViewModel"
              Title="{Binding Title}">
-
+    
     <Grid
         ColumnDefinitions="*,*"
         ColumnSpacing="5"
         RowSpacing="0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="180"/>
+            <RowDefinition Height="290"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="50" />
         </Grid.RowDefinitions>
@@ -20,21 +20,18 @@
             Grid.Row="0"
             Grid.Column="0"
             Grid.ColumnSpan="2">
-        <Entry 
-            MaxLength="20"
-            Style="{StaticResource CommonEntryStyle}"
-            Text="Music" />
             <Picker Title="Select a type"
         ItemsSource="{Binding Festivals}"
         ItemDisplayBinding="{Binding Type}" />
-            <Entry 
-            MaxLength="20"
-            Style="{StaticResource CommonEntryStyle}"
-            Text="All" />
-            <Entry 
-            MaxLength="20"
-            Style="{StaticResource CommonEntryStyle}"
-            Text="Location" />
+            <Picker Title="Select a genre"
+        ItemsSource="{Binding Festivals}"
+        ItemDisplayBinding="{Binding Genre}" />
+            <Picker Title="Select age"
+        ItemsSource="{Binding Festivals}"
+        ItemDisplayBinding="{Binding AgeCatagory}" />
+            <Picker Title="Select Location"
+        ItemsSource="{Binding Festivals}"
+        ItemDisplayBinding="{Binding Location}" />
             <DatePicker 
                 MinimumDate="08/03/2022"
                 MaximumDate="08/15/2022"
@@ -80,10 +77,11 @@
         </CollectionView>
 
         <Button Text="Search Festivals" 
-                                Command="{Binding GetFestivalsCommand}"
+                Command="{Binding SearchFestivalsCommand}"
                 IsEnabled="{Binding IsNotBusy}"
                 Grid.Row="3"
                 Grid.Column="0"
+                Grid.ColumnSpan="2"
                 Style="{StaticResource ButtonOutline}"
                 Margin="8"/>
 

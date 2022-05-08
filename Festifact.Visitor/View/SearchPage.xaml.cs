@@ -21,4 +21,13 @@ public partial class SearchPage : ContentPage
 		((CollectionView)sender).SelectedItem = null;
 	}
 
+
+	protected override async void OnAppearing()
+	{
+		base.OnAppearing();
+		var vm = (FestivalSearchViewModel)BindingContext;
+		if (vm.Festivals.Count == 0)
+			await vm.GetFestivalsCommand.ExecuteAsync(null);
+	}
+
 }
