@@ -53,4 +53,16 @@
 	  <PackageReference Include="CommunityToolkit.Mvvm" Version="7.1.2" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Compile Update="View\FestivalManageOverviewPage.xaml.cs">
+	    <DependentUpon>FestivalManageOverviewPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="View\FestivalManageOverviewPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
 </Project>
