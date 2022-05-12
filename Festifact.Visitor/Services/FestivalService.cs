@@ -29,13 +29,9 @@ namespace Festifact.Visitor.Services;
     }
 
     List<Festival> festivalSearchResult = new();
-    public async Task<List<Festival>> SearchFestivals(string Type, string Genre, string Age, string Location, string Date)
+    public async Task<List<Festival>> SearchFestivals(string Type, string Genre, string Age, string Location, DateTime Date)
     {
-        if (festivalSearchResult?.Count > 0)
-            return festivalSearchResult;
-
-        
-        var response = await httpClient.GetAsync("https://festifactapi20220423103103.azurewebsites.net/api/festival/search?Type="+Type+"&Genre="+Genre+"&Age="+Age+"&Location="+Location+"&Date="+Date+"");
+        var response = await httpClient.GetAsync("https://festifactapi20220423103103.azurewebsites.net/api/festival/search?Type="+Type+"&Genre="+Genre+"&Age="+Age+"&Location="+Location+"&Date="+Date.Year+"-"+Date.Month+"-"+Date.Day+"");
 
         if (response.IsSuccessStatusCode)
         {

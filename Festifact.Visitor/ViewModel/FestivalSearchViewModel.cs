@@ -3,18 +3,63 @@ using Festifact.Visitor.Services;
 namespace Festifact.Visitor.ViewModel;
 
 [QueryProperty(nameof(Festival), "Festival")]
-public partial class FestivalSearchViewModel : BaseViewModel
+public partial class FestivalSearchViewModel : BaseViewModel, INotifyPropertyChanged
 {
 
     string type, genre, age, location;
-    DateTime date;
-    public string Type { get => type; set => type = value; }
-    public string Genre { get => genre; set => type = value; }
-    public string Age { get => age; set => age = value; }
-    public string Location { get => location; set => location = value; }
-    public DateTime Date { get => date; set => date = value; }
+    DateTime date = new DateTime(2022, 8, 3);
+    public string Type { 
+        get => type; 
+        set { 
+            type = value; 
+            OnPropertyChanged(nameof(Type)); 
+        } 
+    }
+    public string Genre { 
+        get => genre;
+        set { 
+            genre = value;
+            OnPropertyChanged(nameof(Genre));
+        } 
+    }
+    public string Age { 
+        get => age; 
+        set { 
+            age = value;
+            OnPropertyChanged(nameof(Age));
+        }
+    }
+    public string Location { 
+        get => location; 
+        set { 
+            location = value;
+            OnPropertyChanged(nameof(Location));
+        } 
+    }
+    public DateTime Date { 
+        get => date; 
+        set { 
+            date = value;
+            OnPropertyChanged(nameof(Date));
+        }
+    }
+
+    public event PropertyChangedEventHandler PropertyChanged;
+
+    void OnPropertyChanged(string type) =>
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(type));
+
 
     public ObservableCollection<Festival> Festivals { get; } = new();
+
+    public void ClearFields()
+    {
+        Type = string.Empty;
+        Genre = string.Empty;
+        Age = string.Empty;
+        Location = string.Empty;
+        Date = new DateTime(2022, 8, 3);
+    }
 
     FestivalService festivalService;
     public FestivalSearchViewModel(FestivalService festivalService)
@@ -40,6 +85,7 @@ public partial class FestivalSearchViewModel : BaseViewModel
             Festivals.Clear();
             foreach (var festival in festivals)
                 Festivals.Add(festival);
+            ClearFields();
 
         }
         catch (Exception ex)
@@ -64,7 +110,7 @@ public partial class FestivalSearchViewModel : BaseViewModel
         try
         {
             IsBusy = true;
-            var festivals = await festivalService.SearchFestivals("music","o","all","Budapest","10-08-2022");
+            var festivals = await festivalService.SearchFestivals(type, genre, age, location, Date);
             
             Festivals.Clear();
             foreach (var festival in festivals)

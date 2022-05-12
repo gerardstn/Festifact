@@ -65,7 +65,7 @@ namespace Festifact.API.Services
                 Location = "Amstelveen",
                 AgeCatagory = "18+",
                 StartDate = new DateTime(2022, 8, 3, 13, 00, 00),
-                EndDate = new DateTime(2022, 6, 7, 23, 00, 00)
+                EndDate = new DateTime(2022, 8, 7, 23, 00, 00)
             };
 
             var festival2 = new Festival
@@ -98,8 +98,6 @@ namespace Festifact.API.Services
                 AgeCatagory = "ALL, Guidance under 14",
                 StartDate = new DateTime(2022, 8, 10, 16, 00, 00),
                 EndDate = new DateTime(2022, 8, 15, 4, 00, 00)
-
-
             };
 
             _festivalList.Add(festival1);

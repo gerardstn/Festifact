@@ -12,7 +12,7 @@
         ColumnSpacing="5"
         RowSpacing="0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="290"/>
+            <RowDefinition Height="180"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="50" />
         </Grid.RowDefinitions>
@@ -20,22 +20,18 @@
             Grid.Row="0"
             Grid.Column="0"
             Grid.ColumnSpan="2">
-            <Picker Title="Select a type"
-        ItemsSource="{Binding Festivals}"
-        ItemDisplayBinding="{Binding Type}" />
-            <Picker Title="Select a genre"
-        ItemsSource="{Binding Festivals}"
-        ItemDisplayBinding="{Binding Genre}" />
-            <Picker Title="Select age"
-        ItemsSource="{Binding Festivals}"
-        ItemDisplayBinding="{Binding AgeCatagory}" />
-            <Picker Title="Select Location"
-        ItemsSource="{Binding Festivals}"
-        ItemDisplayBinding="{Binding Location}" />
+            <Entry Placeholder="Type"
+                   Text="{Binding Type}"/>
+            <Entry Placeholder="Genre"
+                   Text="{Binding Genre}"/>
+            <Entry Placeholder="Age"
+                   Text="{Binding Age}"/>
+            <Entry Placeholder="Location"
+                   Text="{Binding Location}"/>
             <DatePicker 
                 MinimumDate="08/03/2022"
                 MaximumDate="08/15/2022"
-                Date="08/10/2022" />
+                Date="{Binding Date}" />
         </StackLayout>
 
             <CollectionView 
@@ -81,10 +77,17 @@
                 IsEnabled="{Binding IsNotBusy}"
                 Grid.Row="3"
                 Grid.Column="0"
-                Grid.ColumnSpan="2"
                 Style="{StaticResource ButtonOutline}"
                 Margin="8"/>
-
+        
+        <Button Text="Clear Search" 
+                Command="{Binding GetFestivalsCommand}"
+                IsEnabled="{Binding IsNotBusy}"
+                Grid.Row="3"
+                Grid.Column="2"
+                Style="{StaticResource ButtonOutline}"
+                Margin="8"/>
+        
         <ActivityIndicator IsVisible="{Binding IsBusy}"
                            IsRunning="{Binding IsBusy}"
                            HorizontalOptions="FillAndExpand"
