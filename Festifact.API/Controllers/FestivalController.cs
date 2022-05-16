@@ -1,5 +1,4 @@
-﻿using Festifact.API.Infrastructure;
-using Festifact.API.Interfaces;
+﻿using Festifact.API.Interfaces;
 using Festifact.API.Models;
 using Microsoft.AspNetCore.Mvc;
 

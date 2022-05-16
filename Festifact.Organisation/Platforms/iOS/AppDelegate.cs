@@ -1,6 +1,6 @@
 ﻿using Foundation;
 
-namespace Festifact.Organisation
+namespace Festifact.Organisation.Platforms.iOS
 {
     [Register("AppDelegate")]
     public class AppDelegate : MauiUIApplicationDelegate

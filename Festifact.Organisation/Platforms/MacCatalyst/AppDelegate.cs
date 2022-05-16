@@ -1,6 +1,6 @@
 ﻿using Foundation;
 
-namespace Festifact.Organisation
+namespace Festifact.Organisation.Platforms.MacCatalyst
 {
     [Register("AppDelegate")]
     public class AppDelegate : MauiUIApplicationDelegate
