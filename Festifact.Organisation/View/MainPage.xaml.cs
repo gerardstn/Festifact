@@ -1,5 +1,5 @@
-﻿namespace Festifact.Organisation
-{
+﻿namespace Festifact.Organisation.View;
+
     public partial class MainPage : ContentPage
     {
 
@@ -7,5 +7,9 @@
         {
             InitializeComponent();
         }
+
+        async Task FestivalsManageOverviewPage()
+        {
+            await Shell.Current.GoToAsync(nameof(FestivalsManageOverviewPage));
+        }
     }
-}

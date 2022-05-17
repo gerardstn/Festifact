@@ -1,5 +1,5 @@
-﻿namespace Festifact.Organisation
-{
+﻿namespace Festifact.Organisation;
+
     public partial class App : Application
     {
         public App()
@@ -9,4 +9,3 @@
             MainPage = new AppShell();
         }
     }
-}

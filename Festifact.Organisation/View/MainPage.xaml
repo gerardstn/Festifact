@@ -1,7 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Festifact.Organisation.MainPage">
+             x:Class="Festifact.Organisation.View.MainPage"
+             xmlns:viewmodel="clr-namespace:Festifact.Organisation.ViewModel"
+             x:DataType="viewmodel:MainpageViewModel"
+             Title="{Binding Title}">
     <Grid
         ColumnSpacing="5"
         RowSpacing="0">
@@ -13,6 +16,7 @@
         <Button Text="Manage festivals"
                 Grid.Row="0"
                 HeightRequest="100"
+                Command="{Binding GoToFestivalsManageOverviewPageCommand}"
                 Style="{StaticResource ButtonOutline}"
                 Margin="8"/>
         <Button Text="Manage executors (Artists and movies)"
