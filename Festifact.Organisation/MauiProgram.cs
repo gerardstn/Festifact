@@ -20,9 +20,10 @@ public static class MauiProgram
         builder.Services.AddSingleton<FestivalService>();
         builder.Services.AddSingleton<MainpageViewModel>();
 
-        builder.Services.AddSingleton<FestivalsPage>();
-
         builder.Services.AddTransient<FestivalsViewModel>();
+        builder.Services.AddTransient<FestivalsPage>();
+
+
 
         return builder.Build();
     }

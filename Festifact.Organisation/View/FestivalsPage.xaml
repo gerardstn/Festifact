@@ -6,7 +6,7 @@
              x:DataType="viewmodel:FestivalsViewModel"
              Title="{Binding Title}">
     <StackLayout>
-        <Label Text="Welcome to .NET MAUI!"
+        <Label Text="Festifact management pagina"
                 VerticalOptions="Center" 
                 HorizontalOptions="Center" />
     </StackLayout>

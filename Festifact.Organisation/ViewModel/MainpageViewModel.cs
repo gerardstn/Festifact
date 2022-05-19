@@ -5,11 +5,9 @@ namespace Festifact.Organisation.ViewModel;
 public partial class MainpageViewModel : BaseViewModel
 {
 
-    FestivalService festivalService;
-    public MainpageViewModel(FestivalService festivalService)
+    public MainpageViewModel()
     {
         Title = "Festifact Organisation";
-        this.festivalService = festivalService;
     }
 
     [ICommand]
@@ -18,6 +16,4 @@ public partial class MainpageViewModel : BaseViewModel
         var route = $"{nameof(FestivalsPage)}";
         await Shell.Current.GoToAsync(route);
     }
-
-
 }
