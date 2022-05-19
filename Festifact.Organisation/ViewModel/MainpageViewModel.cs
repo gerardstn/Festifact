@@ -4,21 +4,20 @@ namespace Festifact.Organisation.ViewModel;
 
 public partial class MainpageViewModel : BaseViewModel
 {
-    public ObservableCollection<Festival> Festivals { get; } = new();
 
     FestivalService festivalService;
-
     public MainpageViewModel(FestivalService festivalService)
     {
-        Title = "Festival Overview";
+        Title = "Festifact Organisation";
         this.festivalService = festivalService;
     }
-    
+
     [ICommand]
-    async Task GoToFestivalsManageOverviewPage()
+    async Task ManageFestivals()
     {
-        var route = $"{nameof(FestivalsManageOverviewPage)}";
+        var route = $"{nameof(FestivalsPage)}";
         await Shell.Current.GoToAsync(route);
     }
+
 
 }

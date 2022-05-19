@@ -2,12 +2,12 @@
 
 namespace Festifact.Organisation.ViewModel;
 
-public partial class FestivalsManageOverviewViewModel : BaseViewModel
+public partial class FestivalsViewModel : BaseViewModel
 {
     public ObservableCollection<Festival> Festivals { get; } = new();
 
     FestivalService festivalService;
-    public FestivalsManageOverviewViewModel(FestivalService festivalService)
+    public FestivalsViewModel(FestivalService festivalService)
     {
         Title = "Festival Finder";
         this.festivalService = festivalService;

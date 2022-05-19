@@ -1,15 +1,15 @@
 ﻿namespace Festifact.Organisation.View;
 
-    public partial class MainPage : ContentPage
+public partial class MainPage : ContentPage
+{
+
+    public MainPage()
     {
-
-        public MainPage()
-        {
-            InitializeComponent();
-        }
-
-        async Task FestivalsManageOverviewPage()
-        {
-            await Shell.Current.GoToAsync(nameof(FestivalsManageOverviewPage));
-        }
+        InitializeComponent();
     }
+
+    async Task ManageFestivals()
+    {
+        await Shell.Current.GoToAsync(nameof(FestivalsPage));
+    }
+}

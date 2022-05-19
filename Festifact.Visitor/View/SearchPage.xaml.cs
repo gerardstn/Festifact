@@ -2,7 +2,7 @@ namespace Festifact.Visitor;
 
 public partial class SearchPage : ContentPage
 {
-	public SearchPage(FestivalSearchViewModel viewModel)
+	public SearchPage(FestivalsSearchViewModel viewModel)
 	{
 		InitializeComponent();
 		BindingContext = viewModel;
@@ -25,7 +25,7 @@ public partial class SearchPage : ContentPage
 	protected override async void OnAppearing()
 	{
 		base.OnAppearing();
-		var vm = (FestivalSearchViewModel)BindingContext;
+		var vm = (FestivalsSearchViewModel)BindingContext;
 		if (vm.Festivals.Count == 0)
 			await vm.GetFestivalsCommand.ExecuteAsync(null);
 	}

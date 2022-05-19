@@ -3,7 +3,7 @@ using Festifact.Visitor.Services;
 namespace Festifact.Visitor.ViewModel;
 
 [QueryProperty(nameof(Festival), "Festival")]
-public partial class FestivalSearchViewModel : BaseViewModel, INotifyPropertyChanged
+public partial class FestivalsSearchViewModel : BaseViewModel, INotifyPropertyChanged
 {
 
     string type, genre, age, location;
@@ -62,7 +62,7 @@ public partial class FestivalSearchViewModel : BaseViewModel, INotifyPropertyCha
     }
 
     FestivalService festivalService;
-    public FestivalSearchViewModel(FestivalService festivalService)
+    public FestivalsSearchViewModel(FestivalService festivalService)
     {
         Title = "Festifact";
         this.festivalService = festivalService;

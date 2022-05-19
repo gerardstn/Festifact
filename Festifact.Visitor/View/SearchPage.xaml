@@ -4,7 +4,7 @@
              x:Class="Festifact.Visitor.SearchPage"
              xmlns:model="clr-namespace:Festifact.Visitor.Model"
              xmlns:viewmodel="clr-namespace:Festifact.Visitor.ViewModel"
-             x:DataType="viewmodel:FestivalSearchViewModel"
+             x:DataType="viewmodel:FestivalsSearchViewModel"
              Title="{Binding Title}">
     
     <Grid

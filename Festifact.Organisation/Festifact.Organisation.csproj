@@ -54,13 +54,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="View\FestivalsManageOverviewPage.xaml.cs">
-	    <DependentUpon>FestivalsManageOverviewPage.xaml</DependentUpon>
+	  <Compile Update="View\FestivalsPage.xaml.cs">
+	    <DependentUpon>FestivalsPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="View\FestivalsManageOverviewPage.xaml">
+	  <MauiXaml Update="View\FestivalsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
