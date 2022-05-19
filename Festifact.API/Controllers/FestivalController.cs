@@ -32,6 +32,13 @@ namespace Festifact.API.Controllers
             return Ok(_festifactRepository.All);
         }
 
+        [HttpGet("organisation/"+ "{id}")]
+        public IActionResult OrganisationFestivals(int id)
+        {
+            return Ok(_festifactRepository.GetOrganisationFestivals(id));
+        }
+
+
         [HttpGet("search")]
         public IActionResult Search(string Type, string Genre, string Age, string Location, DateTime Date)
         {

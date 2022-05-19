@@ -65,7 +65,8 @@ namespace Festifact.API.Services
                 Location = "Amstelveen",
                 AgeCatagory = "18+",
                 StartDate = new DateTime(2022, 8, 3, 13, 00, 00),
-                EndDate = new DateTime(2022, 8, 7, 23, 00, 00)
+                EndDate = new DateTime(2022, 8, 7, 23, 00, 00),
+                OrganisatorId = 1
             };
 
             var festival2 = new Festival
@@ -81,7 +82,8 @@ namespace Festifact.API.Services
                 Location= "Rotterdam",
                 AgeCatagory = "18+",
                 StartDate = new DateTime(2022, 8, 6, 12, 00, 00),
-                EndDate = new DateTime(2022, 8, 6, 23, 00, 00)
+                EndDate = new DateTime(2022, 8, 6, 23, 00, 00),
+                OrganisatorId = 1
             };
 
             var festival3 = new Festival
@@ -97,14 +99,21 @@ namespace Festifact.API.Services
                 Location = "Budapest",
                 AgeCatagory = "ALL, Guidance under 14",
                 StartDate = new DateTime(2022, 8, 10, 16, 00, 00),
-                EndDate = new DateTime(2022, 8, 15, 4, 00, 00)
+                EndDate = new DateTime(2022, 8, 15, 4, 00, 00),
+                OrganisatorId = 2
             };
 
             _festivalList.Add(festival1);
             _festivalList.Add(festival2);
             _festivalList.Add(festival3);
         }
-        
+        IEnumerable<Festival> IFestivalRepository.GetOrganisationFestivals(int OrganisationId)
+        {
+            IEnumerable<Festival> FiltredList = _festivalList;
+            FiltredList = FiltredList.Where(festival => festival.OrganisatorId.Equals(OrganisationId));
+            return FiltredList;
+        }
+
         IEnumerable<Festival> IFestivalRepository.SearchFunction(string type, string genre, string age, string location, DateTime date)
         {
             IEnumerable<Festival> FiltredList = _festivalList;

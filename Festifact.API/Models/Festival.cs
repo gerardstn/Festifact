@@ -20,4 +20,6 @@ public class Festival
     public DateTime StartDate { get; set; }
     [Required]
     public DateTime EndDate { get; set; }
+    [Required]
+    public int OrganisatorId { get; set; }
 }

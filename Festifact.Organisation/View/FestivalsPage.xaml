@@ -2,12 +2,83 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Festifact.Organisation.FestivalsPage"
+             xmlns:model="clr-namespace:Festifact.Organisation.Model"
              xmlns:viewmodel="clr-namespace:Festifact.Organisation.ViewModel"
              x:DataType="viewmodel:FestivalsViewModel"
-             Title="{Binding Title}">
-    <StackLayout>
-        <Label Text="Festifact manage festivals"
-                VerticalOptions="Center" 
-                HorizontalOptions="Center" />
-    </StackLayout>
+             Title="{Binding Title}" >
+
+    <Grid
+        ColumnDefinitions="*,*"
+        ColumnSpacing="5"
+        RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <CollectionView 
+                Grid.Row="1"
+                Grid.ColumnSpan="2"
+                ItemsSource="{Binding Festivals}"
+                SelectionChanged="CollectionView_SelectionChanged"
+                SelectionMode="Single">
+            <CollectionView.EmptyView>
+                <StackLayout Padding="100">
+                    <Image
+                        HorizontalOptions="CenterAndExpand"
+                            MaximumHeightRequest="200"
+                        Source="nodata.png"
+                        VerticalOptions="CenterAndExpand" />
+                </StackLayout>
+            </CollectionView.EmptyView>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Festival">
+                    <Grid Padding="10,5">
+                        <Frame HeightRequest="100" Style="{StaticResource CardView}">
+                            <Grid Padding="0" ColumnDefinitions="80,200,20">
+                                <Image Aspect="AspectFill" Source="{Binding Banner}"
+                                       WidthRequest="70"
+                                       HeightRequest="70"/>
+                                <HorizontalStackLayout
+                                    Grid.Column="1"
+                                    Padding="10"
+                                    VerticalOptions="Center">
+                                    <Label Style="{StaticResource LargeLabel}" Text="{Binding Name}" />
+                                    <HorizontalStackLayout
+                                    Grid.Column="2"
+                                    Padding="10"
+                                    VerticalOptions="Center">
+                                    <Label Style="{StaticResource MediumLabel}" Text="{Binding TicketsAvailable}" />
+                                    <Label Style="{StaticResource MediumLabel}" Text=" / "/>
+                                    <Label Style="{StaticResource MediumLabel}" Text="{Binding TicketsLimit}" />
+                                    <Label Style="{StaticResource MediumLabel}" Text=" Tickets"/>
+                                    </HorizontalStackLayout>
+                                </HorizontalStackLayout>
+                            </Grid>
+                        </Frame>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Button Text="Add Festival" 
+                Grid.Row="3"
+                Grid.Column="0"
+                Style="{StaticResource ButtonOutline}"
+                Margin="8"/>
+        <Button Text="Refresh Festivals" 
+                Command="{Binding GetFestivalsCommand}"
+                IsEnabled="{Binding IsNotBusy}"
+                Grid.Row="3"
+                Grid.Column="1"
+                Style="{StaticResource ButtonOutline}"
+                Margin="8"/>
+
+        <!-- Add this -->
+        <ActivityIndicator IsVisible="{Binding IsBusy}"
+                           IsRunning="{Binding IsBusy}"
+                           HorizontalOptions="FillAndExpand"
+                           VerticalOptions="CenterAndExpand"
+                           Grid.RowSpan="2"
+                           Grid.ColumnSpan="2"/>
+    </Grid>
 </ContentPage>

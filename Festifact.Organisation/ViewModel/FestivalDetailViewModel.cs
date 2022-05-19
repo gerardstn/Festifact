@@ -13,5 +13,4 @@ public partial class FestivalDetailViewModel : BaseViewModel
         this.festivalService = festivalService;
     }
 
-
 }

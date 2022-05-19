@@ -1,4 +1,5 @@
 ﻿using Festifact.Organisation.Services;
+using Festifact.Organisation.Infrastructure;
 
 namespace Festifact.Organisation.ViewModel;
 
@@ -9,20 +10,25 @@ public partial class FestivalsViewModel : BaseViewModel
     FestivalService festivalService;
     public FestivalsViewModel(FestivalService festivalService)
     {
-        Title = "Festival Finder";
+        Title = "Manage Festivals";
         this.festivalService = festivalService;
     }
+
+    [ObservableProperty]
+    bool isRefreshing;
 
     [ICommand]
     async Task GetFestivalsAsync()
     {
+        int OrganisationId = Globals.OrganisationId;
+
         if (IsBusy)
             return;
 
         try
         {
             IsBusy = true;
-            var festivals = await festivalService.GetFestivals();
+            var festivals = await festivalService.GetFestivals(OrganisationId);
 
             Festivals.Clear();
             foreach (var festival in festivals)
