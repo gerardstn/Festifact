@@ -16,4 +16,16 @@ public partial class MainpageViewModel : BaseViewModel
         var route = $"{nameof(FestivalsPage)}";
         await Shell.Current.GoToAsync(route);
     }
+    [ICommand]
+    async Task ManagePerformers()
+    {
+        var route = $"{nameof(PerformersPage)}";
+        await Shell.Current.GoToAsync(route);
+    }
+    [ICommand]
+    async Task ManageLocations()
+    {
+        var route = $"{nameof(LocationsPage)}";
+        await Shell.Current.GoToAsync(route);
+    }
 }

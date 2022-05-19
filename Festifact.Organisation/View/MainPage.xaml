@@ -20,14 +20,16 @@
                 Command="{Binding ManageFestivalsCommand}"
                 Style="{StaticResource ButtonOutline}"
                 Margin="8"/>
-        <Button Text="Manage executors (Artists and movies)"
+        <Button Text="Manage performers (Artists and movies)"
                 Grid.Row="1"
                 HeightRequest="100"
+                Command="{Binding ManagePerformersCommand}"
                 Style="{StaticResource ButtonOutline}"
                 Margin="8"/>
         <Button Text="Manage locations"
                 HeightRequest="100"
                 Grid.Row="2"
+                Command="{Binding ManageLocationsCommand}"
                 Style="{StaticResource ButtonOutline}"
                 Margin="8"/>
     </Grid>

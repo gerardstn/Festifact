@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Festifact.Organisation.FestivalsPage"
+             x:Class="Festifact.Organisation.LocationsPage"
              xmlns:viewmodel="clr-namespace:Festifact.Organisation.ViewModel"
-             x:DataType="viewmodel:FestivalsViewModel"
+             x:DataType="viewmodel:LocationsViewModel"
              Title="{Binding Title}">
     <StackLayout>
-        <Label Text="Festifact manage festivals"
+        <Label Text="Festifact manage locations"
                 VerticalOptions="Center" 
                 HorizontalOptions="Center" />
     </StackLayout>
