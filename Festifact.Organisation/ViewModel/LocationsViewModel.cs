@@ -7,7 +7,7 @@ public partial class LocationsViewModel : BaseViewModel
 
     public LocationsViewModel()
     {
-        Title = "Festival Finder";
+        Title = "Manage Locations";
     }
 
 }

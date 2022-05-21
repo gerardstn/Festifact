@@ -13,7 +13,7 @@ public partial class FestivalsPage : ContentPage
         if (festival == null)
             return;
 
-        await Shell.Current.GoToAsync(nameof(FestivalDetailPage), true, new Dictionary<string, object>
+        await Shell.Current.GoToAsync(nameof(FestivalEditPage), true, new Dictionary<string, object>
     {
         {"Festival", festival }
     });

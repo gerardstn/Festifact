@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Festifact.Organisation.FestivalEditPage"
+             xmlns:model="clr-namespace:Festifact.Organisation.Model"
+             xmlns:viewmodel="clr-namespace:Festifact.Organisation.ViewModel"
+             x:DataType="viewmodel:FestivalEditViewModel"
+             Title="{Binding Festival.Name}">
+    <ScrollView>
+        <VerticalStackLayout>
+            <Grid ColumnDefinitions="*,Auto,*" RowDefinitions="160, Auto">
+
+                <BoxView
+    Grid.ColumnSpan="3"
+    Background="{StaticResource Primary}"
+    HeightRequest="160"
+    HorizontalOptions="FillAndExpand" />
+                <Frame
+    Grid.RowSpan="2"
+    Grid.Column="1"
+    Margin="0,80,0,0"
+    HeightRequest="160"
+    WidthRequest="160"
+    HorizontalOptions="Center" 
+    Padding="0"
+    IsClippedToBounds="True"
+    CornerRadius="80">
+                    <Image
+        Aspect="AspectFill"
+        HeightRequest="160"
+        HorizontalOptions="Center"
+        VerticalOptions="Center"
+        Source="{Binding Festival.Banner}"
+        WidthRequest="160"/>
+                </Frame>
+
+            </Grid>
+            <VerticalStackLayout Padding="10" Spacing="10">
+                <Entry Style="{StaticResource MediumLabel}" Text="{Binding Festival.Name}" />
+                <Entry Style="{StaticResource MediumLabel}" Text="{Binding Festival.Banner}" />
+                <Entry Style="{StaticResource MediumLabel}" Text="{Binding Festival.TicketsLimit}" />
+                <Entry Style="{StaticResource MediumLabel}" Text="{Binding Festival.TicketsAvailable}" />
+                <Entry Style="{StaticResource MediumLabel}" Text="{Binding Festival.Description}" />
+                <Entry Style="{StaticResource MediumLabel}" Text="{Binding Festival.Type}" />
+                <Entry Style="{StaticResource MediumLabel}" Text="{Binding Festival.AgeCatagory}" />
+                <Entry Style="{StaticResource MediumLabel}" Text="{Binding Festival.Location}" />
+                <Entry Style="{StaticResource MediumLabel}" Text="{Binding Festival.StartDate}" />
+                <Entry Style="{StaticResource MediumLabel}" Text="{Binding Festival.EndDate}" />
+
+            </VerticalStackLayout>
+            <CollectionView 
+
+                ItemsSource="{Binding Shows}"
+                SelectionChanged="CollectionView_SelectionChanged"
+                SelectionMode="Single">
+                <CollectionView.EmptyView>
+                    <StackLayout Padding="100">
+                        <Image
+                        HorizontalOptions="CenterAndExpand"
+                            MaximumHeightRequest="200"
+                        Source="nodata.png"
+                        VerticalOptions="CenterAndExpand" />
+                    </StackLayout>
+                </CollectionView.EmptyView>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:Show">
+                        <Image
+                        HorizontalOptions="CenterAndExpand"
+                            MaximumHeightRequest="200"
+                        Source="nodata.png"
+                        VerticalOptions="CenterAndExpand" />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Button Text="Add show" 
+                Grid.Row="3"
+                Style="{StaticResource ButtonOutline}"
+                Margin="8"/>
+
+            <Button Text="Save changes" 
+                Grid.Row="3"
+                Style="{StaticResource ButtonOutline}"
+                Margin="8"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

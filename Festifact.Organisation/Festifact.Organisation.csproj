@@ -54,8 +54,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="View\FestivalDetailPage.xaml.cs">
-	    <DependentUpon>FestivalDetailPage.xaml</DependentUpon>
+	  <Compile Update="View\ShowEditPage.xaml.cs">
+	    <DependentUpon>ShowEditPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="View\FestivalEditPage.xaml.cs">
+	    <DependentUpon>FestivalEditPage.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="View\LocationsPage.xaml.cs">
 	    <DependentUpon>LocationsPage.xaml</DependentUpon>
@@ -69,7 +72,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="View\FestivalDetailPage.xaml">
+	  <MauiXaml Update="View\ShowEditPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\FestivalEditPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\LocationsPage.xaml">

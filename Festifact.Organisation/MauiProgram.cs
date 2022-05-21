@@ -23,8 +23,11 @@ public static class MauiProgram
         builder.Services.AddTransient<FestivalsViewModel>();
         builder.Services.AddTransient<FestivalsPage>();
 
-        builder.Services.AddTransient<FestivalDetailViewModel>();
-        builder.Services.AddTransient<FestivalDetailPage>();
+        builder.Services.AddTransient<FestivalEditViewModel>();
+        builder.Services.AddTransient<FestivalEditPage>();
+
+        builder.Services.AddTransient<ShowEditViewModel>();
+        builder.Services.AddTransient<ShowEditPage>();
 
         builder.Services.AddTransient<PerformersViewModel>();
         builder.Services.AddTransient<PerformersPage>();

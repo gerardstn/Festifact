@@ -8,11 +8,11 @@ namespace Festifact.API.Controllers
     [Route("api/[controller]")]
     public class FestivalController : ControllerBase
     {
-        private readonly IFestivalRepository _festifactRepository;
+        private readonly IFestivalRepository _festivalRepository;
 
-        public FestivalController(IFestivalRepository festifactRepository)
+        public FestivalController(IFestivalRepository festivalRepository)
         {
-            _festifactRepository = festifactRepository;
+            _festivalRepository = festivalRepository;
         }
         public enum ErrorCode
         {
@@ -29,20 +29,20 @@ namespace Festifact.API.Controllers
         [HttpGet]
         public IActionResult List()
         {
-            return Ok(_festifactRepository.All);
+            return Ok(_festivalRepository.All);
         }
 
         [HttpGet("organisation/"+ "{id}")]
         public IActionResult OrganisationFestivals(int id)
         {
-            return Ok(_festifactRepository.GetOrganisationFestivals(id));
+            return Ok(_festivalRepository.GetOrganisationFestivals(id));
         }
 
 
         [HttpGet("search")]
         public IActionResult Search(string Type, string Genre, string Age, string Location, DateTime Date)
         {
-            return Ok(_festifactRepository.SearchFunction(Type, Genre, Age, Location, Date));
+            return Ok(_festivalRepository.SearchFunction(Type, Genre, Age, Location, Date));
         }
         [HttpPost]
         public IActionResult Create([FromBody] Festival festival)
@@ -53,12 +53,12 @@ namespace Festifact.API.Controllers
                 {
                     return BadRequest(ErrorCode.FestivalNameRequired.ToString());
                 }
-                bool itemExists = _festifactRepository.DoesFestivalExist(festival.FestivalId);
+                bool itemExists = _festivalRepository.DoesFestivalExist(festival.FestivalId);
                 if (itemExists)
                 {
                     return StatusCode(StatusCodes.Status409Conflict, ErrorCode.FestivalIdInUse.ToString());
                 }
-                _festifactRepository.Insert(festival);
+                _festivalRepository.Insert(festival);
             }
             catch (Exception)
             {
@@ -76,12 +76,12 @@ namespace Festifact.API.Controllers
                 {
                     return BadRequest(ErrorCode.FestivalNameRequired.ToString());
                 }
-                var existingItem = _festifactRepository.Find(festival.FestivalId);
+                var existingItem = _festivalRepository.Find(festival.FestivalId);
                 if (existingItem == null)
                 {
                     return NotFound(ErrorCode.RecordNotFound.ToString());
                 }
-                _festifactRepository.Update(festival);
+                _festivalRepository.Update(festival);
             }
             catch (Exception)
             {
@@ -95,12 +95,12 @@ namespace Festifact.API.Controllers
         {
             try
             {
-                var item = _festifactRepository.Find(id);
+                var item = _festivalRepository.Find(id);
                 if (item == null)
                 {
                     return NotFound(ErrorCode.RecordNotFound.ToString());
                 }
-                _festifactRepository.Delete(id);
+                _festivalRepository.Delete(id);
             }
             catch (Exception)
             {

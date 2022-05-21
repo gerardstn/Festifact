@@ -10,6 +10,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<IFestivalRepository, FestivalRepository>();
+builder.Services.AddSingleton<IShowRepository, ShowRepository>();
+
 
 var app = builder.Build();
 

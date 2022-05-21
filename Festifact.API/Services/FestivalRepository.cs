@@ -107,10 +107,10 @@ namespace Festifact.API.Services
             _festivalList.Add(festival2);
             _festivalList.Add(festival3);
         }
-        IEnumerable<Festival> IFestivalRepository.GetOrganisationFestivals(int OrganisationId)
+        IEnumerable<Festival> IFestivalRepository.GetOrganisationFestivals(int organisationId)
         {
             IEnumerable<Festival> FiltredList = _festivalList;
-            FiltredList = FiltredList.Where(festival => festival.OrganisatorId.Equals(OrganisationId));
+            FiltredList = FiltredList.Where(festival => festival.OrganisatorId.Equals(organisationId));
             return FiltredList;
         }
 

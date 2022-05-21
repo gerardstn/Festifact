@@ -6,7 +6,7 @@ public partial class PerformersViewModel : BaseViewModel
 {
     public PerformersViewModel()
     {
-        Title = "Festival Finder";
+        Title = "Manage Performers";
     }
 
 }

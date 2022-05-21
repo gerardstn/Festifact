@@ -15,6 +15,7 @@ namespace Festifact.API.Interfaces
         
         IEnumerable<Festival> SearchFunction( string type, string genre, string age, string location, DateTime date);
 
-        IEnumerable<Festival> GetOrganisationFestivals(int OrganisationId);
+        IEnumerable<Festival> GetOrganisationFestivals(int organisationId);
+
     }
 }
