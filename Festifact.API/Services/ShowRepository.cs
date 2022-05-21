@@ -86,7 +86,7 @@ namespace Festifact.API.Services
             {
                 ShowId = 3,
                 Name = "Arctic Monkeys",
-                Description = "‘Animism’ is the belief that all objects, natural phenomena, and plants have a soul. In the hands of Linh Luu and Marvin Lalihatu, modular synths and drum computers do come alive. Animistic Beliefs infuses their ingenious music with their personal and political stories, and cultural elements taken from their own Southeast Asian heritage. From killer electronics with a punk attitude to slick electro in Drexciyan fashion; the Rotterdam-based duo can pull anything from analog machinery, and they do that damn well.",
+                Description = "Arctic Monkeys are an English rock band formed in Sheffield in 2002. The group consists of Alex Turner, Jamie Cook, Nick O'Malley, and Matt Helders. Former band member Andy Nicholson left the band in 2006 shortly after their debut album was released.",
                 Image = "https://shapeplatform.eu/wp-content/uploads/2020/01/img-5122-1200x800-q70.jpeg",
                 FestivalId = 3,
                 ArtistId = 3,

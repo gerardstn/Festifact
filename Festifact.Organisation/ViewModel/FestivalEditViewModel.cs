@@ -2,6 +2,7 @@
 
 namespace Festifact.Organisation.ViewModel;
 
+[QueryProperty(nameof(Show), "Show")]
 [QueryProperty(nameof(Festival), "Festival")]
 public partial class FestivalEditViewModel : BaseViewModel
 {
@@ -9,16 +10,51 @@ public partial class FestivalEditViewModel : BaseViewModel
     public ObservableCollection<Show> Shows { get; } = new();
 
     FestivalService festivalService;
-    public FestivalEditViewModel(FestivalService festivalService)
+    ShowService showService;
+
+    public FestivalEditViewModel(FestivalService festivalService, ShowService showService)
     {
         this.festivalService = festivalService;
+        this.showService = showService;
     }
+
+    [ObservableProperty]
+    Festival festival;
 
     [ObservableProperty]
     Show show;
 
     [ObservableProperty]
-    Festival festival;
+    bool isRefreshing;
 
+    [ICommand]
+    async Task GetFestivalShowsAsync(int festivalId)
+    {
+        festivalId = 1;
+        if (IsBusy)
+            return;
+
+        try
+        {
+            IsBusy = true;
+            var shows = await showService.GetShows(festivalId);
+
+            Shows.Clear();
+            foreach (var show in shows)
+                Shows.Add(show);
+
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"Unable to get Shows: {ex.Message}");
+            await Application.Current.MainPage.DisplayAlert("Error!", ex.Message, "OK");
+        }
+        finally
+        {
+            IsBusy = false;
+            isRefreshing = false;
+        }
+
+    }
 
 }

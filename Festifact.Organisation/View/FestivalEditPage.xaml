@@ -64,11 +64,30 @@
                 </CollectionView.EmptyView>
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:Show">
-                        <Image
-                        HorizontalOptions="CenterAndExpand"
-                            MaximumHeightRequest="200"
-                        Source="nodata.png"
-                        VerticalOptions="CenterAndExpand" />
+                        <Grid Padding="10,5">
+                            <Frame HeightRequest="100" Style="{StaticResource CardView}">
+                                <Grid Padding="0" ColumnDefinitions="80,200,20">
+                                    <Image Aspect="AspectFill" Source="{Binding Image}"
+                                       WidthRequest="70"
+                                       HeightRequest="70"/>
+                                    <HorizontalStackLayout
+                                    Grid.Column="1"
+                                    Padding="10"
+                                    VerticalOptions="Center">
+                                        <Label Style="{StaticResource LargeLabel}" Text="{Binding Name}" />
+                                        <HorizontalStackLayout
+                                    Grid.Column="2"
+                                    Padding="10"
+                                    VerticalOptions="Center">
+                                            <Label Style="{StaticResource MediumLabel}" Text="{Binding Description}" />
+                                            <Label Style="{StaticResource MediumLabel}" Text="{Binding StartDate}"/>
+                                            <Label Style="{StaticResource MediumLabel}" Text="{Binding EndDate}" />
+                                            <Label Style="{StaticResource MediumLabel}" Text="{Binding FestivalDay}"/>
+                                        </HorizontalStackLayout>
+                                    </HorizontalStackLayout>
+                                </Grid>
+                            </Frame>
+                        </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>

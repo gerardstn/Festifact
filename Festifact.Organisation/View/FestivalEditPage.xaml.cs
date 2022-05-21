@@ -14,12 +14,21 @@ public partial class FestivalEditPage : ContentPage
         if (show == null)
             return;
 
-        await Shell.Current.GoToAsync(nameof(ShowEditPage), true, new Dictionary<string, object>
+        await Shell.Current.GoToAsync(nameof(FestivalEditPage), true, new Dictionary<string, object>
     {
         {"Show", show }
     });
 
         ((CollectionView)sender).SelectedItem = null;
     }
+
+/*    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+        var vm = (FestivalEditViewModel)BindingContext;
+        if (vm.Festivals.Count == 0)
+            await vm.GetFestivalShowsCommand.ExecuteAsync(null);
+    }
+*/
 
 }

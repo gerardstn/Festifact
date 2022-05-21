@@ -19,7 +19,7 @@ public class ShowService
         if (showList?.Count > 0)
             return showList;
 
-        var response = await httpClient.GetAsync("https://festifactapi20220423103103.azurewebsites.net/api/festival/" + FestivalId.ToString() + "/show");
+        var response = await httpClient.GetAsync("https://festifactapi20220423103103.azurewebsites.net/api/show/festival/" + FestivalId.ToString() + "");
 
         if (response.IsSuccessStatusCode)
         {
@@ -28,6 +28,5 @@ public class ShowService
 
         return showList;
     }
-
 
 }
