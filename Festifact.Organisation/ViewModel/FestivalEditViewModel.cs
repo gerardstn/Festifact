@@ -6,15 +6,12 @@ namespace Festifact.Organisation.ViewModel;
 [QueryProperty(nameof(Festival), "Festival")]
 public partial class FestivalEditViewModel : BaseViewModel
 {
-    public ObservableCollection<Festival> Festivals { get; } = new();
     public ObservableCollection<Show> Shows { get; } = new();
 
-    FestivalService festivalService;
     ShowService showService;
 
-    public FestivalEditViewModel(FestivalService festivalService, ShowService showService)
+    public FestivalEditViewModel(ShowService showService)
     {
-        this.festivalService = festivalService;
         this.showService = showService;
     }
 

@@ -64,7 +64,7 @@ namespace Festifact.API.Services
                 RoomReservationId = 1,
                 FestivalDay = 1,
                 StartDate = new DateTime(2022, 8, 3, 13, 00, 00),
-                EndDate = new DateTime(2022, 8, 3, 23, 00, 00),
+                EndDate = new DateTime(2022, 8, 3, 23, 00, 00)
             };
 
             var show2 = new Show
@@ -79,7 +79,7 @@ namespace Festifact.API.Services
                 RoomReservationId = null,
                 FestivalDay = 1,
                 StartDate = new DateTime(2022, 8, 6, 12, 00, 00),
-                EndDate = new DateTime(2022, 8, 6, 23, 00, 00),
+                EndDate = new DateTime(2022, 8, 6, 23, 00, 00)
             };
 
             var show3 = new Show
@@ -94,7 +94,7 @@ namespace Festifact.API.Services
                 RoomReservationId = 1,
                 FestivalDay = 6,
                 StartDate = new DateTime(2022, 8, 15, 21, 00, 00),
-                EndDate = new DateTime(2022, 8, 15, 23, 00, 00),
+                EndDate = new DateTime(2022, 8, 15, 23, 00, 00)
             };
 
             _showList.Add(show1);
