@@ -54,6 +54,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="View\FestivalAddPage.xaml.cs">
+	    <DependentUpon>FestivalAddPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="View\ShowEditPage.xaml.cs">
 	    <DependentUpon>ShowEditPage.xaml</DependentUpon>
 	  </Compile>
@@ -72,6 +75,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="View\FestivalAddPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="View\ShowEditPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

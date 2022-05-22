@@ -16,18 +16,22 @@ public static class MauiProgram
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             });
 
+        builder.Services.AddSingleton<FestivalService>();
+        builder.Services.AddSingleton<ShowService>();
+
         builder.Services.AddSingleton<MainPage>();
         builder.Services.AddSingleton<MainpageViewModel>();
 
         builder.Services.AddTransient<FestivalsViewModel>();
-        builder.Services.AddSingleton<FestivalService>();
         builder.Services.AddTransient<FestivalsPage>();
+
+        builder.Services.AddTransient<FestivalAddViewModel>();
+        builder.Services.AddTransient<FestivalAddPage>();
 
         builder.Services.AddTransient<FestivalEditViewModel>();
         builder.Services.AddTransient<FestivalEditPage>();
 
         builder.Services.AddTransient<ShowEditViewModel>();
-        builder.Services.AddSingleton<ShowService>();
         builder.Services.AddTransient<ShowEditPage>();
 
         builder.Services.AddTransient<PerformersViewModel>();
