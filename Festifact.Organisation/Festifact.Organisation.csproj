@@ -57,6 +57,21 @@
 	  <Compile Update="View\FestivalAddPage.xaml.cs">
 	    <DependentUpon>FestivalAddPage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="View\LocationEditPage.xaml.cs">
+	    <DependentUpon>LocationEditPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="View\LocationAddPage.xaml.cs">
+	    <DependentUpon>LocationAddPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="View\PerformerAddPage.xaml.cs">
+	    <DependentUpon>PerformerAddPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="View\PerformerEditPage.xaml.cs">
+	    <DependentUpon>PerformerEditPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="View\ShowAddPage.xaml.cs">
+	    <DependentUpon>ShowAddPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="View\ShowEditPage.xaml.cs">
 	    <DependentUpon>ShowEditPage.xaml</DependentUpon>
 	  </Compile>
@@ -76,6 +91,21 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="View\FestivalAddPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\LocationEditPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\LocationAddPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\PerformerAddPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\PerformerEditPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\ShowAddPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\ShowEditPage.xaml">

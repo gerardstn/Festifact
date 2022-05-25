@@ -11,6 +11,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<IFestivalRepository, FestivalRepository>();
 builder.Services.AddSingleton<IShowRepository, ShowRepository>();
+builder.Services.AddSingleton<IMovieRepository, MovieRepository>();
+builder.Services.AddSingleton<ILocationRepository, LocationRepository>();
+
 
 
 var app = builder.Build();

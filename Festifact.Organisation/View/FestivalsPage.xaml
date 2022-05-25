@@ -61,6 +61,7 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
         <Button Text="Add Festival" 
+                Command="{Binding AddFestivalPageCommand}"
                 Grid.Row="3"
                 Grid.Column="0"
                 Style="{StaticResource ButtonOutline}"

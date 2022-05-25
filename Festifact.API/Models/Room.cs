@@ -4,6 +4,6 @@
     {
         public int RoomId { get; set; }
         public string Name { get; set; }
-        public string LocationCoordinates { get; set; }
+        public int LocationId { get; set; }
     }
 }

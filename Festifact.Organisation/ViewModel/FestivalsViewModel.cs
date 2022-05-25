@@ -45,4 +45,11 @@ public partial class FestivalsViewModel : BaseViewModel
             IsBusy = false;
         }
     }
+
+    [ICommand]
+    async Task AddFestivalPage()
+    {
+        var route = $"{nameof(FestivalAddPage)}";
+        await Shell.Current.GoToAsync(route);
+    }
 }

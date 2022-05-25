@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Festifact.Organisation.ShowEditPage"
+             x:Class="Festifact.Organisation.LocationEditPage"
              xmlns:viewmodel="clr-namespace:Festifact.Organisation.ViewModel"
-             x:DataType="viewmodel:ShowEditViewModel"
+             x:DataType="viewmodel:LocationEditViewModel"
              Title="{Binding Title}">
     <StackLayout>
-        <Label Text="Festifact Edit show"
+        <Label Text="Festifact Edit location"
                 VerticalOptions="Center" 
                 HorizontalOptions="Center" />
     </StackLayout>

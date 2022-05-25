@@ -31,14 +31,32 @@ public static class MauiProgram
         builder.Services.AddTransient<FestivalEditViewModel>();
         builder.Services.AddTransient<FestivalEditPage>();
 
+
+        builder.Services.AddTransient<ShowAddViewModel>();
+        builder.Services.AddTransient<ShowAddPage>();
+
         builder.Services.AddTransient<ShowEditViewModel>();
         builder.Services.AddTransient<ShowEditPage>();
+
 
         builder.Services.AddTransient<PerformersViewModel>();
         builder.Services.AddTransient<PerformersPage>();
 
+        builder.Services.AddTransient<PerformerAddViewModel>();
+        builder.Services.AddTransient<PerformerAddPage>();
+
+        builder.Services.AddTransient<PerformerEditViewModel>();
+        builder.Services.AddTransient<PerformerEditPage>();
+
+
         builder.Services.AddTransient<LocationsViewModel>();
         builder.Services.AddTransient<LocationsPage>();
+
+        builder.Services.AddTransient<LocationAddViewModel>();
+        builder.Services.AddTransient<LocationAddPage>();
+
+        builder.Services.AddTransient<LocationEditViewModel>();
+        builder.Services.AddTransient<LocationEditPage>();
 
 
         return builder.Build();

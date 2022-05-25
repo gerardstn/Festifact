@@ -33,8 +33,7 @@
                 MaximumDate="08/15/2022"
                 Date="{Binding Date}" />
         </StackLayout>
-
-            <CollectionView 
+        <CollectionView 
                 Grid.Row="1"
                 Grid.ColumnSpan="2"
                 ItemsSource="{Binding Festivals}"
