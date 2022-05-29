@@ -2,11 +2,12 @@
 
 namespace Festifact.Organisation.ViewModel;
 
+[QueryProperty(nameof(Movie), "Movie")]
 public partial class MovieEditViewModel : BaseViewModel
 {
-    public MovieEditViewModel()
-    {
-        Title = "Edit Movie";
-    }
 
+    [ObservableProperty]
+    Movie movie;
+
+    /*Save movie moet nog worden toegevoegd */
 }

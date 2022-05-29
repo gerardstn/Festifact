@@ -10,7 +10,7 @@ namespace Festifact.API.Models
         public string Name { get; set; }
         public string? Description { get; set; }
         public string Director { get; set; }
-        public DateOnly ReleaseYear { get; set; }
+        public DateTime ReleaseYear { get; set; }
         public string CountryOrigin { get; set; }
     }
 }

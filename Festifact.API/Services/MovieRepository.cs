@@ -59,7 +59,7 @@ namespace Festifact.API.Services
                 Actors = "Jessie Buckley, Rory Kinnear, Paapa Essiedu",
                 Description = "A young woman goes on a solo vacation to the English countryside following the death of her ex-husband.",
                 Director = "Alex Garland",
-                ReleaseYear = new DateOnly(2022, 05, 20),
+                ReleaseYear = new DateTime(2022, 05, 20),
                 CountryOrigin = "United Kingdom"
             };
 
@@ -70,7 +70,7 @@ namespace Festifact.API.Services
                 Actors = " Baran Rasoulof, Masoud Tosifyan, Zhila Shahi",
                 Description = "The four stories that are variations on the crucial themes of moral strength and the death penalty that ask to what extent individual freedom can be expressed under a despotic regime and its seemingly inescapable threats.",
                 Director = "Mohammad Rasoulof",
-                ReleaseYear = new DateOnly(2020, 06, 14),
+                ReleaseYear = new DateTime(2020, 06, 14),
                 CountryOrigin = "Germany, Iran, Czech Republic"
 
             };

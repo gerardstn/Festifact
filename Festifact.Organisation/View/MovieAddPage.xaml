@@ -5,9 +5,28 @@
              xmlns:viewmodel="clr-namespace:Festifact.Organisation.ViewModel"
              x:DataType="viewmodel:MovieAddViewModel"
              Title="{Binding Title}">
-    <StackLayout>
-        <Label Text="Festifact add Movie"
-                VerticalOptions="Center" 
-                HorizontalOptions="Center" />
-    </StackLayout>
+    <ScrollView>
+    <VerticalStackLayout>
+        <VerticalStackLayout Padding="10" Spacing="10">
+            <Label Text="Name:"/>
+            <Entry Style="{StaticResource MediumLabel}" />
+            <Label Text="Actors:"/>
+            <Entry Style="{StaticResource MediumLabel}" />
+            <Label Text="Director:"/>
+            <Entry Style="{StaticResource MediumLabel}" />
+            <Label Text="Release year:"/>
+            <Entry Style="{StaticResource MediumLabel}" />
+            <Label Text="Country of origin:"/>
+            <Entry Style="{StaticResource MediumLabel}" />
+            <Label Text="Description:"/>
+            <Entry Style="{StaticResource MediumLabel}" />
+            <Label Text="Type:"/>
+            <Entry Style="{StaticResource MediumLabel}" />
+        </VerticalStackLayout>
+        <Button Text="Save Movie" 
+                Grid.Row="2"
+                Style="{StaticResource ButtonOutline}"
+                Margin="8"/>
+    </VerticalStackLayout>
+</ScrollView>
 </ContentPage>

@@ -2,12 +2,9 @@
 
 namespace Festifact.Organisation.ViewModel;
 
-
+[QueryProperty(nameof(Show), "Show")]
 public partial class ShowEditViewModel : BaseViewModel
-{ 
-
-    public ShowEditViewModel()
-    {
-        Title = "Manage Show";
-    }
+{
+    [ObservableProperty]
+    Show show;
 }

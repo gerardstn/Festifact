@@ -2,12 +2,13 @@
 
 namespace Festifact.Organisation.ViewModel;
 
+[QueryProperty(nameof(Location), "Location")]
 public partial class LocationEditViewModel : BaseViewModel
 {
 
-    public LocationEditViewModel()
-    {
-        Title = "Edit Location";
-    }
+    [ObservableProperty]
+    Model.Location location;
+
+    /*Save location moet nog worden toegevoegd */
 
 }

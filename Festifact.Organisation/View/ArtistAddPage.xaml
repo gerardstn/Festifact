@@ -5,9 +5,26 @@
              xmlns:viewmodel="clr-namespace:Festifact.Organisation.ViewModel"
              x:DataType="viewmodel:ArtistAddViewModel"
              Title="{Binding Title}">
-    <StackLayout>
-        <Label Text="Add Performer"
-                VerticalOptions="Center" 
-                HorizontalOptions="Center" />
-    </StackLayout>
+    <ScrollView>
+    <VerticalStackLayout>
+        <VerticalStackLayout Padding="10" Spacing="10">
+            <Label Text="Name:"/>
+            <Entry Style="{StaticResource MediumLabel}" />
+            <Label Text="Genre:"/>
+            <Entry Style="{StaticResource MediumLabel}" />
+            <Label Text="Description:"/>
+            <Entry Style="{StaticResource MediumLabel}" />
+            <Label Text="Image:"/>
+            <Entry Style="{StaticResource MediumLabel}" />
+            <Label Text="Country of origin:"/>
+            <Entry Style="{StaticResource MediumLabel}" />
+            <Label Text="Type:"/>
+            <Entry Style="{StaticResource MediumLabel}" />
+        </VerticalStackLayout>
+        <Button Text="Save Artist" 
+                Grid.Row="2"
+                Style="{StaticResource ButtonOutline}"
+                Margin="8"/>
+    </VerticalStackLayout>
+</ScrollView>
 </ContentPage>

@@ -2,11 +2,13 @@
 
 namespace Festifact.Organisation.ViewModel;
 
+[QueryProperty(nameof(Artist), "Artist")]
 public partial class ArtistEditViewModel : BaseViewModel
 {
-    public ArtistEditViewModel()
-    {
-        Title = "Edit Artist";
-    }
+
+    [ObservableProperty]
+    Artist artist;
+
+    /*Save artist moet nog worden toegevoegd */
 
 }

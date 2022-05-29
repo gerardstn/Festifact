@@ -18,6 +18,11 @@ public static class MauiProgram
 
         builder.Services.AddSingleton<FestivalService>();
         builder.Services.AddSingleton<ShowService>();
+        builder.Services.AddSingleton<ArtistService>();
+        builder.Services.AddSingleton<MovieService>();
+        builder.Services.AddSingleton<LocationService>();
+
+
 
 
         builder.Services.AddSingleton<MainPage>();
