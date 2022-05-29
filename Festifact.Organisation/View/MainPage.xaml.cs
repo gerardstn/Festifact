@@ -13,9 +13,13 @@ public partial class MainPage : ContentPage
     {
         await Shell.Current.GoToAsync(nameof(FestivalsPage));
     }
-    async Task ManagePerformers()
+    async Task ManageArtists()
     {
-        await Shell.Current.GoToAsync(nameof(PerformersPage));
+        await Shell.Current.GoToAsync(nameof(ArtistsPage));
+    }
+    async Task ManageMovies()
+    {
+        await Shell.Current.GoToAsync(nameof(MoviesPage));
     }
     async Task ManageLocations()
     {

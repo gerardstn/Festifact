@@ -1,8 +1,8 @@
 namespace Festifact.Organisation;
 
-public partial class PerformersPage : ContentPage
+public partial class ArtistEditPage : ContentPage
 {
-	public PerformersPage(PerformersViewModel viewModel)
+	public ArtistEditPage(ArtistEditViewModel viewModel)
 	{
 		InitializeComponent();
         BindingContext = viewModel;

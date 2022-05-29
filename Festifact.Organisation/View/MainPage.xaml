@@ -11,7 +11,9 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*" />
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+
         </Grid.RowDefinitions>
 
         <Button Text="Manage festivals"
@@ -20,15 +22,21 @@
                 Command="{Binding ManageFestivalsCommand}"
                 Style="{StaticResource ButtonOutline}"
                 Margin="8"/>
-        <Button Text="Manage performers (Artists and movies)"
+        <Button Text="Manage Artists"
                 Grid.Row="1"
                 HeightRequest="100"
-                Command="{Binding ManagePerformersCommand}"
+                Command="{Binding ManageArtistsCommand}"
+                Style="{StaticResource ButtonOutline}"
+                Margin="8"/>
+        <Button Text="Manage movies"
+                Grid.Row="2"
+                HeightRequest="100"
+                Command="{Binding ManageMoviesCommand}"
                 Style="{StaticResource ButtonOutline}"
                 Margin="8"/>
         <Button Text="Manage locations"
                 HeightRequest="100"
-                Grid.Row="2"
+                Grid.Row="3"
                 Command="{Binding ManageLocationsCommand}"
                 Style="{StaticResource ButtonOutline}"
                 Margin="8"/>

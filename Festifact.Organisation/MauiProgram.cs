@@ -19,6 +19,7 @@ public static class MauiProgram
         builder.Services.AddSingleton<FestivalService>();
         builder.Services.AddSingleton<ShowService>();
 
+
         builder.Services.AddSingleton<MainPage>();
         builder.Services.AddSingleton<MainpageViewModel>();
 
@@ -39,14 +40,24 @@ public static class MauiProgram
         builder.Services.AddTransient<ShowEditPage>();
 
 
-        builder.Services.AddTransient<PerformersViewModel>();
-        builder.Services.AddTransient<PerformersPage>();
+        builder.Services.AddTransient<ArtistsViewModel>();
+        builder.Services.AddTransient<ArtistsPage>();
 
-        builder.Services.AddTransient<PerformerAddViewModel>();
-        builder.Services.AddTransient<PerformerAddPage>();
+        builder.Services.AddTransient<ArtistAddViewModel>();
+        builder.Services.AddTransient<ArtistAddPage>();
 
-        builder.Services.AddTransient<PerformerEditViewModel>();
-        builder.Services.AddTransient<PerformerEditPage>();
+        builder.Services.AddTransient<ArtistEditViewModel>();
+        builder.Services.AddTransient<ArtistEditPage>();
+
+
+        builder.Services.AddTransient<MoviesViewModel>();
+        builder.Services.AddTransient<MoviesPage>();
+
+        builder.Services.AddTransient<MovieAddViewModel>();
+        builder.Services.AddTransient<MovieAddPage>();
+
+        builder.Services.AddTransient<MovieEditViewModel>();
+        builder.Services.AddTransient<MovieEditPage>();
 
 
         builder.Services.AddTransient<LocationsViewModel>();

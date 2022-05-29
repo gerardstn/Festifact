@@ -54,6 +54,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="View\MovieAddPage.xaml.cs">
+	    <DependentUpon>MovieAddPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="View\MovieEditPage.xaml.cs">
+	    <DependentUpon>MovieEditPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="View\MoviesPage.xaml.cs">
+	    <DependentUpon>MoviesPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="View\FestivalAddPage.xaml.cs">
 	    <DependentUpon>FestivalAddPage.xaml</DependentUpon>
 	  </Compile>
@@ -63,11 +72,11 @@
 	  <Compile Update="View\LocationAddPage.xaml.cs">
 	    <DependentUpon>LocationAddPage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="View\PerformerAddPage.xaml.cs">
-	    <DependentUpon>PerformerAddPage.xaml</DependentUpon>
+	  <Compile Update="View\ArtistAddPage.xaml.cs">
+	    <DependentUpon>ArtistAddPage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="View\PerformerEditPage.xaml.cs">
-	    <DependentUpon>PerformerEditPage.xaml</DependentUpon>
+	  <Compile Update="View\ArtistEditPage.xaml.cs">
+	    <DependentUpon>ArtistEditPage.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="View\ShowAddPage.xaml.cs">
 	    <DependentUpon>ShowAddPage.xaml</DependentUpon>
@@ -81,8 +90,8 @@
 	  <Compile Update="View\LocationsPage.xaml.cs">
 	    <DependentUpon>LocationsPage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="View\PerformersPage.xaml.cs">
-	    <DependentUpon>PerformersPage.xaml</DependentUpon>
+	  <Compile Update="View\ArtistsPage.xaml.cs">
+	    <DependentUpon>ArtistsPage.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="View\FestivalsPage.xaml.cs">
 	    <DependentUpon>FestivalsPage.xaml</DependentUpon>
@@ -90,6 +99,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="View\MovieAddPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\MovieEditPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\MoviesPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="View\FestivalAddPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -99,10 +117,10 @@
 	  <MauiXaml Update="View\LocationAddPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="View\PerformerAddPage.xaml">
+	  <MauiXaml Update="View\ArtistAddPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="View\PerformerEditPage.xaml">
+	  <MauiXaml Update="View\ArtistEditPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\ShowAddPage.xaml">
@@ -117,7 +135,7 @@
 	  <MauiXaml Update="View\LocationsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="View\PerformersPage.xaml">
+	  <MauiXaml Update="View\ArtistsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\FestivalsPage.xaml">

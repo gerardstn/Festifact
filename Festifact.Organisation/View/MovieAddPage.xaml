@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Festifact.Organisation.PerformersPage"
+             x:Class="Festifact.Organisation.MovieAddPage"
              xmlns:viewmodel="clr-namespace:Festifact.Organisation.ViewModel"
-             x:DataType="viewmodel:PerformersViewModel"
+             x:DataType="viewmodel:MovieAddViewModel"
              Title="{Binding Title}">
     <StackLayout>
-        <Label Text="Festifact manage Performers"
+        <Label Text="Festifact add Movie"
                 VerticalOptions="Center" 
                 HorizontalOptions="Center" />
     </StackLayout>
