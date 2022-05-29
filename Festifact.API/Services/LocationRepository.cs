@@ -8,7 +8,7 @@ namespace Festifact.API.Services
 {
     public class LocationRepository : ILocationRepository
     {
-        private List<Location> _LocationList;
+        private List<Location> _locationList;
 
         public LocationRepository()
         {
@@ -17,95 +17,66 @@ namespace Festifact.API.Services
 
         public IEnumerable<Location> All
         {
-            get { return _LocationList; }
+            get { return _locationList; }
         }
 
         public bool DoesLocationExist(int id)
         {
-            return _LocationList.Any(location => location.LocationId == id);
+            return _locationList.Any(location => location.LocationId == id);
         }
 
         public Location Find(int id)
         {
-            return _LocationList.FirstOrDefault(location => location.LocationId == id);
+            return _locationList.FirstOrDefault(location => location.LocationId == id);
         }
 
         public void Insert(Location item)
         {
-            _LocationList.Add(item);
+            _locationList.Add(item);
         }
 
         public void Update(Location location)
         {
             var selectedLocation = this.Find(location.LocationId);
-            var index = _LocationList.IndexOf(selectedLocation);
-            _LocationList.RemoveAt(index);
-            _LocationList.Insert(index, location);
+            var index = _locationList.IndexOf(selectedLocation);
+            _locationList.RemoveAt(index);
+            _locationList.Insert(index, location);
         }
 
         public void Delete(int LocationId)
         {
-            _LocationList.Remove(this.Find(LocationId));
+            _locationList.Remove(this.Find(LocationId));
         }
 
         private void InitializeData()
         {
-            _LocationList = new List<Location>();
+            _locationList = new List<Location>();
 
             var location1 = new Location
             {
                 LocationId = 1,
-                Name = "Dekmantel Location",
-                Description = "Dekmantel is an electronic music location in Amsterdam. A cutting edge affair, this location annually curates the most creative and influential acts in house, techno and more. ",
-                Banner = "https://i.imgur.com/anluDmy.jpg",
-                TicketsAvailable = 471,
-                TicketsLimit = 1555,
-                Type = "Music",
-                Genre = "Techno",
-                Location = "Amstelveen",
-                AgeCatagory = "18+",
-                StartDate = new DateTime(2022, 8, 3, 13, 00, 00),
-                EndDate = new DateTime(2022, 8, 7, 23, 00, 00),
-                OrganisatorId = 1
+                Name = "Amstelveen - Land van Bosse",
+                LocationCoordinates= "52.30500719609079, 4.819965285765246"
             };
 
             var location2 = new Location
             {
                 LocationId = 2,
-                Name = "Blijdorp Location",
-                Description = "Blijdorp combines ‘Music, Art & Happiness’ at its events, with the summer edition as an annual highlight. Join us for our 7th summer edition, where the Roel Langerakpark will host a green land of discovery, with stages set amongst its forests and alongside its lake.",
-                Banner = "https://i.imgur.com/dnkzAtE.jpg",
-                TicketsAvailable = 1132,
-                TicketsLimit = 3000,
-                Type = "Music",
-                Genre = "Techno",
-                Location= "Rotterdam",
-                AgeCatagory = "18+",
-                StartDate = new DateTime(2022, 8, 6, 12, 00, 00),
-                EndDate = new DateTime(2022, 8, 6, 23, 00, 00),
-                OrganisatorId = 1
+                Name = "Rotterdam - Blijdorp",
+                LocationCoordinates = "51.92520784090663, 4.441967977724767"
+
             };
 
             var location3 = new Location
             {
                 LocationId = 3,
-                Name = "Sziget Location",
-                Description = "The Sziget Location is one of the largest music and cultural locations in Europe. It is held every August in northern Budapest, Hungary, on Óbudai-sziget, a leafy 108-hectare island on the Danube. More than 1,000 performances take place each year.",
-                Banner = "https://i.imgur.com/Gpjfr81.jpg",
-                TicketsAvailable = 3521,
-                TicketsLimit = 385000,
-                Type = "Music",
-                Genre = "Rock",
-                Location = "Budapest",
-                AgeCatagory = "ALL, Guidance under 14",
-                StartDate = new DateTime(2022, 8, 10, 16, 00, 00),
-                EndDate = new DateTime(2022, 8, 15, 4, 00, 00),
-                OrganisatorId = 2
+                Name = "Budapest - Óbuda Island",
+                LocationCoordinates = "47.55193516840761, 19.054655720258925"
             };
 
-            _LocationList.Add(location1);
-            _LocationList.Add(location2);
-            _LocationList.Add(location3);
+            _locationList.Add(location1);
+            _locationList.Add(location2);
+            _locationList.Add(location3);
         }
 
     }

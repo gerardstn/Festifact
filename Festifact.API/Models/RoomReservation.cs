@@ -7,7 +7,7 @@ namespace Festifact.API.Models
         public int RoomReservationId { get; set; }
         public string LocationId { get; set; }
         [Required]
-        public string RoomId { get; set; }
+        public int RoomId { get; set; }
         public DateTime StartDateTime { get; set; }
         public DateTime EndDateTime { get; set; }
 

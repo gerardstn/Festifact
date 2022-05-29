@@ -24,8 +24,6 @@ namespace Festifact.API.Controllers
             CouldNotDeleteShow
         }
 
-
-
         [HttpGet]
         public IActionResult List()
         {
