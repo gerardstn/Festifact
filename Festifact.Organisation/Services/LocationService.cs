@@ -1,15 +1,27 @@
-﻿using System.Net.Http.Json;
+﻿using Microsoft.Extensions.Configuration;
+using System.Net.Http.Json;
 
 
 namespace Festifact.Organisation.Services;
 
 public class LocationService
 {
-
-    HttpClient httpClient;
-    public LocationService()
+    private IConfiguration Configuration { get; }
+    static HttpClient client;
+    public LocationService(IConfiguration configuration)
     {
-        this.httpClient = new HttpClient();
+        try
+        {
+            client = new HttpClient
+            {
+                BaseAddress = new Uri(configuration["Api:BaseUrl"])
+            };
+        }
+        catch
+        {
+
+        }
+        Configuration = configuration;
     }
 
 
@@ -19,7 +31,7 @@ public class LocationService
         if (locationList?.Count > 0)
             return locationList;
 
-        var response = await httpClient.GetAsync("https://festifactapi20220423103103.azurewebsites.net/api/Location");
+        var response = await client.GetAsync("/api/Location");
 
         if (response.IsSuccessStatusCode)
         {

@@ -1,15 +1,26 @@
-﻿using System.Net.Http.Json;
-
+﻿using Microsoft.Extensions.Configuration;
+using System.Net.Http.Json;
 
 namespace Festifact.Organisation.Services;
 
 public class FestivalService
 {
-
-    HttpClient httpClient;
-    public FestivalService()
+    private IConfiguration Configuration { get; }
+    static HttpClient client;
+    public FestivalService(IConfiguration configuration)
     {
-        this.httpClient = new HttpClient();
+        try
+        {
+            client = new HttpClient
+            {
+                BaseAddress = new Uri(configuration["Api:BaseUrl"])
+            };
+        }
+        catch
+        {
+
+        }
+        Configuration = configuration;
     }
 
 
@@ -19,7 +30,7 @@ public class FestivalService
         if (festivalList?.Count > 0)
             return festivalList;
 
-        var response = await httpClient.GetAsync("https://festifactapi20220423103103.azurewebsites.net/api/festival/organisation/" + OrganisationId.ToString() + "");
+        var response = await client.GetAsync("/api/festival/organisation/" + OrganisationId.ToString() + "");
 
         if (response.IsSuccessStatusCode)
         {

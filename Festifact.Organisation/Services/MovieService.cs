@@ -1,15 +1,27 @@
-﻿using System.Net.Http.Json;
+﻿using Microsoft.Extensions.Configuration;
+using System.Net.Http.Json;
 
 
 namespace Festifact.Organisation.Services;
 
 public class MovieService
 {
-
-    HttpClient httpClient;
-    public MovieService()
+    private IConfiguration Configuration { get; }
+    static HttpClient client;
+    public MovieService(IConfiguration configuration)
     {
-        this.httpClient = new HttpClient();
+        try
+        {
+            client = new HttpClient
+            {
+                BaseAddress = new Uri(configuration["Api:BaseUrl"])
+            };
+        }
+        catch
+        {
+
+        }
+        Configuration = configuration;
     }
 
 
@@ -19,7 +31,7 @@ public class MovieService
         if (movieList?.Count > 0)
             return movieList;
 
-        var response = await httpClient.GetAsync("https://festifactapi20220423103103.azurewebsites.net/api/Movie");
+        var response = await client.GetAsync("/api/Movie");
 
         if (response.IsSuccessStatusCode)
         {

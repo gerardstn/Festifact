@@ -6,19 +6,20 @@
              x:DataType="viewmodel:ArtistAddViewModel"
              Title="{Binding Title}">
     <ScrollView>
+
     <VerticalStackLayout>
         <VerticalStackLayout Padding="10" Spacing="10">
-            <Label Text="Name:"/>
+                <Label Text="Name:" Style="{StaticResource MediumLabel}"/>
+            <Entry Text="{Binding Artist.Name}" Style="{StaticResource MediumLabel}" />
+                <Label Text="Genre:" Style="{StaticResource MediumLabel}"/>
             <Entry Style="{StaticResource MediumLabel}" />
-            <Label Text="Genre:"/>
+                <Label Text="Description:" Style="{StaticResource MediumLabel}"/>
             <Entry Style="{StaticResource MediumLabel}" />
-            <Label Text="Description:"/>
+                <Label Text="Image:" Style="{StaticResource MediumLabel}"/>
             <Entry Style="{StaticResource MediumLabel}" />
-            <Label Text="Image:"/>
+                <Label Text="Country of origin:" Style="{StaticResource MediumLabel}"/>
             <Entry Style="{StaticResource MediumLabel}" />
-            <Label Text="Country of origin:"/>
-            <Entry Style="{StaticResource MediumLabel}" />
-            <Label Text="Type:"/>
+                <Label Text="Type:" Style="{StaticResource MediumLabel}"/>
             <Entry Style="{StaticResource MediumLabel}" />
         </VerticalStackLayout>
         <Button Text="Save Artist" 

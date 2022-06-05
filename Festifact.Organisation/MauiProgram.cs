@@ -1,5 +1,6 @@
 ﻿using Festifact.Organisation.Services;
 using Festifact.Organisation.View;
+using Microsoft.Extensions.Configuration;
 
 namespace Festifact.Organisation;
 
@@ -22,8 +23,7 @@ public static class MauiProgram
         builder.Services.AddSingleton<MovieService>();
         builder.Services.AddSingleton<LocationService>();
 
-
-
+        builder.Configuration.AddJsonFile("AppSettings.json");
 
         builder.Services.AddSingleton<MainPage>();
         builder.Services.AddSingleton<MainpageViewModel>();

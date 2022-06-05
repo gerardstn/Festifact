@@ -10,7 +10,6 @@
     <ScrollView>
         <VerticalStackLayout>
             <Grid ColumnDefinitions="*,Auto,*" RowDefinitions="160, Auto">
-
             </Grid>
             <VerticalStackLayout Padding="10" Spacing="10">
                 <Entry Style="{StaticResource MediumLabel}" Text="{Binding Movie.Name}" />
@@ -19,7 +18,6 @@
                 <Entry Style="{StaticResource MediumLabel}" Text="{Binding Movie.ReleaseYear}" />
             <Entry Style="{StaticResource MediumLabel}" Text="{Binding Movie.CountryOrigin}" />
                 <Entry Style="{StaticResource MediumLabel}" Text="{Binding Movie.Description}" />
-
             </VerticalStackLayout>
 
             <Button Text="Save changes" 

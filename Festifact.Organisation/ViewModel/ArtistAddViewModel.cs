@@ -8,5 +8,6 @@ public partial class ArtistAddViewModel : BaseViewModel
     {
         Title = "Add artist";
     }
-
+    [ObservableProperty]
+    Artist artist;
 }
