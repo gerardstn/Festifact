@@ -6,26 +6,32 @@
              x:DataType="viewmodel:ArtistAddViewModel"
              Title="{Binding Title}">
     <ScrollView>
+        
+            <VerticalStackLayout>
+            <VerticalStackLayout Padding="10" Spacing="10">
 
-    <VerticalStackLayout>
-        <VerticalStackLayout Padding="10" Spacing="10">
-                <Label Text="Name:" Style="{StaticResource MediumLabel}"/>
-            <Entry Text="{Binding Artist.Name}" Style="{StaticResource MediumLabel}" />
-                <Label Text="Genre:" Style="{StaticResource MediumLabel}"/>
-            <Entry Style="{StaticResource MediumLabel}" />
-                <Label Text="Description:" Style="{StaticResource MediumLabel}"/>
-            <Entry Style="{StaticResource MediumLabel}" />
-                <Label Text="Image:" Style="{StaticResource MediumLabel}"/>
-            <Entry Style="{StaticResource MediumLabel}" />
-                <Label Text="Country of origin:" Style="{StaticResource MediumLabel}"/>
-            <Entry Style="{StaticResource MediumLabel}" />
-                <Label Text="Type:" Style="{StaticResource MediumLabel}"/>
-            <Entry Style="{StaticResource MediumLabel}" />
-        </VerticalStackLayout>
-        <Button Text="Save Artist" 
+                    <Label Text="Name:" Style="{StaticResource MediumLabel}"/>
+                    <Entry Text="{Binding Artist.Name}" Style="{StaticResource MediumLabel}" />
+                    <Label Text="Genre:" Style="{StaticResource MediumLabel}"/>
+                    <Entry Text="{Binding Artist.Genre}" Style="{StaticResource MediumLabel}" />
+                    <Label Text="Description:" Style="{StaticResource MediumLabel}"/>
+                    <Entry Text="{Binding Artist.Description}" Style="{StaticResource MediumLabel}" />
+                    <Label Text="Image:" Style="{StaticResource MediumLabel}"/>
+                    <Entry Text="{Binding Artist.Image}" Style="{StaticResource MediumLabel}" />
+                    <Label Text="Country of origin:" Style="{StaticResource MediumLabel}"/>
+                    <Entry Text="{Binding Artist.CountryOrigin}" Style="{StaticResource MediumLabel}" />
+                    <Label Text="Type:" Style="{StaticResource MediumLabel}"/>
+                    <Entry  Text="{Binding Artist.Type}" Style="{StaticResource MediumLabel}" />
+                </VerticalStackLayout>
+
+                <Button Text="Save Artist" 
+                CommandParameter="{Binding Artist}"
+                Command="{Binding AddArtistCommand}"
                 Grid.Row="2"
                 Style="{StaticResource ButtonOutline}"
                 Margin="8"/>
-    </VerticalStackLayout>
-</ScrollView>
+
+            </VerticalStackLayout>
+        
+    </ScrollView>
 </ContentPage>

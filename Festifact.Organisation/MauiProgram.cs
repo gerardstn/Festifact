@@ -17,16 +17,17 @@ public static class MauiProgram
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             });
 
+        builder.Configuration.AddJsonFile("AppSettings.json");
+
         builder.Services.AddSingleton<FestivalService>();
         builder.Services.AddSingleton<ShowService>();
         builder.Services.AddSingleton<ArtistService>();
         builder.Services.AddSingleton<MovieService>();
         builder.Services.AddSingleton<LocationService>();
 
-        builder.Configuration.AddJsonFile("AppSettings.json");
-
         builder.Services.AddSingleton<MainPage>();
         builder.Services.AddSingleton<MainpageViewModel>();
+
 
         builder.Services.AddTransient<FestivalsViewModel>();
         builder.Services.AddTransient<FestivalsPage>();

@@ -2,11 +2,11 @@
 
 namespace Festifact.Organisation.ViewModel;
 
-[QueryProperty(nameof(Show), "Show")]
-[QueryProperty(nameof(Festival), "Festival")]
+[QueryProperty(nameof(Show), nameof(Show))]
+[QueryProperty(nameof(Festival), nameof(Festival))]
 public partial class FestivalEditViewModel : BaseViewModel
 {
-    public ObservableCollection<Show> Shows { get; } = new();
+    public ObservableCollection<Show> Shows { get; set; } = new();
 
     ShowService showService;
 
@@ -25,16 +25,15 @@ public partial class FestivalEditViewModel : BaseViewModel
     bool isRefreshing;
 
     [ICommand]
-    async Task GetFestivalShowsAsync(int festivalId)
+    async Task GetFestivalShowsAsync()
     {
-        festivalId = 1;
         if (IsBusy)
             return;
 
         try
         {
             IsBusy = true;
-            var shows = await showService.GetShows(festivalId);
+            var shows = await showService.GetShows(festival.FestivalId);
 
             Shows.Clear();
             foreach (var show in shows)

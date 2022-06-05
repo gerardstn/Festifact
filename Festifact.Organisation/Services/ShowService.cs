@@ -29,8 +29,6 @@ public class ShowService
     List<Show> showList = new();
     public async Task<List<Show>> GetShows(int FestivalId)
     {
-        if (showList?.Count > 0)
-            return showList;
 
         var response = await client.GetAsync("/api/show/festival/" + FestivalId.ToString() + "");
 

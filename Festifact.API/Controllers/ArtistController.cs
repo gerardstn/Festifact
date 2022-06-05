@@ -30,7 +30,28 @@ namespace Festifact.API.Controllers
             return Ok(_artistRepository.All);
         }
 
-
+        [HttpPost]
+        public IActionResult Create([FromBody] Artist artist)
+        {
+            try
+            {
+                if (artist == null || !ModelState.IsValid)
+                {
+                    return BadRequest(ErrorCode.ArtistNameRequired.ToString());
+                }
+                bool itemExists = _artistRepository.DoesArtistExist(artist.ArtistId);
+                if (itemExists)
+                {
+                    return StatusCode(StatusCodes.Status409Conflict, ErrorCode.ArtistIdInUse.ToString());
+                }
+                _artistRepository.Insert(artist);
+            }
+            catch (Exception)
+            {
+                return BadRequest(ErrorCode.CouldNotCreateArtist.ToString());
+            }
+            return Ok(artist);
+        }
 
         [HttpPut]
         public IActionResult Edit([FromBody] Artist artist)

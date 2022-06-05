@@ -30,9 +30,9 @@ namespace Festifact.API.Services
             return _artistList.FirstOrDefault(artist => artist.ArtistId == id);
         }
 
-        public void Insert(Artist item)
+        public void Insert(Artist artist)
         {
-            _artistList.Add(item);
+            _artistList.Add(artist);
         }
 
         public void Update(Artist artist)

@@ -5,11 +5,11 @@
              x:Class="Festifact.Organisation.App">
     <Application.Resources>
         <ResourceDictionary>
-            
+
             <Color x:Key="Primary">#DEB0F8</Color>
             <Color x:Key="PrimaryDark">#973AC7</Color>
             <Color x:Key="Accent">#C6B5F8</Color>
-            
+
             <Color x:Key="CardBackground">White</Color>
             <Color x:Key="CardBackgroundDark">#1C1C1E</Color>
 
@@ -18,15 +18,15 @@
 
             <Color x:Key="LightBackground">#FAF9F8</Color>
             <Color x:Key="DarkBackground">Black</Color>
-            
+
             <Style TargetType="local:AppShell">
                 <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource Accent}, Dark={StaticResource DarkBackground}}" />
             </Style>
-            
+
             <Style ApplyToDerivedTypes="True" TargetType="Page">
                 <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}" />
             </Style>
-            
+
             <Style ApplyToDerivedTypes="True" TargetType="NavigationPage">
                 <Setter Property="Background" Value="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}" />
                 <Setter Property="BarBackground" Value="{StaticResource Primary}" />

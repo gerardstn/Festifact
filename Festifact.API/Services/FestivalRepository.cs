@@ -30,9 +30,9 @@ namespace Festifact.API.Services
             return _festivalList.FirstOrDefault(festival => festival.FestivalId == id);
         }
 
-        public void Insert(Festival item)
+        public void Insert(Festival festival)
         {
-            _festivalList.Add(item);
+            _festivalList.Add(festival);
         }
 
         public void Update(Festival festival)

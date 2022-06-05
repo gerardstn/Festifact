@@ -30,8 +30,7 @@ public class ArtistService
     List<Artist> artistList = new();
     public async Task<List<Artist>> GetArtists()
     {
-        if (artistList?.Count > 0)
-            return artistList;
+
 
         var response = await client.GetAsync("/api/Artist");
 
@@ -44,7 +43,7 @@ public class ArtistService
     }
 
     static Random random = new Random();
-    public static async Task<Artist> AddArtist(string name, string genre,string description, string image, string countryOfOrigin, string type)
+    public async Task<Artist> AddArtist(string name, string genre, string description, string image, string countryOfOrigin, string type)
     {
         var artist = new Artist
         {
