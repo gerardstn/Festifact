@@ -30,7 +30,28 @@ namespace Festifact.API.Controllers
             return Ok(_movieRepository.All);
         }
 
-
+        [HttpPost]
+        public IActionResult Create([FromBody] Movie movie)
+        {
+            try
+            {
+                if (movie == null || !ModelState.IsValid)
+                {
+                    return BadRequest(ErrorCode.MovieNameRequired.ToString());
+                }
+                bool itemExists = _movieRepository.DoesMovieExist(movie.MovieId);
+                if (itemExists)
+                {
+                    return StatusCode(StatusCodes.Status409Conflict, ErrorCode.MovieIdInUse.ToString());
+                }
+                _movieRepository.Insert(movie);
+            }
+            catch (Exception)
+            {
+                return BadRequest(ErrorCode.CouldNotCreateMovie.ToString());
+            }
+            return Ok(movie);
+        }
 
         [HttpPut]
         public IActionResult Edit([FromBody] Movie movie)

@@ -6,13 +6,13 @@ using System.Text;
 
 namespace Festifact.Organisation.Services;
 
-public class FestivalService
+public class RoomService
 {
     private IConfiguration Configuration { get; }
     static HttpClient client;
     int OrganisationId = Globals.OrganisationId;
 
-    public FestivalService(IConfiguration configuration)
+    public RoomService(IConfiguration configuration)
     {
         try
         {
@@ -28,38 +28,40 @@ public class FestivalService
         Configuration = configuration;
     }
 
-    List<Festival> festivalList = new();
-    public async Task<List<Festival>> GetFestivals()
+
+    List<Room> roomList = new();
+    public async Task<List<Room>> GetRooms()
     {
-        var response = await client.GetAsync("/api/festival/organisation/" + OrganisationId.ToString() + "");
+
+        var response = await client.GetAsync("/api/room");
 
         if (response.IsSuccessStatusCode)
         {
-            festivalList = await response.Content.ReadFromJsonAsync<List<Festival>>();
+            roomList = await response.Content.ReadFromJsonAsync<List<Room>>();
         }
-        return festivalList;
+
+        return roomList;
     }
 
     Random random = new();
-    public async Task<Festival> AddFestival(Festival festival)
+    public async Task<Room> AddRoom(Room room)
     {
-        festival.FestivalId = random.Next(10, 10000);
-        festival.OrganisatorId = OrganisationId;
+        room.RoomId = random.Next(10, 10000);
 
-        var json = JsonConvert.SerializeObject(festival);
+        var json = JsonConvert.SerializeObject(room);
 
         var content =
             new StringContent(json, Encoding.UTF8, "application/json");
 
-        var response = await client.PostAsync("/api/Festival", content);
+        var response = await client.PostAsync("/api/Room", content);
 
         if (!response.IsSuccessStatusCode)
         {
-            return festival;
+            return room;
         }
         else
         {
-            return festival;
+            return room;
         }
     }
 }

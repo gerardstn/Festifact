@@ -24,6 +24,8 @@ public static class MauiProgram
         builder.Services.AddSingleton<ArtistService>();
         builder.Services.AddSingleton<MovieService>();
         builder.Services.AddSingleton<LocationService>();
+        builder.Services.AddSingleton<RoomService>();
+
 
         builder.Services.AddSingleton<MainPage>();
         builder.Services.AddSingleton<MainpageViewModel>();
@@ -45,6 +47,11 @@ public static class MauiProgram
         builder.Services.AddTransient<ShowEditViewModel>();
         builder.Services.AddTransient<ShowEditPage>();
 
+        builder.Services.AddTransient<RoomAddViewModel>();
+        builder.Services.AddTransient<RoomAddPage>();
+
+        builder.Services.AddTransient<RoomEditViewModel>();
+        builder.Services.AddTransient<RoomEditPage>();
 
         builder.Services.AddTransient<ArtistsViewModel>();
         builder.Services.AddTransient<ArtistsPage>();

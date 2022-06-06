@@ -2,9 +2,9 @@
 
 namespace Festifact.Organisation.ViewModel;
 
-[QueryProperty(nameof(Show), (nameof(Show)))]
-public partial class ShowEditViewModel : BaseViewModel
+[QueryProperty(nameof(Room), (nameof(Room)))]
+public partial class RoomEditViewModel : BaseViewModel
 {
     [ObservableProperty]
-    Show show;
+    Room room;
 }

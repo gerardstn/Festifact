@@ -10,6 +10,8 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(nameof(FestivalAddPage), typeof(FestivalAddPage));
         Routing.RegisterRoute(nameof(ShowAddPage), typeof(ShowAddPage));
         Routing.RegisterRoute(nameof(ShowEditPage), typeof(ShowEditPage));
+        Routing.RegisterRoute(nameof(RoomAddPage), typeof(RoomAddPage));
+        Routing.RegisterRoute(nameof(RoomEditPage), typeof(RoomEditPage));
         Routing.RegisterRoute(nameof(ArtistsPage), typeof(ArtistsPage));
         Routing.RegisterRoute(nameof(ArtistAddPage), typeof(ArtistAddPage));
         Routing.RegisterRoute(nameof(ArtistEditPage), typeof(ArtistEditPage));
@@ -19,6 +21,5 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(nameof(LocationsPage), typeof(LocationsPage));
         Routing.RegisterRoute(nameof(LocationAddPage), typeof(LocationAddPage));
         Routing.RegisterRoute(nameof(LocationEditPage), typeof(LocationEditPage));
-
     }
 }

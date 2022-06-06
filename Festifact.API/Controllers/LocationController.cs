@@ -30,6 +30,28 @@ namespace Festifact.API.Controllers
             return Ok(_locationRepository.All);
         }
 
+        [HttpPost]
+        public IActionResult Create([FromBody] Location location)
+        {
+            try
+            {
+                if (location == null || !ModelState.IsValid)
+                {
+                    return BadRequest(ErrorCode.LocationNameRequired.ToString());
+                }
+                bool itemExists = _locationRepository.DoesLocationExist(location.LocationId);
+                if (itemExists)
+                {
+                    return StatusCode(StatusCodes.Status409Conflict, ErrorCode.LocationIdInUse.ToString());
+                }
+                _locationRepository.Insert(location);
+            }
+            catch (Exception)
+            {
+                return BadRequest(ErrorCode.CouldNotCreateLocation.ToString());
+            }
+            return Ok(location);
+        }
 
 
         [HttpPut]

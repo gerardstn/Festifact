@@ -6,17 +6,25 @@
              x:DataType="viewmodel:LocationAddViewModel"
              Title="{Binding Title}">
     <ScrollView>
-    <VerticalStackLayout>
-        <VerticalStackLayout Padding="10" Spacing="10">
-            <Label Text="Name:"/>
-            <Entry Style="{StaticResource MediumLabel}" />
-            <Label Text="Location Coordinates:"/>
-            <Entry Style="{StaticResource MediumLabel}" />
-        </VerticalStackLayout>
-        <Button Text="Save Location" 
+
+        <VerticalStackLayout>
+            <VerticalStackLayout Padding="10" Spacing="10">
+
+                <Label Text="Name:" Style="{StaticResource MediumLabel}"/>
+                <Entry Text="{Binding Location.Name}" Style="{StaticResource MediumLabel}" />
+                <Label Text="Coordinates:" Style="{StaticResource MediumLabel}"/>
+                <Entry Text="{Binding Location.LocationCoordinates}" Style="{StaticResource MediumLabel}" />
+
+            </VerticalStackLayout>
+
+            <Button Text="Save Artist" 
+                CommandParameter="{Binding Location}"
+                Command="{Binding AddLocationCommand}"
                 Grid.Row="2"
                 Style="{StaticResource ButtonOutline}"
                 Margin="8"/>
-    </VerticalStackLayout>
-</ScrollView>
+        </VerticalStackLayout>
+
+
+    </ScrollView>
 </ContentPage>

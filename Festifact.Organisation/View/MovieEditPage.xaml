@@ -12,15 +12,23 @@
             <Grid ColumnDefinitions="*,Auto,*" RowDefinitions="160, Auto">
             </Grid>
             <VerticalStackLayout Padding="10" Spacing="10">
+                <Label Text="Name:" Style="{StaticResource MediumLabel}"/>
                 <Entry Style="{StaticResource MediumLabel}" Text="{Binding Movie.Name}" />
+                <Label Text="Actors:" Style="{StaticResource MediumLabel}"/>
             <Entry Style="{StaticResource MediumLabel}" Text="{Binding Movie.Actors}" />
+                <Label Text="Director:" Style="{StaticResource MediumLabel}"/>
             <Entry Style="{StaticResource MediumLabel}" Text="{Binding Movie.Director}" />
+                <Label Text="Release date:" Style="{StaticResource MediumLabel}"/>
                 <Entry Style="{StaticResource MediumLabel}" Text="{Binding Movie.ReleaseYear}" />
+                <Label Text="Country of origin:" Style="{StaticResource MediumLabel}"/>
             <Entry Style="{StaticResource MediumLabel}" Text="{Binding Movie.CountryOrigin}" />
+                <Label Text="Description:" Style="{StaticResource MediumLabel}"/>
                 <Entry Style="{StaticResource MediumLabel}" Text="{Binding Movie.Description}" />
             </VerticalStackLayout>
 
             <Button Text="Save changes" 
+                CommandParameter="{Binding Movie}"
+                Command="{Binding UpdateMovieCommand}"
                 Grid.Row="3"
                 Style="{StaticResource ButtonOutline}"
                 Margin="8"/>

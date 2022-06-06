@@ -14,5 +14,4 @@
     public int RoomReservationId { get; set; }
     public int FestivalDay { get; set; }
 
-
 }

@@ -2,23 +2,23 @@
 
 namespace Festifact.Organisation.ViewModel;
 
-[QueryProperty(nameof(Show), (nameof(Show)))]
-public partial class ShowAddViewModel : BaseViewModel
-{ 
-    public ShowAddViewModel(ShowService showService)
+[QueryProperty(nameof(Room), (nameof(Room)))]
+public partial class RoomAddViewModel : BaseViewModel
+{
+    public RoomAddViewModel(RoomService roomService)
     {
-        Title = "Add Show";
-        Show = new();
-        this.showService = showService;
+        Title = "Add Room";
+        Room = new();
+        this.roomService = roomService;
     }
-    ShowService showService;
+    RoomService roomService;
 
     [ObservableProperty]
-    Show show;
+    Room room;
 
 
     [ICommand]
-    async Task AddShowAsync(Show show)
+    async Task AddRoomAsync(Room room)
     {
         if (IsBusy)
             return;
@@ -26,12 +26,12 @@ public partial class ShowAddViewModel : BaseViewModel
         try
         {
             IsBusy = true;
-            await showService.AddShow(show);
+            await roomService.AddRoom(room);
 
         }
         catch (Exception ex)
         {
-            Debug.WriteLine($"Unable to add Show: {ex.Message}");
+            Debug.WriteLine($"Unable to add Room: {ex.Message}");
             await Application.Current.MainPage.DisplayAlert("Error!", ex.Message, "OK");
         }
         finally
@@ -41,6 +41,5 @@ public partial class ShowAddViewModel : BaseViewModel
             await Shell.Current.GoToAsync(route);
         }
     }
-
 
 }

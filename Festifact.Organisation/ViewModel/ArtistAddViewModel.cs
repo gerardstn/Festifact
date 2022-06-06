@@ -2,13 +2,13 @@
 
 namespace Festifact.Organisation.ViewModel;
 
-[QueryProperty(nameof(Artist), "Artist")]
+[QueryProperty(nameof(Artist), (nameof(Artist)))]
 public partial class ArtistAddViewModel : BaseViewModel
 {
     public ArtistAddViewModel(ArtistService artistService)
     {
         Title = "Add artist";
-        Artist = new Artist();
+        Artist = new();
         this.artistService = artistService;
     }
 
@@ -26,7 +26,7 @@ public partial class ArtistAddViewModel : BaseViewModel
         try
         {
             IsBusy = true;
-            await artistService.AddArtist(artist.Name, artist.Genre, artist.Description, artist.Image, artist.CountryOrigin, artist.Type);
+            await artistService.AddArtist(artist);
 
         }
         catch (Exception ex)

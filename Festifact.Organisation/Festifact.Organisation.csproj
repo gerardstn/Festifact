@@ -81,8 +81,14 @@
 	  <Compile Update="View\ArtistEditPage.xaml.cs">
 	    <DependentUpon>ArtistEditPage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="View\RoomAddPage.xaml.cs">
+	    <DependentUpon>RoomAddPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="View\ShowAddPage.xaml.cs">
 	    <DependentUpon>ShowAddPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="View\RoomEditPage.xaml.cs">
+	    <DependentUpon>RoomEditPage.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="View\ShowEditPage.xaml.cs">
 	    <DependentUpon>ShowEditPage.xaml</DependentUpon>
@@ -126,7 +132,13 @@
 	  <MauiXaml Update="View\ArtistEditPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="View\RoomAddPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="View\ShowAddPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\RoomEditPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\ShowEditPage.xaml">

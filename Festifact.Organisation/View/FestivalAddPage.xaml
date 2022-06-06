@@ -2,35 +2,38 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Festifact.Organisation.FestivalAddPage"
-             xmlns:model="clr-namespace:Festifact.Organisation.Model"
              xmlns:viewmodel="clr-namespace:Festifact.Organisation.ViewModel"
              x:DataType="viewmodel:FestivalAddViewModel"
              Title="{Binding Title}">
     <ScrollView>
         <VerticalStackLayout>
             <VerticalStackLayout Padding="10" Spacing="10">
-                <Label Text="Name:"/>
-                <Entry Style="{StaticResource MediumLabel}" />
-                <Label Text="Banner:"/>
-                <Entry Style="{StaticResource MediumLabel}" />
-                <Label Text="Tickets limit:"/>
-                <Entry Style="{StaticResource MediumLabel}" />
-                <Label Text="Tickets available:"/>
-                <Entry Style="{StaticResource MediumLabel}" />
-                <Label Text="Description:"/>
-                <Entry Style="{StaticResource MediumLabel}" />
-                <Label Text="Type:"/>
-                <Entry Style="{StaticResource MediumLabel}" />
-                <Label Text="Age:"/>
-                <Entry Style="{StaticResource MediumLabel}" />
-                <Label Text="Location:"/>
-                <Entry Style="{StaticResource MediumLabel}" />
-                <Label Text="Start date:"/>
-                <Entry Style="{StaticResource MediumLabel}" />
-                <Label Text="End date:"/>
-                <Entry Style="{StaticResource MediumLabel}" />
+                <Label Text="Name:" Style="{StaticResource MediumLabel}"/>
+                <Entry Text="{Binding Festival.Name}" Style="{StaticResource MediumLabel}" />
+                <Label Text="Description:" Style="{StaticResource MediumLabel}"/>
+                <Entry Text="{Binding Festival.Description}" Style="{StaticResource MediumLabel}" />
+                <Label Text="Banner:" Style="{StaticResource MediumLabel}"/>
+                <Entry Text="{Binding Festival.Banner}" Style="{StaticResource MediumLabel}" />
+                <Label Text="Tickets available:" Style="{StaticResource MediumLabel}"/>
+                <Entry Text="{Binding Festival.TicketsAvailable}" Style="{StaticResource MediumLabel}" />
+                <Label Text="Tickets limit:" Style="{StaticResource MediumLabel}"/>
+                <Entry Text="{Binding Festival.TicketsLimit}" Style="{StaticResource MediumLabel}" />
+                <Label Text="Type:" Style="{StaticResource MediumLabel}"/>
+                <Entry Text="{Binding Festival.Type}" Style="{StaticResource MediumLabel}" />
+                <Label Text="Location:" Style="{StaticResource MediumLabel}"/>
+                <Entry Text="{Binding Festival.Location}" Style="{StaticResource MediumLabel}" />
+                <Label Text="Genre:" Style="{StaticResource MediumLabel}"/>
+                <Entry Text="{Binding Festival.Genre}" Style="{StaticResource MediumLabel}" />
+                <Label Text="Age:" Style="{StaticResource MediumLabel}"/>
+                <Entry Text="{Binding Festival.AgeCatagory}" Style="{StaticResource MediumLabel}" />
+                <Label Text="Start date:" Style="{StaticResource MediumLabel}"/>
+                <DatePicker Date="{Binding Festival.StartDate}" Style="{StaticResource MediumLabel}" />
+                <Label Text="End date:" Style="{StaticResource MediumLabel}"/>
+                <DatePicker Date="{Binding Festival.EndDate}" Style="{StaticResource MediumLabel}" />
             </VerticalStackLayout>
-            <Button Text="Save show" 
+            <Button Text="Save Festival" 
+                CommandParameter="{Binding Festival}"
+                Command="{Binding AddFestivalCommand}"
                 Grid.Row="2"
                 Style="{StaticResource ButtonOutline}"
                 Margin="8"/>

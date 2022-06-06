@@ -31,7 +31,6 @@ public class ArtistService
     public async Task<List<Artist>> GetArtists()
     {
 
-
         var response = await client.GetAsync("/api/Artist");
 
         if (response.IsSuccessStatusCode)
@@ -43,18 +42,11 @@ public class ArtistService
     }
 
     static Random random = new Random();
-    public async Task<Artist> AddArtist(string name, string genre, string description, string image, string countryOfOrigin, string type)
+    public async Task<Artist> AddArtist(Artist artist)
     {
-        var artist = new Artist
-        {
-            Name = name,
-            Genre = genre,
-            Description = description,
-            Image = image,
-            CountryOrigin = countryOfOrigin,
-            Type = type,
-            ArtistId = random.Next(10, 10000)
-        };
+
+        artist.ArtistId = random.Next(10, 10000);
+        
 
         var json = JsonConvert.SerializeObject(artist);
 
@@ -63,6 +55,26 @@ public class ArtistService
 
         var response = await client.PostAsync("/api/Artist", content);
         
+        if (!response.IsSuccessStatusCode)
+        {
+            return artist;
+        }
+        else
+        {
+            return artist;
+        }
+    }
+
+    public async Task<Artist> UpdateArtist(Artist artist)
+    {
+
+        var json = JsonConvert.SerializeObject(artist);
+
+        var content =
+            new StringContent(json, Encoding.UTF8, "application/json");
+
+        var response = await client.PutAsync("/api/Artist", content);
+
         if (!response.IsSuccessStatusCode)
         {
             return artist;

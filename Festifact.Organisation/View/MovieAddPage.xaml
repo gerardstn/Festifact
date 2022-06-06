@@ -6,27 +6,29 @@
              x:DataType="viewmodel:MovieAddViewModel"
              Title="{Binding Title}">
     <ScrollView>
-    <VerticalStackLayout>
-        <VerticalStackLayout Padding="10" Spacing="10">
-            <Label Text="Name:"/>
-            <Entry Style="{StaticResource MediumLabel}" />
-            <Label Text="Actors:"/>
-            <Entry Style="{StaticResource MediumLabel}" />
-            <Label Text="Director:"/>
-            <Entry Style="{StaticResource MediumLabel}" />
-            <Label Text="Release year:"/>
-            <Entry Style="{StaticResource MediumLabel}" />
-            <Label Text="Country of origin:"/>
-            <Entry Style="{StaticResource MediumLabel}" />
-            <Label Text="Description:"/>
-            <Entry Style="{StaticResource MediumLabel}" />
-            <Label Text="Type:"/>
-            <Entry Style="{StaticResource MediumLabel}" />
-        </VerticalStackLayout>
-        <Button Text="Save Movie" 
+        <VerticalStackLayout>
+            <VerticalStackLayout Padding="10" Spacing="10">
+
+                <Label Text="Name:" Style="{StaticResource MediumLabel}"/>
+                <Entry Text="{Binding Movie.Name}" Style="{StaticResource MediumLabel}" />
+                <Label Text="Director:" Style="{StaticResource MediumLabel}"/>
+                <Entry Text="{Binding Movie.Director}" Style="{StaticResource MediumLabel}" />
+                <Label Text="Release date:" Style="{StaticResource MediumLabel}"/>
+                <DatePicker Date="{Binding Movie.ReleaseYear}" Style="{StaticResource MediumLabel}" />
+                <Label Text="Country of origin:" Style="{StaticResource MediumLabel}"/>
+                <Entry Text="{Binding Movie.CountryOrigin}" Style="{StaticResource MediumLabel}" />
+                <Label Text="Actors:" Style="{StaticResource MediumLabel}"/>
+                <Entry Text="{Binding Movie.Actors}" Style="{StaticResource MediumLabel}" />
+                <Label Text="Type:" Style="{StaticResource MediumLabel}"/>
+                <Entry  Text="{Binding Movie.Description}" Style="{StaticResource MediumLabel}" />
+            </VerticalStackLayout>
+
+            <Button Text="Save Artist" 
+                CommandParameter="{Binding Movie}"
+                Command="{Binding AddMovieCommand}"
                 Grid.Row="2"
                 Style="{StaticResource ButtonOutline}"
                 Margin="8"/>
-    </VerticalStackLayout>
-</ScrollView>
+        </VerticalStackLayout>
+      </ScrollView>
 </ContentPage>

@@ -36,17 +36,28 @@
 
             </Grid>
             <VerticalStackLayout Padding="10" Spacing="10">
+                <Label Text="Name:" Style="{StaticResource MediumLabel}"/>
                 <Entry Style="{StaticResource MediumLabel}" Text="{Binding Festival.Name}" />
+                <Label Text="Banner:" Style="{StaticResource MediumLabel}"/>
                 <Entry Style="{StaticResource MediumLabel}" Text="{Binding Festival.Banner}" />
+                <Label Text="Tickets limit:" Style="{StaticResource MediumLabel}"/>
                 <Entry Style="{StaticResource MediumLabel}" Text="{Binding Festival.TicketsLimit}" />
+                <Label Text="Tickets available:" Style="{StaticResource MediumLabel}"/>
                 <Entry Style="{StaticResource MediumLabel}" Text="{Binding Festival.TicketsAvailable}" />
+                <Label Text="Description:" Style="{StaticResource MediumLabel}"/>
                 <Entry Style="{StaticResource MediumLabel}" Text="{Binding Festival.Description}" />
+                <Label Text="Type:" Style="{StaticResource MediumLabel}"/>
                 <Entry Style="{StaticResource MediumLabel}" Text="{Binding Festival.Type}" />
+                <Label Text="Age:" Style="{StaticResource MediumLabel}"/>
                 <Entry Style="{StaticResource MediumLabel}" Text="{Binding Festival.AgeCatagory}" />
+                <Label Text="Location:" Style="{StaticResource MediumLabel}"/>
                 <Entry Style="{StaticResource MediumLabel}" Text="{Binding Festival.Location}" />
-                <Entry Style="{StaticResource MediumLabel}" Text="{Binding Festival.StartDate}" />
-                <Entry Style="{StaticResource MediumLabel}" Text="{Binding Festival.EndDate}" />
-
+                <Label Text="Start date:" Style="{StaticResource MediumLabel}"/>
+                <DatePicker Style="{StaticResource MediumLabel}" Date="{Binding Festival.StartDate}" />
+                <Label Text="End date:" Style="{StaticResource MediumLabel}"/>
+                <DatePicker Style="{StaticResource MediumLabel}" Date="{Binding Festival.EndDate}" />
+                
+                <Label Text="Shows:" Style="{StaticResource LargeLabel}"/>
             </VerticalStackLayout>
             <CollectionView 
 

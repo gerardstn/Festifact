@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 using System.Net.Http.Json;
-
+using System.Text;
 
 namespace Festifact.Organisation.Services;
 
@@ -38,6 +39,28 @@ public class ShowService
         }
 
         return showList;
+    }
+
+    Random random = new();
+    public async Task<Show> AddShow(Show show)
+    {
+        show.ShowId = random.Next(10, 10000);
+
+        var json = JsonConvert.SerializeObject(show);
+
+        var content =
+            new StringContent(json, Encoding.UTF8, "application/json");
+
+        var response = await client.PostAsync("/api/Show", content);
+
+        if (!response.IsSuccessStatusCode)
+        {
+            return show;
+        }
+        else
+        {
+            return show;
+        }
     }
 
 }

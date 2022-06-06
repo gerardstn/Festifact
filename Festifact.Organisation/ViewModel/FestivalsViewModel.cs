@@ -20,7 +20,7 @@ public partial class FestivalsViewModel : BaseViewModel
     [ICommand]
     async Task GetFestivalsAsync()
     {
-        int OrganisationId = Globals.OrganisationId;
+        
 
         if (IsBusy)
             return;
@@ -28,7 +28,7 @@ public partial class FestivalsViewModel : BaseViewModel
         try
         {
             IsBusy = true;
-            var festivals = await festivalService.GetFestivals(OrganisationId);
+            var festivals = await festivalService.GetFestivals();
 
             Festivals.Clear();
             foreach (var festival in festivals)

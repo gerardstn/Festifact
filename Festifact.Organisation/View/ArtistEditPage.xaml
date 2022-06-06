@@ -37,16 +37,24 @@
 
             </Grid>
             <VerticalStackLayout Padding="10" Spacing="10">
+                <Label Text="Name:" Style="{StaticResource MediumLabel}"/>
                 <Entry Style="{StaticResource MediumLabel}" Text="{Binding Artist.Name}" />
+                <Label Text="Genre:" Style="{StaticResource MediumLabel}"/>
                 <Entry Style="{StaticResource MediumLabel}" Text="{Binding Artist.Genre}" />
+                <Label Text="Description:" Style="{StaticResource MediumLabel}"/>
                 <Entry Style="{StaticResource MediumLabel}" Text="{Binding Artist.Description}" />
+                <Label Text="Image:" Style="{StaticResource MediumLabel}"/>
                 <Entry Style="{StaticResource MediumLabel}" Text="{Binding Artist.Image}" />
+                <Label Text="Country of origin:" Style="{StaticResource MediumLabel}"/>
                 <Entry Style="{StaticResource MediumLabel}" Text="{Binding Artist.CountryOrigin}" />
+                <Label Text="Type:" Style="{StaticResource MediumLabel}"/>
                 <Entry Style="{StaticResource MediumLabel}" Text="{Binding Artist.Type}" />
 
             </VerticalStackLayout>
 
             <Button Text="Save changes" 
+                CommandParameter="{Binding Artist}"
+                Command="{Binding UpdateArtistCommand}"
                 Grid.Row="3"
                 Style="{StaticResource ButtonOutline}"
                 Margin="8"/>
