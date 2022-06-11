@@ -30,10 +30,10 @@ public class RoomService
 
 
     List<Room> roomList = new();
-    public async Task<List<Room>> GetRooms()
+    public async Task<List<Room>> GetRooms(int LocationId)
     {
 
-        var response = await client.GetAsync("/api/room");
+        var response = await client.GetAsync("/api/room/location/" + LocationId.ToString() + "");
 
         if (response.IsSuccessStatusCode)
         {
@@ -44,9 +44,11 @@ public class RoomService
     }
 
     Random random = new();
-    public async Task<Room> AddRoom(Room room)
+    public async Task<Room> AddRoom(Room room, Model.Location location)
     {
         room.RoomId = random.Next(10, 10000);
+        room.LocationId = location.LocationId;
+
 
         var json = JsonConvert.SerializeObject(room);
 
@@ -64,4 +66,25 @@ public class RoomService
             return room;
         }
     }
+
+    public async Task<Room> UpdateRoom(Room room)
+    {
+
+        var json = JsonConvert.SerializeObject(room);
+
+        var content =
+            new StringContent(json, Encoding.UTF8, "application/json");
+
+        var response = await client.PutAsync("/api/Room", content);
+
+        if (!response.IsSuccessStatusCode)
+        {
+            return room;
+        }
+        else
+        {
+            return room;
+        }
+    }
+
 }

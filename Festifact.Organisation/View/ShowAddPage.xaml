@@ -5,9 +5,34 @@
              xmlns:viewmodel="clr-namespace:Festifact.Organisation.ViewModel"
              x:DataType="viewmodel:ShowAddViewModel"
              Title="{Binding Title}">
-    <StackLayout>
-        <Label Text="Festifact add Show"
-                VerticalOptions="Center" 
-                HorizontalOptions="Center" />
-    </StackLayout>
+    <VerticalStackLayout>
+        <VerticalStackLayout Padding="10" Spacing="10">
+            <Label Text="Name:" Style="{StaticResource MediumLabel}"/>
+            <Entry Style="{StaticResource MediumLabel}" Text="{Binding Show.Name}" />
+            <Label Text="Description:" Style="{StaticResource MediumLabel}"/>
+            <Entry Style="{StaticResource MediumLabel}" Text="{Binding Show.Description}" />
+            <Label Text="Image:" Style="{StaticResource MediumLabel}"/>
+            <Entry Style="{StaticResource MediumLabel}" Text="{Binding Show.Image}" />
+            <Label Text="StartDate:" Style="{StaticResource MediumLabel}"/>
+            <DatePicker Style="{StaticResource MediumLabel}" MinimumDate="{Binding Festival.StartDate}" MaximumDate="{Binding Festival.EndDate}"  Date="{Binding Show.StartDate}" />
+            <Label Text="EndDate:" Style="{StaticResource MediumLabel}"/>
+            <DatePicker Style="{StaticResource MediumLabel}" MinimumDate="{Binding Festival.StartDate}" MaximumDate="{Binding Festival.EndDate}" Date="{Binding Show.EndDate}"/>
+            <Label Text="ArtistId:" Style="{StaticResource MediumLabel}"/>
+            <Entry Style="{StaticResource MediumLabel}" Text="{Binding Show.ArtistId}" />
+            <Label Text="MovieId:" Style="{StaticResource MediumLabel}"/>
+            <Entry Style="{StaticResource MediumLabel}" Text="{Binding Show.MovieId}" />
+            <Label Text="RoomReservationId:" Style="{StaticResource MediumLabel}"/>
+            <Entry Style="{StaticResource MediumLabel}" Text="{Binding Show.RoomReservationId}" />
+            <Label Text="FestivalDay:" Style="{StaticResource MediumLabel}"/>
+            <Entry Style="{StaticResource MediumLabel}" Text="{Binding Show.FestivalDay}" />
+
+
+        </VerticalStackLayout>
+        <Button Text="Save Show" 
+                CommandParameter="{Binding Show}"
+                Command="{Binding AddShowCommand}"
+                Grid.Row="2"
+                Style="{StaticResource ButtonOutline}"
+                Margin="8"/>
+    </VerticalStackLayout>
 </ContentPage>

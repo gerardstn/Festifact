@@ -4,10 +4,68 @@
              x:Class="Festifact.Organisation.ShowEditPage"
              xmlns:viewmodel="clr-namespace:Festifact.Organisation.ViewModel"
              x:DataType="viewmodel:ShowEditViewModel"
-             Title="{Binding Title}">
-    <StackLayout>
-        <Label Text="Festifact Edit show"
-                VerticalOptions="Center" 
-                HorizontalOptions="Center" />
-    </StackLayout>
+             Title="{Binding Show.Name}">
+
+    <ScrollView>
+        <VerticalStackLayout>
+            <Grid ColumnDefinitions="*,Auto,*" RowDefinitions="160, Auto">
+
+                <BoxView
+    Grid.ColumnSpan="3"
+    Background="{StaticResource Primary}"
+    HeightRequest="160"
+    HorizontalOptions="FillAndExpand" />
+                <Frame
+    Grid.RowSpan="2"
+    Grid.Column="1"
+    Margin="0,80,0,0"
+    HeightRequest="160"
+    WidthRequest="160"
+    HorizontalOptions="Center" 
+    Padding="0"
+    IsClippedToBounds="True"
+    CornerRadius="80">
+                    <Image
+        Aspect="AspectFill"
+        HeightRequest="160"
+        HorizontalOptions="Center"
+        VerticalOptions="Center"
+        Source="{Binding Show.Image}"
+        WidthRequest="160"/>
+                </Frame>
+
+            </Grid>
+            <VerticalStackLayout Padding="10" Spacing="10">
+                <Label Text="Name:" Style="{StaticResource MediumLabel}"/>
+                <Entry Style="{StaticResource MediumLabel}" Text="{Binding Show.Name}" />
+                <Label Text="Description:" Style="{StaticResource MediumLabel}"/>
+                <Entry Style="{StaticResource MediumLabel}" Text="{Binding Show.Description}" />
+                <Label Text="Image:" Style="{StaticResource MediumLabel}"/>
+                <Entry Style="{StaticResource MediumLabel}" Text="{Binding Show.Image}" />
+                <Label Text="StartDate:" Style="{StaticResource MediumLabel}"/>
+                <Entry Style="{StaticResource MediumLabel}" Text="{Binding Show.StartDate}" />
+                <Label Text="EndDate:" Style="{StaticResource MediumLabel}"/>
+                <Entry Style="{StaticResource MediumLabel}" Text="{Binding Show.EndDate}" />
+                <Label Text="FestivalId:" Style="{StaticResource MediumLabel}"/>
+                <Entry Style="{StaticResource MediumLabel}" Text="{Binding Show.FestivalId}" />
+                <Label Text="ArtistId:" Style="{StaticResource MediumLabel}"/>
+                <Entry Style="{StaticResource MediumLabel}" Text="{Binding Show.ArtistId}" />
+                <Label Text="MovieId:" Style="{StaticResource MediumLabel}"/>
+                <Entry Style="{StaticResource MediumLabel}" Text="{Binding Show.MovieId}" />
+                <Label Text="RoomReservationId:" Style="{StaticResource MediumLabel}"/>
+                <Entry Style="{StaticResource MediumLabel}" Text="{Binding Show.RoomReservationId}" />
+                <Label Text="FestivalDay:" Style="{StaticResource MediumLabel}"/>
+                <Entry Style="{StaticResource MediumLabel}" Text="{Binding Show.FestivalDay}" />
+            </VerticalStackLayout>
+
+            <Button Text="Save changes" 
+                CommandParameter="{Binding Show}"
+                Command="{Binding UpdateShowCommand}"
+                Grid.Row="3"
+                Style="{StaticResource ButtonOutline}"
+                Margin="8"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
+   

@@ -24,6 +24,35 @@ namespace Festifact.API.Controllers
             CouldNotDeleteRoom
         }
 
+        [HttpGet("location/" + "{id}")]
+        public IActionResult LocationShows(int id)
+        {
+            return Ok(_roomRepository.GetLocationRooms(id));
+        }
+
+        [HttpPost]
+        public IActionResult Create([FromBody] Room room)
+        {
+            try
+            {
+                if (room == null || !ModelState.IsValid)
+                {
+                    return BadRequest(ErrorCode.RoomNameRequired.ToString());
+                }
+                bool itemExists = _roomRepository.DoesRoomExist(room.RoomId);
+                if (itemExists)
+                {
+                    return StatusCode(StatusCodes.Status409Conflict, ErrorCode.RoomIdInUse.ToString());
+                }
+                _roomRepository.Insert(room);
+            }
+            catch (Exception)
+            {
+                return BadRequest(ErrorCode.CouldNotCreateRoom.ToString());
+            }
+            return Ok(room);
+        }
+
         [HttpGet]
         public IActionResult List()
         {

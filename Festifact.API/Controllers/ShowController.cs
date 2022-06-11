@@ -24,6 +24,29 @@ namespace Festifact.API.Controllers
             CouldNotDeleteShow
         }
 
+        [HttpPost]
+        public IActionResult Create([FromBody] Show show)
+        {
+            try
+            {
+                if (show == null || !ModelState.IsValid)
+                {
+                    return BadRequest(ErrorCode.ShowNameRequired.ToString());
+                }
+                bool itemExists = _showRepository.DoesShowExist(show.ShowId);
+                if (itemExists)
+                {
+                    return StatusCode(StatusCodes.Status409Conflict, ErrorCode.ShowIdInUse.ToString());
+                }
+                _showRepository.Insert(show);
+            }
+            catch (Exception)
+            {
+                return BadRequest(ErrorCode.CouldNotCreateShow.ToString());
+            }
+            return Ok(show);
+        }
+
         [HttpGet]
         public IActionResult List()
         {

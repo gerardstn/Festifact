@@ -104,11 +104,14 @@
             </CollectionView>
             <Button Text="Add show" 
                 Grid.Row="3"
+                CommandParameter="{Binding Festival}"
+                Command="{Binding AddShowPageCommand}"
                 Style="{StaticResource ButtonOutline}"
                 Margin="8"/>
 
             <Button Text="Save changes" 
                 Grid.Row="3"
+                Command="{Binding UpdateFestivalCommand}"
                 Style="{StaticResource ButtonOutline}"
                 Margin="8"/>
 

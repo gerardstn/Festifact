@@ -42,9 +42,10 @@ public class ShowService
     }
 
     Random random = new();
-    public async Task<Show> AddShow(Show show)
+    public async Task<Show> AddShow(Show show, Festival festival)
     {
         show.ShowId = random.Next(10, 10000);
+        show.FestivalId = festival.FestivalId;
 
         var json = JsonConvert.SerializeObject(show);
 
@@ -62,5 +63,23 @@ public class ShowService
             return show;
         }
     }
+    public async Task<Show> UpdateShow(Show show)
+    {
 
+        var json = JsonConvert.SerializeObject(show);
+
+        var content =
+            new StringContent(json, Encoding.UTF8, "application/json");
+
+        var response = await client.PutAsync("/api/Show", content);
+
+        if (!response.IsSuccessStatusCode)
+        {
+            return show;
+        }
+        else
+        {
+            return show;
+        }
+    }
 }

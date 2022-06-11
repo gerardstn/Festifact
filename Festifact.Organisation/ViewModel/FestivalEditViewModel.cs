@@ -9,10 +9,12 @@ public partial class FestivalEditViewModel : BaseViewModel
     public ObservableCollection<Show> Shows { get; set; } = new();
 
     ShowService showService;
+    FestivalService festivalService;
 
-    public FestivalEditViewModel(ShowService showService)
+    public FestivalEditViewModel(ShowService showService, FestivalService festivalService)
     {
         this.showService = showService;
+        this.festivalService = festivalService;
     }
 
     [ObservableProperty]
@@ -33,6 +35,7 @@ public partial class FestivalEditViewModel : BaseViewModel
         try
         {
             IsBusy = true;
+
             var shows = await showService.GetShows(festival.FestivalId);
 
             Shows.Clear();
@@ -53,4 +56,38 @@ public partial class FestivalEditViewModel : BaseViewModel
 
     }
 
+    [ICommand]
+    async Task UpdateFestivalAsync(Festival festival)
+    {
+        if (IsBusy)
+            return;
+
+        try
+        {
+            IsBusy = true;
+            await festivalService.UpdateFestival(festival);
+
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"Unable to update Festival: {ex.Message}");
+            await Application.Current.MainPage.DisplayAlert("Error!", ex.Message, "OK");
+        }
+        finally
+        {
+            IsBusy = false;
+            var route = $"{nameof(FestivalsPage)}";
+            await Shell.Current.GoToAsync(route);
+        }
+    }
+
+    [ICommand]
+    async Task AddShowPage()
+    {
+        var route = $"{nameof(ShowAddPage)}";
+        await Shell.Current.GoToAsync(route, true, new Dictionary<string, object>
+    {
+        {"Festival", festival }
+    });
+    }
 }

@@ -25,6 +25,7 @@ public static class MauiProgram
         builder.Services.AddSingleton<MovieService>();
         builder.Services.AddSingleton<LocationService>();
         builder.Services.AddSingleton<RoomService>();
+        builder.Services.AddSingleton<RoomReservationService>();
 
 
         builder.Services.AddSingleton<MainPage>();

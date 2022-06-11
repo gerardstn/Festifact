@@ -17,7 +17,7 @@
 
             </VerticalStackLayout>
 
-            <Button Text="Save Artist" 
+            <Button Text="Save Location" 
                 CommandParameter="{Binding Location}"
                 Command="{Binding AddLocationCommand}"
                 Grid.Row="2"

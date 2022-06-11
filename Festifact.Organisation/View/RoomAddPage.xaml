@@ -5,9 +5,18 @@
              xmlns:viewmodel="clr-namespace:Festifact.Organisation.ViewModel"
              x:DataType="viewmodel:RoomAddViewModel"
              Title="{Binding Title}">
-    <StackLayout>
-        <Label Text="Festifact add Room"
-                VerticalOptions="Center" 
-                HorizontalOptions="Center" />
-    </StackLayout>
+    <VerticalStackLayout>
+        <VerticalStackLayout Padding="10" Spacing="10">
+            <Label Text="Name:" Style="{StaticResource MediumLabel}"/>
+            <Entry Style="{StaticResource MediumLabel}" Text="{Binding Room.Name}" />
+
+
+        </VerticalStackLayout>
+        <Button Text="Save Room" 
+                CommandParameter="{Binding Room}"
+                Command="{Binding AddRoomCommand}"
+                Grid.Row="2"
+                Style="{StaticResource ButtonOutline}"
+                Margin="8"/>
+    </VerticalStackLayout>
 </ContentPage>

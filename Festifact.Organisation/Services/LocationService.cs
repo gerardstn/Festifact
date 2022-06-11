@@ -62,4 +62,25 @@ public class LocationService
             return location;
         }
     }
+
+    public async Task<Model.Location> UpdateLocation(Model.Location location)
+    {
+
+        var json = JsonConvert.SerializeObject(location);
+
+        var content =
+            new StringContent(json, Encoding.UTF8, "application/json");
+
+        var response = await client.PutAsync("/api/Location", content);
+
+        if (!response.IsSuccessStatusCode)
+        {
+            return location;
+        }
+        else
+        {
+            return location;
+        }
+    }
+
 }

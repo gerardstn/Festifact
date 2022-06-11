@@ -2,6 +2,7 @@
 
 namespace Festifact.Organisation.ViewModel;
 
+[QueryProperty(nameof(Location), (nameof(Location)))]
 [QueryProperty(nameof(Room), (nameof(Room)))]
 public partial class RoomAddViewModel : BaseViewModel
 {
@@ -16,6 +17,8 @@ public partial class RoomAddViewModel : BaseViewModel
     [ObservableProperty]
     Room room;
 
+    [ObservableProperty]
+    Model.Location location;
 
     [ICommand]
     async Task AddRoomAsync(Room room)
@@ -26,7 +29,7 @@ public partial class RoomAddViewModel : BaseViewModel
         try
         {
             IsBusy = true;
-            await roomService.AddRoom(room);
+            await roomService.AddRoom(room, location);
 
         }
         catch (Exception ex)
@@ -37,7 +40,7 @@ public partial class RoomAddViewModel : BaseViewModel
         finally
         {
             IsBusy = false;
-            var route = $"{nameof(FestivalEditPage)}";
+            var route = $"{nameof(LocationsPage)}";
             await Shell.Current.GoToAsync(route);
         }
     }

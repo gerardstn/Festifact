@@ -62,4 +62,23 @@ public class FestivalService
             return festival;
         }
     }
+    public async Task<Festival> UpdateFestival(Festival festival)
+    {
+
+        var json = JsonConvert.SerializeObject(festival);
+
+        var content =
+            new StringContent(json, Encoding.UTF8, "application/json");
+
+        var response = await client.PutAsync("/api/Festival", content);
+
+        if (!response.IsSuccessStatusCode)
+        {
+            return festival;
+        }
+        else
+        {
+            return festival;
+        }
+    }
 }

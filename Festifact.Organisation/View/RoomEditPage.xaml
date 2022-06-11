@@ -5,9 +5,21 @@
              xmlns:viewmodel="clr-namespace:Festifact.Organisation.ViewModel"
              x:DataType="viewmodel:RoomEditViewModel"
              Title="{Binding Title}">
-    <StackLayout>
-        <Label Text="Festifact Edit room"
-                VerticalOptions="Center" 
-                HorizontalOptions="Center" />
-    </StackLayout>
+    <ScrollView>
+        <VerticalStackLayout>
+            <VerticalStackLayout Padding="10" Spacing="10">
+                <Label Text="Name:" Style="{StaticResource MediumLabel}"/>
+                <Entry Style="{StaticResource MediumLabel}" Text="{Binding Room.Name}" />
+            </VerticalStackLayout>
+
+            <Button Text="Save changes" 
+                CommandParameter="{Binding Room}"
+                Command="{Binding UpdateRoomCommand}"
+                Grid.Row="3"
+                Style="{StaticResource ButtonOutline}"
+                Margin="8"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
+   

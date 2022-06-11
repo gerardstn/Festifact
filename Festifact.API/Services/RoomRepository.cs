@@ -93,5 +93,12 @@ namespace Festifact.API.Services
 
         }
 
+        IEnumerable<Room> IRoomRepository.GetLocationRooms(int locationId)
+        {
+            IEnumerable<Room> FiltredList = _roomList;
+            FiltredList = FiltredList.Where(room => room.LocationId.Equals(locationId));
+            return FiltredList;
+        }
+
     }
 }

@@ -23,7 +23,7 @@
                 <Entry  Text="{Binding Movie.Description}" Style="{StaticResource MediumLabel}" />
             </VerticalStackLayout>
 
-            <Button Text="Save Artist" 
+            <Button Text="Save Movie" 
                 CommandParameter="{Binding Movie}"
                 Command="{Binding AddMovieCommand}"
                 Grid.Row="2"

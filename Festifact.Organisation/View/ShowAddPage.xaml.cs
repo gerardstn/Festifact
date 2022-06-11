@@ -2,7 +2,7 @@ namespace Festifact.Organisation;
 
 public partial class ShowAddPage : ContentPage
 {
-	public ShowAddPage(ShowEditViewModel viewModel)
+	public ShowAddPage(ShowAddViewModel viewModel)
 	{
 		InitializeComponent();
         BindingContext = viewModel;

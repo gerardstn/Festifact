@@ -2,7 +2,12 @@
 
 namespace Festifact.Organisation.ViewModel;
 
+[QueryProperty(nameof(Festival), (nameof(Festival)))]
 [QueryProperty(nameof(Show), (nameof(Show)))]
+[QueryProperty(nameof(Artist), (nameof(Artist)))]
+[QueryProperty(nameof(Room), (nameof(Room)))]
+[QueryProperty(nameof(Movie), (nameof(Movie)))]
+
 public partial class ShowAddViewModel : BaseViewModel
 { 
     public ShowAddViewModel(ShowService showService)
@@ -16,6 +21,8 @@ public partial class ShowAddViewModel : BaseViewModel
     [ObservableProperty]
     Show show;
 
+    [ObservableProperty]
+    Festival festival;
 
     [ICommand]
     async Task AddShowAsync(Show show)
@@ -26,7 +33,7 @@ public partial class ShowAddViewModel : BaseViewModel
         try
         {
             IsBusy = true;
-            await showService.AddShow(show);
+            await showService.AddShow(show, festival);
 
         }
         catch (Exception ex)
@@ -37,10 +44,8 @@ public partial class ShowAddViewModel : BaseViewModel
         finally
         {
             IsBusy = false;
-            var route = $"{nameof(FestivalEditPage)}";
+            var route = $"{nameof(FestivalsPage)}";
             await Shell.Current.GoToAsync(route);
         }
     }
-
-
 }
