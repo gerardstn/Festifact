@@ -30,6 +30,12 @@ namespace Festifact.API.Controllers
             return Ok(_roomReservationRepository.All);
         }
 
+        [HttpGet("room/" + "{id}")]
+        public IActionResult FestivalRooms(int id)
+        {
+            return Ok(_roomReservationRepository.GetRoomReservations(id));
+        }
+
         [HttpPut]
         public IActionResult Edit([FromBody] RoomReservation roomReservation)
         {

@@ -12,6 +12,7 @@ namespace Festifact.API.Interfaces
         void Insert(RoomReservation roomReservation);
         void Update(RoomReservation roomReservation);
         void Delete(int roomReservationId);
-        
+        IEnumerable<RoomReservation> GetRoomReservations(int id);
+
     }
 }

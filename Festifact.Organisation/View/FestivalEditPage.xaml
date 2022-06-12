@@ -90,7 +90,6 @@
                                     Grid.Column="2"
                                     Padding="10"
                                     VerticalOptions="Center">
-                                            <Label Style="{StaticResource MediumLabel}" Text="{Binding Description}" />
                                             <Label Style="{StaticResource MediumLabel}" Text="{Binding StartDate}"/>
                                             <Label Style="{StaticResource MediumLabel}" Text="{Binding EndDate}" />
                                             <Label Style="{StaticResource MediumLabel}" Text="{Binding FestivalDay}"/>
@@ -111,6 +110,7 @@
 
             <Button Text="Save changes" 
                 Grid.Row="3"
+                CommandParameter="{Binding Festival}"
                 Command="{Binding UpdateFestivalCommand}"
                 Style="{StaticResource ButtonOutline}"
                 Margin="8"/>

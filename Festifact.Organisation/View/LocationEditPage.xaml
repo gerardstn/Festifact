@@ -55,6 +55,7 @@
 
         <Button Text="Save changes" 
                 Grid.Row="3"
+                CommandParameter="{Binding Location}"
                 Command="{Binding UpdateLocationCommand}"
                 Style="{StaticResource ButtonOutline}"
                 Margin="8"/>

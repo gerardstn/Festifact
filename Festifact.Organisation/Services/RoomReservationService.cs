@@ -30,10 +30,10 @@ public class RoomReservationService
 
 
     List<RoomReservation> roomReservationList = new();
-    public async Task<List<RoomReservation>> GetRoomReservations()
+    public async Task<List<RoomReservation>> GetRoomReservations(int RoomId)
     {
 
-        var response = await client.GetAsync("/api/roomReservation");
+        var response = await client.GetAsync("/api/roomReservation/room/"+ RoomId.ToString());
 
         if (response.IsSuccessStatusCode)
         {
@@ -42,6 +42,8 @@ public class RoomReservationService
 
         return roomReservationList;
     }
+
+
 
     Random random = new();
     public async Task<RoomReservation> AddRoomReservation(RoomReservation roomReservation)

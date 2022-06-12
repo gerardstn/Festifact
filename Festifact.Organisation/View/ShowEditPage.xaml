@@ -43,11 +43,9 @@
                 <Label Text="Image:" Style="{StaticResource MediumLabel}"/>
                 <Entry Style="{StaticResource MediumLabel}" Text="{Binding Show.Image}" />
                 <Label Text="StartDate:" Style="{StaticResource MediumLabel}"/>
-                <Entry Style="{StaticResource MediumLabel}" Text="{Binding Show.StartDate}" />
+                <DatePicker Style="{StaticResource MediumLabel}" MinimumDate="{Binding Festival.StartDate}" MaximumDate="{Binding Festival.EndDate}" Date="{Binding Show.StartDate}"/>
                 <Label Text="EndDate:" Style="{StaticResource MediumLabel}"/>
-                <Entry Style="{StaticResource MediumLabel}" Text="{Binding Show.EndDate}" />
-                <Label Text="FestivalId:" Style="{StaticResource MediumLabel}"/>
-                <Entry Style="{StaticResource MediumLabel}" Text="{Binding Show.FestivalId}" />
+                <DatePicker Style="{StaticResource MediumLabel}" MinimumDate="{Binding Festival.StartDate}" MaximumDate="{Binding Festival.EndDate}" Date="{Binding Show.EndDate}"/>
                 <Label Text="ArtistId:" Style="{StaticResource MediumLabel}"/>
                 <Entry Style="{StaticResource MediumLabel}" Text="{Binding Show.ArtistId}" />
                 <Label Text="MovieId:" Style="{StaticResource MediumLabel}"/>

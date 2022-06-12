@@ -2,6 +2,7 @@
 
 namespace Festifact.Organisation.ViewModel;
 
+[QueryProperty(nameof(Festival), (nameof(Festival)))]
 [QueryProperty(nameof(Show), (nameof(Show)))]
 public partial class ShowEditViewModel : BaseViewModel
 {
@@ -17,7 +18,8 @@ public partial class ShowEditViewModel : BaseViewModel
     [ObservableProperty]
     Show show;
 
-
+    [ObservableProperty]
+    Festival festival;
 
     [ICommand]
     async Task UpdateShowAsync(Show show)

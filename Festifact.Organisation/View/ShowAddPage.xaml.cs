@@ -22,5 +22,11 @@ public partial class ShowAddPage : ContentPage
 
         ((CollectionView)sender).SelectedItem = null;
     }
-
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+        var vm = (ShowAddViewModel)BindingContext;
+        if (vm.Artists.Count == 0)
+            await vm.GetExtraShowInformationCommand.ExecuteAsync(null);
+    }
 }

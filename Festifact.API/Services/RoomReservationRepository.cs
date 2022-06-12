@@ -82,6 +82,11 @@ namespace Festifact.API.Services
             _roomReservationList.Add(roomReservation2);
             _roomReservationList.Add(roomReservation3);
         }
-
+        IEnumerable<RoomReservation> IRoomReservationRepository.GetRoomReservations(int roomId)
+        {
+            IEnumerable<RoomReservation> FiltredList = _roomReservationList;
+            FiltredList = FiltredList.Where(room => room.RoomId.Equals(roomId));
+            return FiltredList;
+        }
     }
 }
