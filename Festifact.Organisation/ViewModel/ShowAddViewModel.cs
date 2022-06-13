@@ -1,4 +1,6 @@
 ﻿using Festifact.Organisation.Services;
+using CommunityToolkit.Maui.Alerts;
+using CommunityToolkit.Maui.Core;
 
 namespace Festifact.Organisation.ViewModel;
 
@@ -87,23 +89,27 @@ public partial class ShowAddViewModel : BaseViewModel
 
         var roomReservations = await roomReservationService.GetRoomReservations(roomReservation.RoomId);
             RoomReservations.Clear();
-            foreach (var reservation in roomReservations)
-                RoomReservations.Add(reservation);
-
-            if(roomReservations.Count == 0)
-            {
-                await roomReservationService.AddRoomReservation(roomReservation);
-            }else{
+            foreach (var reservation in roomReservations) { 
+                RoomReservations.Add(reservation);  
+            }
+             bool error = false;
+            
                 foreach (var existingRoomReservation in roomReservations) {
-                    if(existingRoomReservation.StartDateTime < roomReservation.StartDateTime && existingRoomReservation.StartDateTime <= roomReservation.EndDateTime || 
-                    existingRoomReservation.StartDateTime > roomReservation.StartDateTime && existingRoomReservation.StartDateTime >= roomReservation.EndDateTime)
+                    if(existingRoomReservation.StartDateTime > roomReservation.StartDateTime && existingRoomReservation.StartDateTime >= roomReservation.EndDateTime || 
+                    existingRoomReservation.StartDateTime < roomReservation.StartDateTime && existingRoomReservation.StartDateTime <= roomReservation.EndDateTime)
                     {
-                    await roomReservationService.AddRoomReservation(roomReservation);
+                    error = true;
+                    break;
                     }
                 }
-            }
-    }
 
+                if (error == false)
+                {
+                await roomReservationService.AddRoomReservation(roomReservation);
+                }
+            
+    }
+    
     [ICommand]
     async Task AddShowAsync(Show show)
     {
@@ -126,7 +132,16 @@ public partial class ShowAddViewModel : BaseViewModel
             show.MovieId = selectedMovie.MovieId;
             }
             await ShowReserveRoom(roomReservation);
-            show.RoomReservationId = roomReservation.RoomReservationId;
+
+            if(roomReservation == null)
+            {
+                Toast.Make("Unable to reserve the room.", ToastDuration.Short, 14);
+            }
+            else
+            {
+                show.RoomReservationId = roomReservation.RoomReservationId;
+            }
+            
 
             await showService.AddShow(show, festival);
         }

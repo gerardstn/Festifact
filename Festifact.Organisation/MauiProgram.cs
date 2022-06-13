@@ -1,4 +1,5 @@
-﻿using Festifact.Organisation.Services;
+﻿using CommunityToolkit.Maui;
+using Festifact.Organisation.Services;
 using Festifact.Organisation.View;
 using Microsoft.Extensions.Configuration;
 
@@ -16,6 +17,7 @@ public static class MauiProgram
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             });
+        builder.UseMauiApp<App>().UseMauiCommunityToolkit();
 
         builder.Configuration.AddJsonFile("AppSettings.json");
 

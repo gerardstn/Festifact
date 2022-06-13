@@ -63,7 +63,7 @@ public class RoomReservationService
         }
         else
         {
-            return roomReservation;
+            return null;
         }
     }
 }
