@@ -1,6 +1,7 @@
 ﻿using Festifact.Organisation.Services;
 using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
+using Festifact.Organisation.View;
 
 namespace Festifact.Organisation.ViewModel;
 
@@ -80,36 +81,45 @@ public partial class ShowAddViewModel : BaseViewModel
     [ObservableProperty]
     public TimeSpan endTime;
 
-    async Task ShowReserveRoom(RoomReservation roomReservation)
-        {
+    async Task<bool> ShowReserveRoom(RoomReservation roomReservation)
+    {
         roomReservation.RoomId = 1;
 
         roomReservation.StartDateTime = show.StartDate.Add(startTime);
         roomReservation.EndDateTime = show.EndDate.Add(endTime);
 
         var roomReservations = await roomReservationService.GetRoomReservations(roomReservation.RoomId);
-            RoomReservations.Clear();
-            foreach (var reservation in roomReservations) { 
-                RoomReservations.Add(reservation);  
-            }
-             bool error = false;
-            
-                foreach (var existingRoomReservation in roomReservations) {
-                    if(existingRoomReservation.StartDateTime > roomReservation.StartDateTime && existingRoomReservation.StartDateTime >= roomReservation.EndDateTime || 
-                    existingRoomReservation.StartDateTime < roomReservation.StartDateTime && existingRoomReservation.StartDateTime <= roomReservation.EndDateTime)
-                    {
-                    error = true;
-                    break;
-                    }
-                }
+        RoomReservations.Clear();
+        foreach (var reservation in roomReservations)
+        {
+            RoomReservations.Add(reservation);
+        }
 
-                if (error == false)
-                {
-                await roomReservationService.AddRoomReservation(roomReservation);
-                }
-            
+        bool error = false;
+
+        foreach (var existingRoomReservation in roomReservations)
+        {
+
+            if ((existingRoomReservation.StartDateTime <= roomReservation.StartDateTime) && (roomReservation.EndDateTime <= existingRoomReservation.EndDateTime))
+            {
+                error = true;
+                break;
+            }
+        }
+        if (error == false)
+            {
+            await Application.Current.MainPage.DisplayAlert("Alert", "Reserving the room.", "OK");
+            await roomReservationService.AddRoomReservation(roomReservation);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+        
     }
-    
+
     [ICommand]
     async Task AddShowAsync(Show show)
     {
@@ -119,31 +129,38 @@ public partial class ShowAddViewModel : BaseViewModel
         try
         {
             IsBusy = true;
-            
+
             if (selectedMovie == null && selectedArtist == null)
             {
+                await Application.Current.MainPage.DisplayAlert("Alert", "No artist or movie selected, try again.", "OK");
+                IsBusy = false;
                 return;
-            }else if (selectedMovie == null)
-            {
-            show.MovieId = 0;
-            show.ArtistId = selectedArtist.ArtistId;
-            }else if (selectedArtist == null) { 
-            show.ArtistId = 0;
-            show.MovieId = selectedMovie.MovieId;
             }
-            await ShowReserveRoom(roomReservation);
-
-            if(roomReservation == null)
+            else if (selectedMovie == null)
             {
-                Toast.Make("Unable to reserve the room.", ToastDuration.Short, 14);
+                show.MovieId = 0;
+                show.ArtistId = selectedArtist.ArtistId;
+            }
+            else if (selectedArtist == null)
+            {
+                show.ArtistId = 0;
+                show.MovieId = selectedMovie.MovieId;
+            }
+            var succesfullReservation = await ShowReserveRoom(roomReservation);
+
+            if (!succesfullReservation)
+            {
+                await Application.Current.MainPage.DisplayAlert("Alert", "Unable to reserve the room.", "OK");
+
             }
             else
             {
+                show.StartDate = roomReservation.StartDateTime;
+                show.EndDate = roomReservation.EndDateTime;
                 show.RoomReservationId = roomReservation.RoomReservationId;
+                await showService.AddShow(show, festival);
             }
-            
 
-            await showService.AddShow(show, festival);
         }
         catch (Exception ex)
         {
@@ -157,7 +174,6 @@ public partial class ShowAddViewModel : BaseViewModel
             await Shell.Current.GoToAsync(route);
         }
     }
-
 
     [ICommand]
     async Task GetExtraShowInformation()

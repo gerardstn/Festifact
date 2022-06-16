@@ -28,5 +28,6 @@ public partial class ShowAddPage : ContentPage
         var vm = (ShowAddViewModel)BindingContext;
         if (vm.Artists.Count == 0)
             await vm.GetExtraShowInformationCommand.ExecuteAsync(null);
+
     }
 }
