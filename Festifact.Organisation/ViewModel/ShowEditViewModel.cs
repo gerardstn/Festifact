@@ -11,14 +11,12 @@ namespace Festifact.Organisation.ViewModel;
 [QueryProperty(nameof(RoomReservation), (nameof(RoomReservation)))]
 public partial class ShowEditViewModel : BaseViewModel
 {
-
     public ObservableCollection<Artist> Artists { get; set; } = new();
     public ObservableCollection<Model.Location> Locations { get; set; } = new();
     public ObservableCollection<Movie> Movies { get; set; } = new();
     public ObservableCollection<Room> Rooms { get; set; } = new();
     public ObservableCollection<RoomReservation> RoomReservations { get; set; } = new();
     public ObservableCollection<Show> Shows { get; set; } = new();
-
 
 
     public ShowEditViewModel(ShowService showService, ArtistService artistService, LocationService locationService, RoomService roomService, MovieService movieService, RoomReservationService roomReservationService)

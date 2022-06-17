@@ -1,28 +1,15 @@
-﻿using Microsoft.Extensions.Configuration;
-using System.Net.Http.Json;
+﻿using System.Net.Http.Json;
 
 
 namespace Festifact.Visitor.Services;
 
-    public class FestivalService
+    public class VisitorService
     {
-    private IConfiguration Configuration { get; }
-    static HttpClient client;
 
-    public FestivalService(IConfiguration configuration)
+    HttpClient httpClient;
+    public VisitorService()
     {
-        try
-        {
-            client = new HttpClient
-            {
-                BaseAddress = new Uri(configuration["Api:BaseUrl"])
-            };
-        }
-        catch
-        {
-
-        }
-        Configuration = configuration;
+        this.httpClient = new HttpClient();
     }
 
     List<Festival> festivalList = new();
@@ -31,7 +18,7 @@ namespace Festifact.Visitor.Services;
         if (festivalList?.Count > 0)
             return festivalList;
 
-        var response = await client.GetAsync("/api/festival");
+        var response = await httpClient.GetAsync("https://festifactapi20220423103103.azurewebsites.net/api/festival");
 
         if (response.IsSuccessStatusCode)
         {
@@ -44,7 +31,7 @@ namespace Festifact.Visitor.Services;
     List<Festival> festivalSearchResult = new();
     public async Task<List<Festival>> SearchFestivals(string Type, string Genre, string Age, string Location, DateTime Date)
     {
-        var response = await client.GetAsync("/api/festival/search?Type="+Type+"&Genre="+Genre+"&Age="+Age+"&Location="+Location+"&Date="+Date.Year+"-"+Date.Month+"-"+Date.Day+"");
+        var response = await httpClient.GetAsync("https://festifactapi20220423103103.azurewebsites.net/api/festival/search?Type="+Type+"&Genre="+Genre+"&Age="+Age+"&Location="+Location+"&Date="+Date.Year+"-"+Date.Month+"-"+Date.Day+"");
 
         if (response.IsSuccessStatusCode)
         {

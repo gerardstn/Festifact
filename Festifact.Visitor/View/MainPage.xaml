@@ -76,7 +76,6 @@
                 Style="{StaticResource ButtonOutline}"
                 Margin="8"/>
 
-        <!-- Add this -->
         <ActivityIndicator IsVisible="{Binding IsBusy}"
                            IsRunning="{Binding IsBusy}"
                            HorizontalOptions="FillAndExpand"

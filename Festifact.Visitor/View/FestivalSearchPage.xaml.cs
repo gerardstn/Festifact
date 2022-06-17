@@ -1,8 +1,8 @@
 namespace Festifact.Visitor;
 
-public partial class SearchPage : ContentPage
+public partial class FestivalSearchPage : ContentPage
 {
-	public SearchPage(FestivalsSearchViewModel viewModel)
+	public FestivalSearchPage(FestivalsSearchViewModel viewModel)
 	{
 		InitializeComponent();
 		BindingContext = viewModel;
@@ -13,7 +13,7 @@ public partial class SearchPage : ContentPage
 		if (festival == null)
 			return;
 
-		await Shell.Current.GoToAsync(nameof(DetailsPage), true, new Dictionary<string, object>
+		await Shell.Current.GoToAsync(nameof(FestivalDetailsPage), true, new Dictionary<string, object>
 	{
 		{"Festival", festival }
 	});

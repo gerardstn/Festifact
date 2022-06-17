@@ -47,7 +47,7 @@ namespace Festifact.Visitor.ViewModel;
     [ICommand]
     async Task SearchFestivals()
     {
-        var route = $"{nameof(SearchPage)}";
+        var route = $"{nameof(FestivalSearchPage)}";
         await Shell.Current.GoToAsync(route);
     }
 

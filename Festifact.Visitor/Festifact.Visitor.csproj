@@ -52,15 +52,32 @@
 
 	<ItemGroup>
 	  <PackageReference Include="CommunityToolkit.Mvvm" Version="7.1.2" />
+	  <PackageReference Include="MailKit" Version="3.3.0" />
+	  <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="View\DetailsPage.xaml">
+	  <Compile Update="View\FestivalDetailsPage.xaml.cs">
+	    <DependentUpon>FestivalDetailsPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="View\FestivalSearchPage.xaml.cs">
+	    <DependentUpon>FestivalSearchPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="View\FestivalDetailsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="View\SearchPage.xaml">
+	  <MauiXaml Update="View\FestivalSearchPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="AppSettings.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
 	</ItemGroup>
 
 </Project>

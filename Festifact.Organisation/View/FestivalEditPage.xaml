@@ -60,7 +60,6 @@
                 <Label Text="Shows:" Style="{StaticResource LargeLabel}"/>
             </VerticalStackLayout>
             <CollectionView 
-
                 ItemsSource="{Binding Shows}"
                 SelectionChanged="CollectionView_SelectionChanged"
                 SelectionMode="Single">

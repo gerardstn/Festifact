@@ -14,7 +14,7 @@ public partial class MainPage : ContentPage
 		if (festival == null)
 			return;
 
-		await Shell.Current.GoToAsync(nameof(DetailsPage), true, new Dictionary<string, object>
+		await Shell.Current.GoToAsync(nameof(FestivalDetailsPage), true, new Dictionary<string, object>
 	{
 		{"Festival", festival }
 	});

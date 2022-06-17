@@ -2,7 +2,7 @@ using Festifact.Visitor.Services;
 
 namespace Festifact.Visitor.ViewModel;
 
-[QueryProperty(nameof(Festival), "Festival")]
+[QueryProperty(nameof(Festival), (nameof(Festival)))]
 public partial class FestivalsSearchViewModel : BaseViewModel, INotifyPropertyChanged
 {
 
@@ -22,6 +22,7 @@ public partial class FestivalsSearchViewModel : BaseViewModel, INotifyPropertyCh
             OnPropertyChanged(nameof(Genre));
         } 
     }
+    
     public string Age { 
         get => age; 
         set { 
