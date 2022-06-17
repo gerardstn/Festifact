@@ -46,8 +46,6 @@ public class ArtistService
     {
 
         artist.ArtistId = random.Next(10, 10000);
-        
-
         var json = JsonConvert.SerializeObject(artist);
 
         var content = 

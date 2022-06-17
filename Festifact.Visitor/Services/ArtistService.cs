@@ -1,42 +1,42 @@
-﻿using System.Net.Http.Json;
+﻿using Microsoft.Extensions.Configuration;
+using System.Net.Http.Json;
 
 
 namespace Festifact.Visitor.Services;
 
-    public class ArtistService
-    {
+public class ArtistService
+{
+    private IConfiguration Configuration { get; }
+    static HttpClient client;
 
-    HttpClient httpClient;
-    public ArtistService()
+    public ArtistService(IConfiguration configuration)
     {
-        this.httpClient = new HttpClient();
+        try
+        {
+            client = new HttpClient
+            {
+                BaseAddress = new Uri(configuration["Api:BaseUrl"])
+            };
+        }
+        catch
+        {
+
+        }
+        Configuration = configuration;
     }
 
-    List<Festival> festivalList = new();
-    public async Task<List<Festival>> GetFestivals()
+    Artist artist= new();
+    public async Task<Artist> GetShowArtist(int showId)
     {
-        if (festivalList?.Count > 0)
-            return festivalList;
 
-        var response = await httpClient.GetAsync("https://festifactapi20220423103103.azurewebsites.net/api/festival");
+        var response = await client.GetAsync("/api/artist/show/" + showId.ToString());
 
         if (response.IsSuccessStatusCode)
         {
-            festivalList = await response.Content.ReadFromJsonAsync<List<Festival>>();
+            artist = await response.Content.ReadFromJsonAsync<Artist>();
         }
 
-        return festivalList;
-    }
-
-    List<Festival> festivalSearchResult = new();
-    public async Task<List<Festival>> SearchFestivals(string Type, string Genre, string Age, string Location, DateTime Date)
-    {
-        var response = await httpClient.GetAsync("https://festifactapi20220423103103.azurewebsites.net/api/festival/search?Type="+Type+"&Genre="+Genre+"&Age="+Age+"&Location="+Location+"&Date="+Date.Year+"-"+Date.Month+"-"+Date.Day+"");
-
-        if (response.IsSuccessStatusCode)
-        {
-            festivalSearchResult = await response.Content.ReadFromJsonAsync<List<Festival>>();
-        }
-        return festivalSearchResult;
+        return artist;
     }
 }
+

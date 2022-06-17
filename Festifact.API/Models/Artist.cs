@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Festifact.API.Models
-{
+namespace Festifact.API.Models;
+
     public class Artist
     {
         [Required]
@@ -13,4 +13,4 @@ namespace Festifact.API.Models
         public string CountryOrigin { get; set; }
         public string Type { get; set; }
     }
-}
+

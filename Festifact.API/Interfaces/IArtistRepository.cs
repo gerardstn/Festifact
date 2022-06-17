@@ -12,6 +12,5 @@ namespace Festifact.API.Interfaces
         void Insert(Artist arist);
         void Update(Artist arist);
         void Delete(int aristId);
-        
     }
 }

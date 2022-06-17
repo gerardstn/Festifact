@@ -14,8 +14,10 @@ public partial class FestivalDetailsPage : ContentPage
         if (show == null)
             return;
 
-        await Shell.Current.GoToAsync(nameof(FestivalSearchPage));
- 
+        await Shell.Current.GoToAsync(nameof(ShowPage), true, new Dictionary<string, object>
+    {
+        {"Show", show }
+    });
 
         ((CollectionView)sender).SelectedItem = null;
     }

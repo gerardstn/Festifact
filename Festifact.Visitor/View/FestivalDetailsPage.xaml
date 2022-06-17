@@ -38,7 +38,7 @@
             </Grid>
 
             <VerticalStackLayout Padding="10" Spacing="10">
-                <Button Text="Buy Ticket" Style="{StaticResource ButtonOutline}" />
+                <Button Text="Buy Ticket" Style="{StaticResource ButtonOutline}" Command="{Binding BuyTicketPageCommand}" CommandParameter="{Binding Festival}" />
 
                 <Label Style="{StaticResource MediumLabel}" Text="{Binding Festival.TicketsAvailable, StringFormat='Tickets available: {0}'}" />
                 <Label Style="{StaticResource MediumLabel}" Text="{Binding Festival.Description, StringFormat='Description: {0}'}" />

@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Festifact.API.Models
-{
+namespace Festifact.API.Models;
+
     public class Movie
     {
         [Required]
@@ -13,4 +13,4 @@ namespace Festifact.API.Models
         public DateTime ReleaseYear { get; set; }
         public string CountryOrigin { get; set; }
     }
-}
+

@@ -18,18 +18,30 @@ public static class MauiProgram
 			});
         builder.Configuration.AddJsonFile("AppSettings.json");
 
-        builder.Services.AddSingleton<MainPage>();
 		builder.Services.AddSingleton<FestivalService>();
 		builder.Services.AddSingleton<ShowService>();
+		builder.Services.AddSingleton<TicketService>();
+		builder.Services.AddSingleton<VisitorService>();
+		builder.Services.AddSingleton<ArtistService>();
 
+        builder.Services.AddSingleton<MainPage>();
         builder.Services.AddSingleton<FestivalsViewModel>();
 
 		builder.Services.AddTransient<FestivalsSearchViewModel>();
-		builder.Services.AddTransient<FestivalSearchPage>(); 
+		builder.Services.AddTransient<FestivalSearchPage>();
 
-		builder.Services.AddTransient<FestivalDetailsViewModel>();
-		builder.Services.AddTransient<FestivalDetailsPage>();
+        builder.Services.AddTransient<FestivalDetailsViewModel>();
+        builder.Services.AddTransient<FestivalDetailsPage>();
 
-		return builder.Build();
+        builder.Services.AddTransient<FestivalTicketViewModel>();
+        builder.Services.AddTransient<FestivalTicketPage>();
+
+        builder.Services.AddTransient<ShowViewModel>();
+        builder.Services.AddTransient<ShowPage>();
+
+        builder.Services.AddTransient<ArtistViewModel>();
+        builder.Services.AddTransient<ArtistPage>();
+
+        return builder.Build();
 	}
 }

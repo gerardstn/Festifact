@@ -1,5 +1,6 @@
 ﻿using Festifact.API.Interfaces;
 using Festifact.API.Models;
+using Festifact.API.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Festifact.API.Controllers
@@ -23,6 +24,13 @@ namespace Festifact.API.Controllers
             CouldNotUpdateArtist,
             CouldNotDeleteArtist
         }
+
+        [HttpGet("show/" + "{id}")]
+        public IActionResult ShowArtistGet(int id)
+        {
+            return Ok(_artistRepository.Find(id));
+        }
+
 
         [HttpGet]
         public IActionResult List()

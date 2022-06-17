@@ -1,5 +1,5 @@
-﻿namespace Festifact.API.Models
-{
+﻿namespace Festifact.API.Models;
+
     public class Rating
     {
         public int RatingId { get; set; }
@@ -8,4 +8,4 @@
         public int ShowId { get; set; }
         public int VisitorId { get; set; }
     }
-}
+

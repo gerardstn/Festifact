@@ -1,5 +1,5 @@
-﻿namespace Festifact.API.Models
-{
+﻿namespace Festifact.API.Models;
+
     public class Visitor
     {
         public int VisitorId { get; set; }
@@ -14,4 +14,4 @@
         public string Mobile { get; set; }
 
     }
-}
+

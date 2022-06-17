@@ -1,4 +1,4 @@
-﻿namespace Festifact.API.Models;
+﻿namespace Festifact.Visitor.Model;
 public class Favorite
 {
     public int FavoriteId { get; set; }

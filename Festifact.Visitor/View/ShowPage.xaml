@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Festifact.Visitor.ShowPage"
+             xmlns:model="clr-namespace:Festifact.Visitor.Model"
+             xmlns:viewmodel="clr-namespace:Festifact.Visitor.ViewModel"
+             x:DataType="viewmodel:ShowViewModel"
+             Title="{Binding Show.Name}">
+
+    <ScrollView>
+        <VerticalStackLayout>
+            <Grid ColumnDefinitions="*,Auto,*" RowDefinitions="160, Auto">
+
+                <BoxView
+    Grid.ColumnSpan="3"
+    Background="{StaticResource Primary}"
+    HeightRequest="160"
+    HorizontalOptions="FillAndExpand" />
+                <Frame
+    Grid.RowSpan="2"
+    Grid.Column="1"
+    Margin="0,80,0,0"
+    HeightRequest="160"
+    WidthRequest="160"
+    HorizontalOptions="Center" 
+    Padding="0"
+    IsClippedToBounds="True"
+    CornerRadius="80">
+                    <Image
+        Aspect="AspectFill"
+        HeightRequest="160"
+        HorizontalOptions="Center"
+        VerticalOptions="Center"
+        Source="{Binding Show.Image}"
+        WidthRequest="160"/>
+                </Frame>
+            </Grid>
+
+            <VerticalStackLayout Padding="10" Spacing="10">
+                <Label Style="{StaticResource MediumLabel}" Text="{Binding Show.Description, StringFormat='Description: {0}'}" />
+                <Label Style="{StaticResource MediumLabel}" Text="{Binding Show.StartDate, StringFormat='Start: {0}'}" />
+                <Label Style="{StaticResource MediumLabel}" Text="{Binding Show.EndDate.TimeOfDay, StringFormat='End: {0}'}" />
+                <Label Style="{StaticResource MediumLabel}" Text="{Binding Artist.Name, StringFormat='Artist: {0}'}" />
+                <Button Text="Go to artist" Style="{StaticResource ButtonOutline}" CommandParameter="{Binding Artist}"/>
+
+                <Button Text="Add Show to favorites" Style="{StaticResource ButtonOutline}" />
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+</ContentPage>

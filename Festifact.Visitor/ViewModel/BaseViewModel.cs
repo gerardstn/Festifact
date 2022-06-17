@@ -11,7 +11,6 @@ public partial class BaseViewModel : ObservableObject
 
     [ObservableProperty]
     string login;
-
     public bool IsNotBusy => !IsBusy;
 
 }

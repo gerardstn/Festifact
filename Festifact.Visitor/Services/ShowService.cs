@@ -6,7 +6,6 @@ namespace Festifact.Visitor.Services;
 
     public class ShowService
     {
-
     private IConfiguration Configuration { get; }
     static HttpClient client;
 
@@ -30,7 +29,7 @@ namespace Festifact.Visitor.Services;
     public async Task<List<Show>> GetShows(int FestivalId)
     {
 
-        var response = await client.GetAsync("/api/show/festival/" + FestivalId.ToString() + "");
+        var response = await client.GetAsync("/api/show/festival/" + FestivalId.ToString());
 
         if (response.IsSuccessStatusCode)
         {

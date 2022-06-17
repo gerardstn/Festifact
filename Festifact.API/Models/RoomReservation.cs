@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Festifact.API.Models
-{
+namespace Festifact.API.Models;
+
     public class RoomReservation
     {
         public int RoomReservationId { get; set; }
@@ -11,4 +11,4 @@ namespace Festifact.API.Models
         public DateTime EndDateTime { get; set; }
 
     }
-}
+

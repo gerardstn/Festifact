@@ -108,4 +108,11 @@ public partial class FestivalDetailsViewModel : BaseViewModel
         }
 
     }
+
+    [ICommand]
+    async Task BuyTicketPage()
+    {
+        var route = $"{nameof(FestivalTicketPage)}";
+        await Shell.Current.GoToAsync(route);
+    }
 }
