@@ -42,16 +42,29 @@
                 <Entry Style="{StaticResource MediumLabel}" Text="{Binding Show.Description}" />
                 <Label Text="Image:" Style="{StaticResource MediumLabel}"/>
                 <Entry Style="{StaticResource MediumLabel}" Text="{Binding Show.Image}" />
-                <Label Text="StartDate:" Style="{StaticResource MediumLabel}"/>
-                <DatePicker Style="{StaticResource MediumLabel}" MinimumDate="{Binding Festival.StartDate}" MaximumDate="{Binding Festival.EndDate}" Date="{Binding Show.StartDate}"/>
-                <Label Text="EndDate:" Style="{StaticResource MediumLabel}"/>
-                <DatePicker Style="{StaticResource MediumLabel}" MinimumDate="{Binding Festival.StartDate}" MaximumDate="{Binding Festival.EndDate}" Date="{Binding Show.EndDate}"/>
-                <Label Text="ArtistId:" Style="{StaticResource MediumLabel}"/>
-                <Entry Style="{StaticResource MediumLabel}" Text="{Binding Show.ArtistId}" />
-                <Label Text="MovieId:" Style="{StaticResource MediumLabel}"/>
-                <Entry Style="{StaticResource MediumLabel}" Text="{Binding Show.MovieId}" />
-                <Label Text="RoomReservationId:" Style="{StaticResource MediumLabel}"/>
-                <Entry Style="{StaticResource MediumLabel}" Text="{Binding Show.RoomReservationId}" />
+                <Label Text="Start Date:" Style="{StaticResource MediumLabel}"/>
+                <DatePicker Style="{StaticResource MediumLabel}"  MinimumDate="{Binding Festival.StartDate}" MaximumDate="{Binding Festival.EndDate}"  Date="{Binding Show.StartDate}" />
+
+                <Label Text="Start Time:" Style="{StaticResource MediumLabel}"/>
+                <TimePicker Style="{StaticResource MediumLabel}"  Time="{Binding StartTime}" />
+
+                <Label Text="End Date:" Style="{StaticResource MediumLabel}"/>
+                <DatePicker Style="{StaticResource MediumLabel}"  MinimumDate="{Binding Festival.StartDate}" MaximumDate="{Binding Festival.EndDate}" Date="{Binding Show.EndDate}" />
+
+                <Label Text="End Time:" Style="{StaticResource MediumLabel}"/>
+                <TimePicker Style="{StaticResource MediumLabel}" Time="{Binding EndTime}" />
+                <Label Text="Artist (leave empty if not relevant):" Style="{StaticResource MediumLabel}"/>
+                <Picker Style="{StaticResource MediumLabel}" ItemsSource="{Binding Artists}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedArtist}"/>
+                <Label Text="Movie (leave empty if not relevant):" Style="{StaticResource MediumLabel}"/>
+                <Picker Style="{StaticResource MediumLabel}" ItemsSource="{Binding Movies}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedMovie}"/>
+                <Label Text="Location:" Style="{StaticResource MediumLabel}"/>
+                <Picker Style="{StaticResource MediumLabel}" ItemsSource="{Binding Locations}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedLocation}"/>
+                <Button Text="Get rooms associated with this location"
+                   Command="{Binding GetLocationRoomsCommand}"
+                    Style="{StaticResource ButtonOutline}"
+                    Margin="8"/>
+                <Label Text="Room / Space:" Style="{StaticResource MediumLabel}"/>
+                <Picker Style="{StaticResource MediumLabel}" ItemsSource="{Binding Rooms}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedRoom}"/>
                 <Label Text="FestivalDay:" Style="{StaticResource MediumLabel}"/>
                 <Entry Style="{StaticResource MediumLabel}" Text="{Binding Show.FestivalDay}" />
             </VerticalStackLayout>
@@ -62,8 +75,13 @@
                 Grid.Row="3"
                 Style="{StaticResource ButtonOutline}"
                 Margin="8"/>
+            <Button Text="Get info / Reset values" 
+                Command="{Binding GetExtraShowInformationCommand}"
+                Grid.Row="2"
+                Style="{StaticResource ButtonOutline}"
+                Margin="8"/>
 
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
-   
+    

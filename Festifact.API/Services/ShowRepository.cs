@@ -108,5 +108,12 @@ namespace Festifact.API.Services
             FiltredList = FiltredList.Where(show => show.FestivalId.Equals(festivalId));
             return FiltredList;
         }
+
+        IEnumerable<Show> IShowRepository.GetArtistShows(int artistId)
+        {
+            IEnumerable<Show> FiltredList = _showList;
+            FiltredList = FiltredList.Where(show => show.ArtistId.Equals(artistId));
+            return FiltredList;
+        }
     }
 }

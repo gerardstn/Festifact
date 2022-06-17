@@ -33,7 +33,7 @@ public class RoomService
     public async Task<List<Room>> GetRooms(int LocationId)
     {
 
-        var response = await client.GetAsync("/api/room/location/" + LocationId.ToString() + "");
+        var response = await client.GetAsync("/api/room/location/" + LocationId.ToString());
 
         if (response.IsSuccessStatusCode)
         {

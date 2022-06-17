@@ -44,6 +44,20 @@ public class RoomReservationService
     }
 
 
+    public async Task<bool> DeleteRoomReservations(int reservationId)
+    {
+
+        var response = await client.DeleteAsync("/api/roomReservation/" + reservationId.ToString());
+
+        if (response.IsSuccessStatusCode)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+
 
     Random random = new();
     public async Task<RoomReservation> AddRoomReservation(RoomReservation roomReservation)

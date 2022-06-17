@@ -32,12 +32,15 @@
             <Picker Style="{StaticResource MediumLabel}" ItemsSource="{Binding Movies}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedMovie}"/>
             <Label Text="Location:" Style="{StaticResource MediumLabel}"/>
             <Picker Style="{StaticResource MediumLabel}" ItemsSource="{Binding Locations}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedLocation}"/>
+            <Button Text="Get rooms associated with this location"
+                   Command="{Binding GetLocationRoomsCommand}"
+                    Style="{StaticResource ButtonOutline}"
+                    Margin="8"/>
             <Label Text="Room / Space:" Style="{StaticResource MediumLabel}"/>
             <Picker Style="{StaticResource MediumLabel}" ItemsSource="{Binding Rooms}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedRoom}"/>
             <Label Text="FestivalDay:" Style="{StaticResource MediumLabel}"/>
             <Entry Style="{StaticResource MediumLabel}" Text="{Binding Show.FestivalDay}" />
-
-
+            
         </VerticalStackLayout>
         <Button Text="Save Show" 
                 CommandParameter="{Binding Show}"
@@ -45,7 +48,7 @@
                 Grid.Row="2"
                 Style="{StaticResource ButtonOutline}"
                 Margin="8"/>
-        <Button Text="Get info" 
+        <Button Text="Get info / Reset values" 
                 Command="{Binding GetExtraShowInformationCommand}"
                 Grid.Row="2"
                 Style="{StaticResource ButtonOutline}"

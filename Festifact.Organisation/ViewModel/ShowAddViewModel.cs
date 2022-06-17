@@ -21,6 +21,8 @@ public partial class ShowAddViewModel : BaseViewModel
     public ObservableCollection<Movie> Movies { get; set; } = new();
     public ObservableCollection<Room> Rooms { get; set; } = new();
     public ObservableCollection<RoomReservation> RoomReservations { get; set; } = new();
+    public ObservableCollection<Show> Shows { get; set; } = new();
+
 
 
     public ShowAddViewModel(ShowService showService, ArtistService artistService, LocationService locationService, RoomService roomService, MovieService movieService, RoomReservationService roomReservationService)
@@ -84,9 +86,8 @@ public partial class ShowAddViewModel : BaseViewModel
     async Task<bool> ShowReserveRoom(RoomReservation roomReservation)
     {
         roomReservation.RoomId = 1;
-
-        roomReservation.StartDateTime = show.StartDate.Add(startTime);
-        roomReservation.EndDateTime = show.EndDate.Add(endTime);
+        roomReservation.StartDateTime = show.StartDate;
+        roomReservation.EndDateTime = show.EndDate;
 
         var roomReservations = await roomReservationService.GetRoomReservations(roomReservation.RoomId);
         RoomReservations.Clear();
@@ -99,15 +100,15 @@ public partial class ShowAddViewModel : BaseViewModel
 
         foreach (var existingRoomReservation in roomReservations)
         {
-
-            if ((existingRoomReservation.StartDateTime <= roomReservation.StartDateTime) && (roomReservation.EndDateTime <= existingRoomReservation.EndDateTime))
+            if (existingRoomReservation.StartDateTime.CompareTo(show.EndDate) <= 0 &&
+                existingRoomReservation.EndDateTime.CompareTo(show.StartDate) >= 0)
             {
                 error = true;
                 break;
             }
         }
         if (error == false)
-            {
+        {
             await Application.Current.MainPage.DisplayAlert("Alert", "Reserving the room.", "OK");
             await roomReservationService.AddRoomReservation(roomReservation);
             return true;
@@ -117,7 +118,6 @@ public partial class ShowAddViewModel : BaseViewModel
             return false;
         }
 
-        
     }
 
     [ICommand]
@@ -128,6 +128,8 @@ public partial class ShowAddViewModel : BaseViewModel
 
         try
         {
+            show.StartDate = show.StartDate.Add(startTime);
+            show.EndDate = show.EndDate.Add(endTime);
             IsBusy = true;
 
             if (selectedMovie == null && selectedArtist == null)
@@ -140,23 +142,27 @@ public partial class ShowAddViewModel : BaseViewModel
             {
                 show.MovieId = 0;
                 show.ArtistId = selectedArtist.ArtistId;
+
+                if (await ArtistAvailable(show) == false)
+                {
+                    await Application.Current.MainPage.DisplayAlert("Alert", "The selected artist is not available at that time.", "OK");
+                }
+
             }
             else if (selectedArtist == null)
             {
                 show.ArtistId = 0;
                 show.MovieId = selectedMovie.MovieId;
             }
-            var succesfullReservation = await ShowReserveRoom(roomReservation);
 
-            if (!succesfullReservation)
+            if (!await ShowReserveRoom(roomReservation))
             {
-                await Application.Current.MainPage.DisplayAlert("Alert", "Unable to reserve the room.", "OK");
+                await Application.Current.MainPage.DisplayAlert("Alert", "Unable to reserve the room at that time.", "OK");
 
             }
             else
             {
-                show.StartDate = roomReservation.StartDateTime;
-                show.EndDate = roomReservation.EndDateTime;
+
                 show.RoomReservationId = roomReservation.RoomReservationId;
                 await showService.AddShow(show, festival);
             }
@@ -174,6 +180,69 @@ public partial class ShowAddViewModel : BaseViewModel
             await Shell.Current.GoToAsync(route);
         }
     }
+
+    async Task<bool> ArtistAvailable(Show show)
+    {
+
+        var shows = await showService.GetArtistShowsSpecific(show);
+        Shows.Clear();
+        foreach (var existingShow in shows)
+        {
+            Shows.Add(existingShow);
+        }
+
+        bool error = false;
+
+        foreach (var existingShow in shows)
+        {
+            if (existingShow.StartDate.CompareTo(show.EndDate) <= 0 &&
+                existingShow.EndDate.CompareTo(show.StartDate) >= 0 )
+            {
+                error = true;
+                break;
+
+            }
+        }
+        if (error == false)
+        {
+            await Application.Current.MainPage.DisplayAlert("Alert", "Artist is available", "OK");
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    [ICommand]
+    async Task GetLocationRooms()
+    {
+        if (IsBusy)
+            return;
+
+        try
+        {
+            IsBusy = true;
+            int locationId = selectedLocation.LocationId;
+
+            var rooms = await roomService.GetRooms(locationId);
+
+            Rooms.Clear();
+            foreach (var room in rooms)
+                Rooms.Add(room);
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"Unable to get extra information: {ex.Message}");
+            await Application.Current.MainPage.DisplayAlert("Error!", ex.Message, "OK");
+        }
+        finally
+        {
+            IsBusy = false;
+        }
+    }
+
+
 
     [ICommand]
     async Task GetExtraShowInformation()

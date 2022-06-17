@@ -60,6 +60,15 @@ namespace Festifact.API.Controllers
         }
 
 
+        [HttpGet("artist/" + "{id}")]
+        public IActionResult ArtistShows(int id)
+        {
+            return Ok(_showRepository.GetArtistShows(id));
+        }
+
+
+
+
         [HttpPut]
         public IActionResult Edit([FromBody] Show show)
         {

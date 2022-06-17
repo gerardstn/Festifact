@@ -22,6 +22,8 @@ public partial class ShowAddPage : ContentPage
 
         ((CollectionView)sender).SelectedItem = null;
     }
+
+
     protected override async void OnAppearing()
     {
         base.OnAppearing();

@@ -82,4 +82,19 @@ public class ShowService
             return show;
         }
     }
+
+
+    List<Show> specificShowList = new();
+    public async Task<List<Show>> GetArtistShowsSpecific(Show show)
+    {
+        var response = await client.GetAsync("/api/show/artist/" + show.ArtistId.ToString());
+
+        if (response.IsSuccessStatusCode)
+        {
+            specificShowList = await response.Content.ReadFromJsonAsync<List<Show>>();
+        }
+
+        return specificShowList;
+    }
+
 }

@@ -13,6 +13,8 @@ namespace Festifact.API.Interfaces
         void Update(Show show);
         void Delete(int showId);
         IEnumerable<Show> GetFestivalShows(int festivalId);
+        IEnumerable<Show> GetArtistShows(int artistId);
+
 
     }
 }
