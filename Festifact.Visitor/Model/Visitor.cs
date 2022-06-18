@@ -1,4 +1,5 @@
 ﻿namespace Festifact.Visitor.Model;
+
 public class Visitor
 {
     public int VisitorId { get; set; }
@@ -9,8 +10,8 @@ public class Visitor
     public string Street { get; set; }
     public string ZipCode { get; set; }
     public string HouseNumber { get; set; }
-    public string IBan { get; set; }
     public string Mobile { get; set; }
+    public DateTime BirthDate { get; set; }
 
 }
 

@@ -4,9 +4,20 @@
              x:Class="Festifact.Visitor.FestivalSearchPage"
              xmlns:model="clr-namespace:Festifact.Visitor.Model"
              xmlns:viewmodel="clr-namespace:Festifact.Visitor.ViewModel"
-             x:DataType="viewmodel:FestivalsSearchViewModel"
-             Title="{Binding Title}">
-    
+             x:DataType="viewmodel:FestivalsSearchViewModel">
+    <Shell.TitleView>
+        <Grid ColumnDefinitions="300,*,300" ColumnSpacing="5">
+            <Label Style="{StaticResource LargeLabel}" Text="{Binding Title}" Grid.Column="0" Margin="8"/>
+            <Image
+                        HorizontalOptions="CenterAndExpand"
+                        MaximumHeightRequest="35"
+                        Grid.Column="1"
+                        Source="festifactlogo.png"
+                        VerticalOptions="CenterAndExpand" />
+            <Button Text="Login / Register" Style="{StaticResource ButtonSolid}" Command="{Binding NavigateToLoginCommand}" Grid.Column="2" Margin="2" WidthRequest="200" HorizontalOptions="End"/>
+
+        </Grid>
+    </Shell.TitleView>
     <Grid
         ColumnDefinitions="*,*"
         ColumnSpacing="5"

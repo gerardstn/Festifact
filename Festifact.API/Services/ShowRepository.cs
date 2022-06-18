@@ -87,7 +87,7 @@ namespace Festifact.API.Services
                 ShowId = 3,
                 Name = "Arctic Monkeys",
                 Description = "Arctic Monkeys are an English rock band formed in Sheffield in 2002. The group consists of Alex Turner, Jamie Cook, Nick O'Malley, and Matt Helders. Former band member Andy Nicholson left the band in 2006 shortly after their debut album was released.",
-                Image = "https://shapeplatform.eu/wp-content/uploads/2020/01/img-5122-1200x800-q70.jpeg",
+                Image = "https://guitar.com/wp-content/uploads/2022/04/Arctic-Monkeys-Credit-Gabriel-Olsen-Getty-Images-for-Radio-com@2000x1500.jpg",
                 FestivalId = 3,
                 ArtistId = 3,
                 MovieId = 0,

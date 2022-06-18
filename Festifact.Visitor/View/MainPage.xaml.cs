@@ -22,12 +22,6 @@ public partial class MainPage : ContentPage
 		((CollectionView)sender).SelectedItem = null;
 	}
 
-	async Task SearchPage()
-    {
-		await Shell.Current.GoToAsync(nameof(SearchPage));
-	}
-
-
 	protected override async void OnAppearing()
 	{
 		base.OnAppearing();

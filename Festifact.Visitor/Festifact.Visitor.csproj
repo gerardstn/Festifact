@@ -54,11 +54,27 @@
 	  <PackageReference Include="CommunityToolkit.Mvvm" Version="7.1.2" />
 	  <PackageReference Include="MailKit" Version="3.3.0" />
 	  <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
+	  <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="View\VisitedShowsPage.xaml.cs">
+	    <DependentUpon>VisitedShowsPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="View\FavoritesPage.xaml.cs">
+	    <DependentUpon>FavoritesPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="View\ArtistPage.xaml.cs">
 	    <DependentUpon>ArtistPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="View\AccountPage.xaml.cs">
+	    <DependentUpon>AccountPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="View\LoginPage.xaml.cs">
+	    <DependentUpon>LoginPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="View\RegisterPage.xaml.cs">
+	    <DependentUpon>RegisterPage.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="View\ShowPage.xaml.cs">
 	    <DependentUpon>ShowPage.xaml</DependentUpon>
@@ -75,7 +91,22 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="View\VisitedShowsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\FavoritesPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="View\ArtistPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\AccountPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\LoginPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\RegisterPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\ShowPage.xaml">

@@ -51,4 +51,11 @@ namespace Festifact.Visitor.ViewModel;
         await Shell.Current.GoToAsync(route);
     }
 
+    [ICommand]
+    async Task NavigateToLogin()
+    {
+        var route = $"{nameof(LoginPage)}";
+        await Shell.Current.GoToAsync(route);
+    }
+    
 }

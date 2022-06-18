@@ -4,9 +4,19 @@
              x:Class="Festifact.Visitor.ShowPage"
              xmlns:model="clr-namespace:Festifact.Visitor.Model"
              xmlns:viewmodel="clr-namespace:Festifact.Visitor.ViewModel"
-             x:DataType="viewmodel:ShowViewModel"
-             Title="{Binding Show.Name}">
-
+             x:DataType="viewmodel:ShowViewModel">
+    <Shell.TitleView>
+        <Grid ColumnDefinitions="300,*,300" ColumnSpacing="5">
+            <Label Style="{StaticResource LargeLabel}" Text="{Binding Show.Name}" Grid.Column="0" Margin="8"/>
+            <Image
+                        HorizontalOptions="CenterAndExpand"
+                        MaximumHeightRequest="35"
+                        Grid.Column="1"
+                        Source="festifactlogo.png"
+                        VerticalOptions="CenterAndExpand" />
+            <Button Text="Login / Register" Style="{StaticResource ButtonSolid}" Command="{Binding NavigateToLoginCommand}" Grid.Column="2" Margin="2" WidthRequest="200" HorizontalOptions="End"/>
+        </Grid>
+    </Shell.TitleView>
     <ScrollView>
         <VerticalStackLayout>
             <Grid ColumnDefinitions="*,Auto,*" RowDefinitions="160, Auto">
@@ -41,8 +51,7 @@
                 <Label Style="{StaticResource MediumLabel}" Text="{Binding Show.StartDate, StringFormat='Start: {0}'}" />
                 <Label Style="{StaticResource MediumLabel}" Text="{Binding Show.EndDate.TimeOfDay, StringFormat='End: {0}'}" />
                 <Label Style="{StaticResource MediumLabel}" Text="{Binding Artist.Name, StringFormat='Artist: {0}'}" />
-                <Button Text="Go to artist" Style="{StaticResource ButtonOutline}" CommandParameter="{Binding Artist}"/>
-
+                <Button Text="Go to artist" Style="{StaticResource ButtonOutline}" CommandParameter="{Binding Artist}" Command="{Binding NavigateToArtistCommand}"/>
                 <Button Text="Add Show to favorites" Style="{StaticResource ButtonOutline}" />
             </VerticalStackLayout>
 

@@ -18,10 +18,8 @@ public partial class ShowEditViewModel : BaseViewModel
     public ObservableCollection<RoomReservation> RoomReservations { get; set; } = new();
     public ObservableCollection<Show> Shows { get; set; } = new();
 
-
     public ShowEditViewModel(ShowService showService, ArtistService artistService, LocationService locationService, RoomService roomService, MovieService movieService, RoomReservationService roomReservationService)
     {
-        Title = "Edit Show";
         Show = new();
         roomReservation = new();
         this.showService = showService;

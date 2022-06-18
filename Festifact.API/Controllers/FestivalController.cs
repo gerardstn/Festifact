@@ -44,6 +44,7 @@ namespace Festifact.API.Controllers
         {
             return Ok(_festivalRepository.SearchFunction(Type, Genre, Age, Location, Date));
         }
+
         [HttpPost]
         public IActionResult Create([FromBody] Festival festival)
         {

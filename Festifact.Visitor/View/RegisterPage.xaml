@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Festifact.Visitor.RegisterPage"
+             xmlns:model="clr-namespace:Festifact.Visitor.Model"
+             xmlns:viewmodel="clr-namespace:Festifact.Visitor.ViewModel"
+             x:DataType="viewmodel:RegisterViewModel">
+    <Shell.TitleView>
+        <Grid ColumnDefinitions="300,*,300" ColumnSpacing="5">
+            <Label Style="{StaticResource LargeLabel}" Text="{Binding Title}" Grid.Column="0" Margin="8"/>
+            <Image
+                        HorizontalOptions="CenterAndExpand"
+                        MaximumHeightRequest="35"
+                        Grid.Column="1"
+                        Source="festifactlogo.png"
+                        VerticalOptions="CenterAndExpand" />
+        </Grid>
+    </Shell.TitleView>
+    <VerticalStackLayout Padding="10" Spacing="10">
+        <Label Text="Name:" Style="{StaticResource MediumLabel}"/>
+        <Entry Style="{StaticResource MediumLabel}" Text="{Binding Visitor.Name}" />
+        <Label Text="Sur Name:" Style="{StaticResource MediumLabel}"/>
+        <Entry Style="{StaticResource MediumLabel}" Text="{Binding Visitor.SurName}" />
+        <Label Text="Email:" Style="{StaticResource MediumLabel}"/>
+        <Entry Style="{StaticResource MediumLabel}" Text="{Binding Visitor.Email}" />
+        <Label Text="Password:" Style="{StaticResource MediumLabel}"/>
+        <Entry IsPassword="True" Style="{StaticResource MediumLabel}" Text="{Binding Visitor.Password}" />
+        <Label Text="Birthdate:" Style="{StaticResource MediumLabel}"/>
+        <DatePicker Style="{StaticResource MediumLabel}" Date="{Binding Visitor.BirthDate}" />
+        <Label Text="Street:" Style="{StaticResource MediumLabel}"/>
+        <Entry Style="{StaticResource MediumLabel}" Text="{Binding Visitor.Street}" />
+        <Label Text="House nr:" Style="{StaticResource MediumLabel}"/>
+        <Entry Style="{StaticResource MediumLabel}" Text="{Binding Visitor.HouseNumber}" />
+        <Label Text="Zip Code:" Style="{StaticResource MediumLabel}"/>
+        <Entry Style="{StaticResource MediumLabel}" Text="{Binding Visitor.ZipCode}" />
+        <Label Text="Mobile:" Style="{StaticResource MediumLabel}"/>
+        <Entry Style="{StaticResource MediumLabel}" Text="{Binding Visitor.Mobile}" />
+        
+        <Button Text="Register account" Style="{StaticResource ButtonOutline}" CommandParameter="{Binding Visitor}" Command="{Binding AddVisitorCommand}"/>
+    </VerticalStackLayout>
+</ContentPage>

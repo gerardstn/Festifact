@@ -42,6 +42,21 @@ public static class MauiProgram
         builder.Services.AddTransient<ArtistViewModel>();
         builder.Services.AddTransient<ArtistPage>();
 
+        builder.Services.AddTransient<RegisterViewModel>();
+        builder.Services.AddTransient<RegisterPage>();
+
+        builder.Services.AddTransient<LoginViewModel>();
+        builder.Services.AddTransient<LoginPage>();
+
+        builder.Services.AddTransient<AccountViewModel>();
+        builder.Services.AddTransient<AccountPage>();
+
+        builder.Services.AddTransient<FavoritesViewModel>();
+        builder.Services.AddTransient<FavoritesPage>();
+
+        builder.Services.AddTransient<VisitedShowsViewModel>();
+        builder.Services.AddTransient<VisitedShowsPage>();
+
         return builder.Build();
 	}
 }

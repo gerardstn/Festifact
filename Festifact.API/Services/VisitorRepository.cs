@@ -3,6 +3,7 @@ using System.Linq;
 using Festifact.API.Interfaces;
 using Festifact.API.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Festifact.API.Services
 {
@@ -63,7 +64,8 @@ namespace Festifact.API.Services
                 Street = "Hogeschoollaan",
                 ZipCode = "4818CR",
                 HouseNumber = "1",
-                IBan = "INGB11984321432"
+                BirthDate = new DateTime(1991, 02, 01)
+
             };
 
             var visitor2 = new Visitor
@@ -77,7 +79,8 @@ namespace Festifact.API.Services
                 Street = "Hogeschoollaan",
                 ZipCode = "4818CR",
                 HouseNumber = "1",
-                IBan = "INGB11984321432"
+                BirthDate = new DateTime(2000, 01, 05)
+
 
             };
 
@@ -92,13 +95,27 @@ namespace Festifact.API.Services
                 Street = "Hogeschoollaan",
                 ZipCode = "4818CR",
                 HouseNumber = "1",
-                IBan = "INGB11984321432"
+                BirthDate = new DateTime(1990, 05, 08)
             };
 
             _visitorList.Add(visitor1);
             _visitorList.Add(visitor2);
             _visitorList.Add(visitor3);
         }
+
+        public bool FindByEmail(string email)
+        {
+            return _visitorList.Any(visitor => visitor.Email == email);
+        }
+
+        IEnumerable<Visitor> IVisitorRepository.Login(string email, string password)
+        {
+            IEnumerable<Visitor> filteredVisitor = _visitorList;
+            filteredVisitor = filteredVisitor.Where(visitor => visitor.Email.ToLower() == email.ToLower());
+            filteredVisitor = filteredVisitor.Where(visitor => visitor.Password == password);
+            return filteredVisitor;
+        }
+
 
     }
 }

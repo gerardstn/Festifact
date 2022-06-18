@@ -4,9 +4,18 @@
              x:Class="Festifact.Visitor.FestivalTicketPage"
              xmlns:model="clr-namespace:Festifact.Visitor.Model"
              xmlns:viewmodel="clr-namespace:Festifact.Visitor.ViewModel"
-             x:DataType="viewmodel:FestivalDetailsViewModel"
-             Title="{Binding Festival.Name}">
-
+             x:DataType="viewmodel:FestivalTicketViewModel">
+    <Shell.TitleView>
+        <Grid ColumnDefinitions="300,*,300" ColumnSpacing="5">
+            <Label Style="{StaticResource LargeLabel}" Text="{Binding Festival.Name}" Grid.Column="0" Margin="8"/>
+            <Image
+                        HorizontalOptions="CenterAndExpand"
+                        MaximumHeightRequest="35"
+                        Grid.Column="1"
+                        Source="festifactlogo.png"
+                        VerticalOptions="CenterAndExpand" />
+        </Grid>
+    </Shell.TitleView>
     <ScrollView>
         <VerticalStackLayout>
             <Grid ColumnDefinitions="*,Auto,*" RowDefinitions="160, Auto">
@@ -48,8 +57,7 @@
                 <Label Style="{StaticResource MediumLabel}" Text="{Binding Festival.Location, StringFormat='Location: {0}'}" />
                 <Label Style="{StaticResource MediumLabel}" Text="{Binding Festival.StartDate, StringFormat='Start date: {0}'}" />
                 <Label Style="{StaticResource MediumLabel}" Text="{Binding Festival.EndDate, StringFormat='End date: {0}'}" />
-                <Entry Style="{StaticResource MediumLabel}" Placeholder="yourmail@adress.com" Text="{Binding EmailInformation}"/>
-                <Button Text="Email me" Style="{StaticResource ButtonOutline}" Command="{Binding EmailFestivalInformationCommand}"/>
+
             </VerticalStackLayout>
             
         </VerticalStackLayout>

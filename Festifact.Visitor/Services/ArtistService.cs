@@ -6,26 +6,20 @@ namespace Festifact.Visitor.Services;
 
 public class ArtistService
 {
-    private IConfiguration Configuration { get; }
+    private IConfiguration Configuration { get; set; }
     static HttpClient client;
 
     public ArtistService(IConfiguration configuration)
     {
-        try
-        {
-            client = new HttpClient
+        Configuration = configuration;
+
+        client = new HttpClient
             {
                 BaseAddress = new Uri(configuration["Api:BaseUrl"])
             };
-        }
-        catch
-        {
-
-        }
-        Configuration = configuration;
     }
 
-    Artist artist= new();
+    Artist artist = new();
     public async Task<Artist> GetShowArtist(int showId)
     {
 

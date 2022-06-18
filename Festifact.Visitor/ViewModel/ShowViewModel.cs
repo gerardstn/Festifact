@@ -11,9 +11,8 @@ public partial class ShowViewModel : BaseViewModel
     ShowService showService;
     ArtistService artistService;
 
-    public ShowViewModel( ShowService showService, ArtistService artistService)
+    public ShowViewModel(ShowService showService, ArtistService artistService)
     {
-        Title = "Festifact";
         this.showService = showService;
         this.artistService = artistService;
     }
@@ -38,7 +37,6 @@ public partial class ShowViewModel : BaseViewModel
             IsBusy = true;
             Artist = await artistService.GetShowArtist(Show.ArtistId);
 
-
         }
         catch (Exception ex)
         {
@@ -53,4 +51,20 @@ public partial class ShowViewModel : BaseViewModel
 
     }
 
+    [ICommand]
+    async Task NavigateToArtist()
+    {
+        var route = $"{nameof(ArtistPage)}";
+        await Shell.Current.GoToAsync(route, true, new Dictionary<string, object>
+    {
+        {"Artist", artist }
+    });
+    }
+
+    [ICommand]
+    async Task NavigateToLogin()
+    {
+        var route = $"{nameof(LoginPage)}";
+        await Shell.Current.GoToAsync(route);
+    }
 }

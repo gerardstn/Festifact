@@ -4,13 +4,23 @@
              x:Class="Festifact.Visitor.ArtistPage"
              xmlns:model="clr-namespace:Festifact.Visitor.Model"
              xmlns:viewmodel="clr-namespace:Festifact.Visitor.ViewModel"
-             x:DataType="viewmodel:ArtistViewModel"
-             Title="{Binding Artist.Name}">
+             x:DataType="viewmodel:ArtistViewModel">
+    <Shell.TitleView>
+        <Grid ColumnDefinitions="300,*,300" ColumnSpacing="5">
+            <Label Style="{StaticResource LargeLabel}" Text="{Binding Artist.Name}" Grid.Column="0" Margin="8"/>
+            <Image
+                        HorizontalOptions="CenterAndExpand"
+                        MaximumHeightRequest="35"
+                        Grid.Column="1"
+                        Source="festifactlogo.png"
+                        VerticalOptions="CenterAndExpand"/>
+            <Button Text="Login / Register" Style="{StaticResource ButtonSolid}" Command="{Binding NavigateToLoginCommand}" Grid.Column="2" Margin="2" WidthRequest="200" HorizontalOptions="End"/>
 
+        </Grid>
+    </Shell.TitleView>
     <ScrollView>
         <VerticalStackLayout>
             <Grid ColumnDefinitions="*,Auto,*" RowDefinitions="160, Auto">
-
                 <BoxView
     Grid.ColumnSpan="3"
     Background="{StaticResource Primary}"
@@ -42,7 +52,6 @@
                 <Label Style="{StaticResource MediumLabel}" Text="{Binding Artist.Genre, StringFormat='Genre: {0}'}" />
                 <Button Text="Add Artist to favorites" Style="{StaticResource ButtonOutline}" />
             </VerticalStackLayout>
-
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

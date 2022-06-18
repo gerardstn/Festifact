@@ -31,7 +31,7 @@ public class FestivalService
     List<Festival> festivalList = new();
     public async Task<List<Festival>> GetFestivals()
     {
-        var response = await client.GetAsync("/api/festival/organisation/" + OrganisationId.ToString() + "");
+        var response = await client.GetAsync("/api/festival/organisation/" + OrganisationId.ToString());
 
         if (response.IsSuccessStatusCode)
         {

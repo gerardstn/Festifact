@@ -130,5 +130,10 @@ public partial class FestivalsSearchViewModel : BaseViewModel, INotifyPropertyCh
         }
 
     }
-
+    [ICommand]
+    async Task NavigateToLogin()
+    {
+        var route = $"{nameof(LoginPage)}";
+        await Shell.Current.GoToAsync(route);
+    }
 }

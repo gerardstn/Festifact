@@ -2,7 +2,9 @@
 
 namespace Festifact.Visitor.ViewModel;
 
-    public partial class FestivalTicketViewModel : BaseViewModel
+[QueryProperty(nameof(Festival), (nameof(Festival)))]
+
+public partial class FestivalTicketViewModel : BaseViewModel
     {
         public ObservableCollection<Festival> Festivals { get; } = new();
 
@@ -13,6 +15,7 @@ namespace Festifact.Visitor.ViewModel;
             this.ticketService = ticketService;
         }
 
-    
+    [ObservableProperty]
+    Festival festival;
 
 }/* Payment privder er in gooien, mollie, stripe wat dan ook. */

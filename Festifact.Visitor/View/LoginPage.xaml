@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Festifact.Visitor.LoginPage"
+             xmlns:model="clr-namespace:Festifact.Visitor.Model"
+             xmlns:viewmodel="clr-namespace:Festifact.Visitor.ViewModel"
+             x:DataType="viewmodel:LoginViewModel">
+    <Shell.TitleView>
+        <Grid ColumnDefinitions="300,*,300" ColumnSpacing="5">
+            <Label Style="{StaticResource LargeLabel}" Text="{Binding Title}" Grid.Column="0" Margin="8"/>
+            <Image
+                        HorizontalOptions="CenterAndExpand"
+                        MaximumHeightRequest="35"
+                        Grid.Column="1"
+                        Source="festifactlogo.png"
+                        VerticalOptions="CenterAndExpand" />
+        </Grid>
+    </Shell.TitleView>
+
+    <VerticalStackLayout Padding="10" Spacing="10">
+        <Label Text="Email:" Style="{StaticResource MediumLabel}"/>
+        <Entry Style="{StaticResource MediumLabel}" Text="{Binding Visitor.Email}" />
+        <Label Text="Password:" Style="{StaticResource MediumLabel}"/>
+        <Entry IsPassword="True" Style="{StaticResource MediumLabel}" Text="{Binding Visitor.Password}" />
+
+
+        <Button Text="Login" Style="{StaticResource ButtonSolid}" CommandParameter="{Binding Visitor}" Command="{Binding CheckLoginDetailsCommand}"/>
+        <Button Text="Register" Style="{StaticResource ButtonSolid}" Command="{Binding NavigateToRegisterCommand}"/>
+     </VerticalStackLayout>
+    
+</ContentPage>

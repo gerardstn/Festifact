@@ -113,6 +113,16 @@ public partial class FestivalDetailsViewModel : BaseViewModel
     async Task BuyTicketPage()
     {
         var route = $"{nameof(FestivalTicketPage)}";
+        await Shell.Current.GoToAsync(route, true, new Dictionary<string, object>
+    {
+        {"Festival", festival }
+    });
+    }
+
+    [ICommand]
+    async Task NavigateToLogin()
+    {
+        var route = $"{nameof(LoginPage)}";
         await Shell.Current.GoToAsync(route);
     }
 }

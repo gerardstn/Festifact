@@ -4,9 +4,20 @@
              x:Class="Festifact.Visitor.FestivalDetailsPage"
              xmlns:model="clr-namespace:Festifact.Visitor.Model"
              xmlns:viewmodel="clr-namespace:Festifact.Visitor.ViewModel"
-             x:DataType="viewmodel:FestivalDetailsViewModel"
-             Title="{Binding Festival.Name}">
+             x:DataType="viewmodel:FestivalDetailsViewModel">
+    <Shell.TitleView>
+        <Grid ColumnDefinitions="300,*,300" ColumnSpacing="5">
+            <Label Style="{StaticResource LargeLabel}" Text="{Binding Festival.Name}" Grid.Column="0" Margin="8"/>
+            <Image
+                        HorizontalOptions="CenterAndExpand"
+                        MaximumHeightRequest="35"
+                        Grid.Column="1"
+                        Source="festifactlogo.png"
+                        VerticalOptions="CenterAndExpand" />
+            <Button Text="Login / Register" Style="{StaticResource ButtonSolid}" Command="{Binding NavigateToLoginCommand}" Grid.Column="2" Margin="2" WidthRequest="200" HorizontalOptions="End"/>
 
+        </Grid>
+    </Shell.TitleView>
     <ScrollView>
         <VerticalStackLayout>
             <Grid ColumnDefinitions="*,Auto,*" RowDefinitions="160, Auto">
@@ -34,12 +45,10 @@
         Source="{Binding Festival.Banner}"
         WidthRequest="160"/>
                 </Frame>
-
             </Grid>
 
             <VerticalStackLayout Padding="10" Spacing="10">
                 <Button Text="Buy Ticket" Style="{StaticResource ButtonOutline}" Command="{Binding BuyTicketPageCommand}" CommandParameter="{Binding Festival}" />
-
                 <Label Style="{StaticResource MediumLabel}" Text="{Binding Festival.TicketsAvailable, StringFormat='Tickets available: {0}'}" />
                 <Label Style="{StaticResource MediumLabel}" Text="{Binding Festival.Description, StringFormat='Description: {0}'}" />
                 <Label Style="{StaticResource MediumLabel}" Text="{Binding Festival.Type, StringFormat='Type: {0}'}" />
@@ -87,7 +96,6 @@
                                             <Label Style="{StaticResource MediumLabel}" Text="{Binding StartDate.TimeOfDay}" VerticalOptions="Center"/>
                                             <Label Style="{StaticResource MediumLabel}" Text=" To:" Padding="10" VerticalOptions="Center" />
                                             <Label Style="{StaticResource MediumLabel}" Text="{Binding EndDate.TimeOfDay}" VerticalOptions="Center" />
-                                            
                                         </HorizontalStackLayout>
                                     </HorizontalStackLayout>
                                 </Grid>
