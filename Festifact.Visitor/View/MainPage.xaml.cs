@@ -25,8 +25,10 @@ public partial class MainPage : ContentPage
 	protected override async void OnAppearing()
 	{
 		base.OnAppearing();
-		var vm = (FestivalsViewModel)BindingContext;
-		if (vm.Festivals.Count == 0)
+
+        var vm = (FestivalsViewModel)BindingContext;
+		await vm.SetAccountText();
+        if (vm.Festivals.Count == 0)
 			await vm.GetFestivalsCommand.ExecuteAsync(null);
 	}
 

@@ -30,9 +30,16 @@ public partial class LoginViewModel : BaseViewModel
 
         try
         {
-            var test = visitorService.GetVisitor(1);
             IsBusy = true;
-            Visitor = await visitorService.GetVisitorLogin(visitor.Email, visitor.Password);
+            visitor = await visitorService.GetVisitorLogin(visitor.Email, visitor.Password);
+            if (visitor.VisitorId == 0)
+            {
+                await Application.Current.MainPage.DisplayAlert("Alert", "Visitor not found.", "OK");
+                IsBusy = false;
+                isRefreshing = false;
+                return;
+            }
+            Preferences.Set("VisitorId", visitor.VisitorId);
 
         }
         catch (Exception ex)

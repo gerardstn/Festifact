@@ -13,7 +13,7 @@ namespace Festifact.API.Interfaces
         void Insert(Visitor visitor);
         void Update(Visitor visitor);
         void Delete(int visitorId);
-        IEnumerable<Visitor> Login(string email, string password);
+        Visitor Login(string email, string password);
         
     }
 }

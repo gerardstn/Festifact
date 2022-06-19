@@ -9,14 +9,27 @@ namespace Festifact.Visitor.ViewModel;
         FestivalService festivalService;
         public FestivalsViewModel(FestivalService festivalService)
         {
-            Title = "Festifact";
-            this.festivalService = festivalService;
+        Title = "Festifact";
+        this.festivalService = festivalService;
         }
 
     [ObservableProperty]
     bool isRefreshing;
 
-    [ICommand]
+    public Task SetAccountText() { 
+         if (Preferences.Get("VisitorId", 0) != 0)
+        {
+            AccountText = "Account";
+            return Task.CompletedTask;
+        }
+        else
+        {
+            AccountText = "Login / Register";
+            return Task.CompletedTask;
+        }
+    }
+
+    [ICommand] 
     async Task GetFestivalsAsync()
     {
         if (IsBusy)
@@ -52,10 +65,17 @@ namespace Festifact.Visitor.ViewModel;
     }
 
     [ICommand]
-    async Task NavigateToLogin()
+    async Task NavigateToAccount()
     {
+        if (Preferences.Get("VisitorId", 0) != 0){ 
+        var route = $"{nameof(AccountPage)}";
+        await Shell.Current.GoToAsync(route);
+        }
+        else
+        {
         var route = $"{nameof(LoginPage)}";
         await Shell.Current.GoToAsync(route);
+        }
     }
     
 }

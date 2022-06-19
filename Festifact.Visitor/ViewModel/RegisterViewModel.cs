@@ -15,7 +15,6 @@ public partial class RegisterViewModel : BaseViewModel
         this.visitorService = visitorService;
     }
 
-
     [ObservableProperty]
     Model.Visitor visitor;
 
@@ -28,7 +27,7 @@ public partial class RegisterViewModel : BaseViewModel
         {
             IsBusy = true;
             await visitorService.AddVisitor(visitor);
-
+            Preferences.Set("VisitorId", visitor.VisitorId);
         }
         catch (Exception ex)
         {
@@ -49,5 +48,4 @@ public partial class RegisterViewModel : BaseViewModel
         var route = $"//MainPage";
         await Shell.Current.GoToAsync(route);
     }
-
 }

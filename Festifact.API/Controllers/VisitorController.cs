@@ -33,6 +33,11 @@ namespace Festifact.API.Controllers
             return Ok(_visitorRepository.All);
         }
 
+        [HttpGet("{id}")]
+        public IActionResult GetVisitor(int id)
+        {
+            return Ok(_visitorRepository.Find(id));
+        }
 
         [HttpGet("login")]
         public IActionResult CheckCredentials(string Email, string Password)

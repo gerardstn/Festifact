@@ -108,12 +108,12 @@ namespace Festifact.API.Services
             return _visitorList.Any(visitor => visitor.Email == email);
         }
 
-        IEnumerable<Visitor> IVisitorRepository.Login(string email, string password)
+        public Visitor Login(string email, string password)
         {
             IEnumerable<Visitor> filteredVisitor = _visitorList;
             filteredVisitor = filteredVisitor.Where(visitor => visitor.Email.ToLower() == email.ToLower());
             filteredVisitor = filteredVisitor.Where(visitor => visitor.Password == password);
-            return filteredVisitor;
+            return filteredVisitor.First();
         }
 
 
