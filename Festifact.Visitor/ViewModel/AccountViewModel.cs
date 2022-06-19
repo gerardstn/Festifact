@@ -43,6 +43,29 @@ public partial class AccountViewModel : BaseViewModel
     }
 
     [ICommand]
+    async Task GetVisitor()
+    {
+        if (IsBusy)
+            return;
+
+        try
+        {
+            IsBusy = true;
+            visitor = await visitorService.GetVisitor(Preferences.Get("VisitorId", 0));
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"Unable to get account info: {ex.Message}");
+            await Application.Current.MainPage.DisplayAlert("Error!", ex.Message, "OK");
+        }
+        finally
+        {
+            IsBusy = false;
+        }
+
+    }
+
+    [ICommand]
     async Task NavigateToVisitedShows()
     {
         var route = $"{nameof(VisitedShowsPage)}";
