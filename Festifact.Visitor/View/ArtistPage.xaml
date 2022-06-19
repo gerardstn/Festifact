@@ -50,7 +50,7 @@
                 <Label Style="{StaticResource MediumLabel}" Text="{Binding Artist.Description, StringFormat='Description: {0}'}" />
                 <Label Style="{StaticResource MediumLabel}" Text="{Binding Artist.CountryOrigin, StringFormat='Origin: {0}'}" />
                 <Label Style="{StaticResource MediumLabel}" Text="{Binding Artist.Genre, StringFormat='Genre: {0}'}" />
-                <Button Text="Add Artist to favorites" Style="{StaticResource ButtonOutline}"  CommandParameter="{Binding Artist}"/>
+                <Button Text="Add Artist to favorites" Style="{StaticResource ButtonOutline}" Command="{Binding AddArtistToFavoritesCommand}" CommandParameter="{Binding Artist}"/>
             </VerticalStackLayout>
         </VerticalStackLayout>
     </ScrollView>

@@ -49,7 +49,32 @@ public class FavoriteService
             return favorite;
         }
     }
-    
+    public async Task<Favorite> AddArtistFavorite(int artistId)
+    {
+        Favorite favorite = new Favorite();
+        favorite.FavoriteId = random.Next(10, 10000);
+        favorite.ArtistId = artistId;
+        favorite.VisitorId = Preferences.Get("VisitorId", 0);
+
+        /* get favorite with same show id, if exist return exist ofzo..*/
+
+        var json = JsonConvert.SerializeObject(favorite);
+
+        var content =
+            new StringContent(json, Encoding.UTF8, "application/json");
+
+        var response = await client.PostAsync("/api/favorite", content);
+
+        if (!response.IsSuccessStatusCode)
+        {
+
+            return null;
+        }
+        else
+        {
+            return favorite;
+        }
+    }
 
 }
 

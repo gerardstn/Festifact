@@ -69,7 +69,6 @@ public partial class ShowViewModel : BaseViewModel
         {
             IsBusy = false;
         }
-
     }
 
     [ICommand]

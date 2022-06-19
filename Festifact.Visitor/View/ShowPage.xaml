@@ -52,7 +52,7 @@
                 <Label Style="{StaticResource MediumLabel}" Text="{Binding Show.EndDate.TimeOfDay, StringFormat='End: {0}'}" />
                 <Label Style="{StaticResource MediumLabel}" Text="{Binding Artist.Name, StringFormat='Artist: {0}'}" />
                 <Button Text="Go to artist" Style="{StaticResource ButtonOutline}" CommandParameter="{Binding Artist}" Command="{Binding NavigateToArtistCommand}"/>
-                <Button Text="{Binding FavoriteShowState}" Style="{StaticResource ButtonOutline}" Command="{Binding AddShowToFavoritesCommand}" CommandParameter="{Binding Show}" />
+                <Button Text="Add show to favorites" Style="{StaticResource ButtonOutline}" Command="{Binding AddShowToFavoritesCommand}" CommandParameter="{Binding Show}" />
             </VerticalStackLayout>
 
         </VerticalStackLayout>
