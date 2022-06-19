@@ -34,7 +34,7 @@ public partial class LoginViewModel : BaseViewModel
             visitor = await visitorService.GetVisitorLogin(visitor.Email, visitor.Password);
             if (visitor.VisitorId == 0)
             {
-                await Application.Current.MainPage.DisplayAlert("Alert", "Visitor not found.", "OK");
+                await Application.Current.MainPage.DisplayAlert("Alert", "Account not found.", "OK");
                 IsBusy = false;
                 isRefreshing = false;
                 return;

@@ -14,7 +14,7 @@
                         Grid.Column="1"
                         Source="festifactlogo.png"
                         VerticalOptions="CenterAndExpand" />
-            <Button Text="Login / Register" Style="{StaticResource ButtonSolid}" Command="{Binding NavigateToLoginCommand}" Grid.Column="2" Margin="2" WidthRequest="200" HorizontalOptions="End"/>
+            <Button Text="{Binding AccountText}" Style="{StaticResource ButtonSolid}" Command="{Binding NavigateToAccountCommand}" Grid.Column="2" Margin="2" WidthRequest="200" HorizontalOptions="End"/>
         </Grid>
     </Shell.TitleView>
     <ScrollView>
@@ -52,7 +52,7 @@
                 <Label Style="{StaticResource MediumLabel}" Text="{Binding Show.EndDate.TimeOfDay, StringFormat='End: {0}'}" />
                 <Label Style="{StaticResource MediumLabel}" Text="{Binding Artist.Name, StringFormat='Artist: {0}'}" />
                 <Button Text="Go to artist" Style="{StaticResource ButtonOutline}" CommandParameter="{Binding Artist}" Command="{Binding NavigateToArtistCommand}"/>
-                <Button Text="Add Show to favorites" Style="{StaticResource ButtonOutline}" />
+                <Button Text="{Binding FavoriteShowState}" Style="{StaticResource ButtonOutline}" Command="{Binding AddShowToFavoritesCommand}" CommandParameter="{Binding Show}" />
             </VerticalStackLayout>
 
         </VerticalStackLayout>

@@ -14,7 +14,7 @@
                         Grid.Column="1"
                         Source="festifactlogo.png"
                         VerticalOptions="CenterAndExpand" />
-            <Button Text="Login / Register" Style="{StaticResource ButtonSolid}" Command="{Binding NavigateToLoginCommand}" Grid.Column="2" Margin="2" WidthRequest="200" HorizontalOptions="End"/>
+            <Button Text="{Binding AccountText}" Style="{StaticResource ButtonSolid}" Command="{Binding NavigateToAccountCommand}" Grid.Column="2" Margin="2" WidthRequest="200" HorizontalOptions="End"/>
 
         </Grid>
     </Shell.TitleView>

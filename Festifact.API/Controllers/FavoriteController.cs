@@ -1,5 +1,6 @@
 ﻿using Festifact.API.Interfaces;
 using Festifact.API.Models;
+using Festifact.API.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Festifact.API.Controllers
@@ -30,6 +31,24 @@ namespace Festifact.API.Controllers
             return Ok(_favoriteRepository.All);
         }
 
+        [HttpPost]
+        public IActionResult Create([FromBody] Favorite favorite)
+        {
+            try
+            {
+                bool itemExists = _favoriteRepository.DoesFavoriteExist(favorite.FavoriteId);
+                if (itemExists)
+                {
+                    return StatusCode(StatusCodes.Status409Conflict, ErrorCode.FavoriteIdInUse.ToString());
+}
+                _favoriteRepository.Insert(favorite);
+            }
+            catch (Exception)
+            {
+                return BadRequest(ErrorCode.CouldNotCreateFavorite.ToString());
+            }
+            return Ok(favorite);
+        }
 
 
         [HttpPut]

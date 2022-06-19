@@ -26,6 +26,7 @@ public partial class FestivalDetailsPage : ContentPage
     {
         base.OnAppearing();
         var vm = (FestivalDetailsViewModel)BindingContext;
+        await vm.SetAccountText();
         if (vm.Shows.Count == 0)
             await vm.GetFestivalShowsCommand.ExecuteAsync(null);
     }

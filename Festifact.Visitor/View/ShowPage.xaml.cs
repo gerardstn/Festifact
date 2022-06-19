@@ -13,6 +13,11 @@ public partial class ShowPage : ContentPage
     {
         base.OnAppearing();
         var vm = (ShowViewModel)BindingContext;
+        await vm.SetAccountText();
+        if (Preferences.Get("VisitorId", 0) == 0)
+            await vm.setFavoriteShowStateText("Login to add show to favorites");
+        else
+            await vm.setFavoriteShowStateText("Add show to favorites");
         if (vm.Artist == null)
             await vm.GetShowArtistCommand.ExecuteAsync(null);
     }

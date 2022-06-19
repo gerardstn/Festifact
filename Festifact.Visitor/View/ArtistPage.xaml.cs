@@ -7,5 +7,10 @@ public partial class ArtistPage : ContentPage
 		InitializeComponent();
 		BindingContext = viewModel;
 	}
-
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+        var vm = (ArtistViewModel)BindingContext;
+        await vm.SetAccountText();
+    }
 }

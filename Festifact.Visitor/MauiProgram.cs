@@ -23,6 +23,7 @@ public static class MauiProgram
 		builder.Services.AddSingleton<TicketService>();
 		builder.Services.AddSingleton<VisitorService>();
 		builder.Services.AddSingleton<ArtistService>();
+		builder.Services.AddSingleton<FavoriteService>();
 
         builder.Services.AddTransient<MainPage>();
         builder.Services.AddTransient<FestivalsViewModel>();

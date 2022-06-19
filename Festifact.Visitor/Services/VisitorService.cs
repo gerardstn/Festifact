@@ -22,13 +22,6 @@ public class VisitorService
         
     }
 
-    public Task SetVisitorId(int VisitorId)
-    {
-        Preferences.Set("VisitorId", VisitorId.ToString());
-
-        /* var visit = Preferences.Get("VisitorId", null); */
-        return Task.CompletedTask;
-    }
 
     Random random = new();
     public async Task<Model.Visitor> AddVisitor(Model.Visitor visitor)
@@ -49,7 +42,6 @@ public class VisitorService
         }
         else
         {
-            await SetVisitorId(visitor.VisitorId);
             return visitor;
         }
     }

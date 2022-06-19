@@ -26,7 +26,8 @@ public partial class FestivalSearchPage : ContentPage
 	{
 		base.OnAppearing();
 		var vm = (FestivalsSearchViewModel)BindingContext;
-		if (vm.Festivals.Count == 0)
+        await vm.SetAccountText();
+        if (vm.Festivals.Count == 0)
 			await vm.GetFestivalsCommand.ExecuteAsync(null);
 	}
 
