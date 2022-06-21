@@ -10,7 +10,6 @@ namespace Festifact.API.Interfaces
         IEnumerable<Favorite> All { get; }
         Favorite Find(int favoriteId);
         void Insert(Favorite favorite);
-        void Update(Favorite favorite);
         void Delete(int favoriteId);
         
     }

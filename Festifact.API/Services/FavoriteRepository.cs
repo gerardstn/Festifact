@@ -35,13 +35,6 @@ namespace Festifact.API.Services
             _favoriteList.Add(item);
         }
 
-        public void Update(Favorite favorite)
-        {
-            var selectedFavorite = this.Find(favorite.FavoriteId);
-            var index = _favoriteList.IndexOf(selectedFavorite);
-            _favoriteList.RemoveAt(index);
-            _favoriteList.Insert(index, favorite);
-        }
 
         public void Delete(int FavoriteId)
         {

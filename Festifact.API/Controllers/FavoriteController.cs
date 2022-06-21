@@ -50,29 +50,19 @@ namespace Festifact.API.Controllers
             return Ok(favorite);
         }
 
-
-        [HttpPut]
-        public IActionResult Edit([FromBody] Favorite favorite)
+        [HttpGet("show" + "{id}")]
+        public IActionResult FavoriteShow()
         {
-            try
-            {
-                if (favorite == null || !ModelState.IsValid)
-                {
-                    return BadRequest(ErrorCode.FavoriteNameRequired.ToString());
-                }
-                var existingItem = _favoriteRepository.Find(favorite.FavoriteId);
-                if (existingItem == null)
-                {
-                    return NotFound(ErrorCode.RecordNotFound.ToString());
-                }
-                _favoriteRepository.Update(favorite);
-            }
-            catch (Exception)
-            {
-                return BadRequest(ErrorCode.CouldNotUpdateFavorite.ToString());
-            }
-            return NoContent();
+            return Ok(_favoriteRepository.favoriteShows());
         }
+
+        [HttpGet("Artist" + "{id}")]
+        public IActionResult FavoriteArtist()
+        {
+            return Ok(_favoriteRepository.favoriteArtists());
+        }
+
+
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)

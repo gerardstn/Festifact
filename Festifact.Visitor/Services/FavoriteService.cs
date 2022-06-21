@@ -76,5 +76,38 @@ public class FavoriteService
         }
     }
 
+    List<Show> favoriteShowsList = new();
+    public async Task<List<Show>> GetFavoriteShows()
+    {
+
+        var response = await client.GetAsync("/api/favorite/show/" + Preferences.Get("VisitorId", 0));
+
+        if (response.IsSuccessStatusCode)
+        {
+            favoriteShowsList = await response.Content.ReadFromJsonAsync<List<Show>>();
+        }
+
+        return favoriteShowsList;
+    }
+
+    List<Show> favoriteArtistsList = new();
+    public async Task<List<Show>> GetFavoriteArtists()
+    {
+
+        var response = await client.GetAsync("/api/favorite/artist/" + Preferences.Get("VisitorId", 0));
+
+        if (response.IsSuccessStatusCode)
+        {
+            favoriteArtistsList = await response.Content.ReadFromJsonAsync<List<Show>>();
+        }
+
+        return favoriteArtistsList;
+    }
+
+    public async Task<HttpResponseMessage> RemoveFavorite(Favorite favorite)
+    {
+        var response = await client.DeleteAsync("/api/favorite/" + favorite.FavoriteId);
+        return response;
+    }
 }
 
