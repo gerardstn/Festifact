@@ -50,19 +50,17 @@ namespace Festifact.API.Controllers
             return Ok(favorite);
         }
 
-        [HttpGet("show" + "{id}")]
-        public IActionResult FavoriteShow()
+        [HttpGet("show/" + "{id}")]
+        public IActionResult FavoriteShow(int visitorId)
         {
-            return Ok(_favoriteRepository.favoriteShows());
+            return Ok(_favoriteRepository.GetFavoriteShows(visitorId));
         }
 
-        [HttpGet("Artist" + "{id}")]
-        public IActionResult FavoriteArtist()
+        [HttpGet("Artist/" + "{id}")]
+        public IActionResult FavoriteArtist(int visitorId)
         {
-            return Ok(_favoriteRepository.favoriteArtists());
+            return Ok(_favoriteRepository.GetFavoriteArtists(visitorId));
         }
-
-
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)

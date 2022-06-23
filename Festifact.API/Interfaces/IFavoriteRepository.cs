@@ -11,6 +11,8 @@ namespace Festifact.API.Interfaces
         Favorite Find(int favoriteId);
         void Insert(Favorite favorite);
         void Delete(int favoriteId);
-        
+        IEnumerable<Favorite> GetFavoriteShows(int visitorId);
+        IEnumerable<Favorite> GetFavoriteArtists(int visitorId);
+
     }
 }

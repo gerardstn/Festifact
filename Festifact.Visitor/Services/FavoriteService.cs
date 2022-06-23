@@ -90,15 +90,15 @@ public class FavoriteService
         return favoriteShowsList;
     }
 
-    List<Show> favoriteArtistsList = new();
-    public async Task<List<Show>> GetFavoriteArtists()
+    List<Artist> favoriteArtistsList = new();
+    public async Task<List<Artist>> GetFavoriteArtists()
     {
 
         var response = await client.GetAsync("/api/favorite/artist/" + Preferences.Get("VisitorId", 0));
 
         if (response.IsSuccessStatusCode)
         {
-            favoriteArtistsList = await response.Content.ReadFromJsonAsync<List<Show>>();
+            favoriteArtistsList = await response.Content.ReadFromJsonAsync<List<Artist>>();
         }
 
         return favoriteArtistsList;

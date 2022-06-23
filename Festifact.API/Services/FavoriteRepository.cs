@@ -35,7 +35,6 @@ namespace Festifact.API.Services
             _favoriteList.Add(item);
         }
 
-
         public void Delete(int FavoriteId)
         {
             _favoriteList.Remove(this.Find(FavoriteId));
@@ -75,5 +74,21 @@ namespace Festifact.API.Services
             _favoriteList.Add(favorite3);
         }
 
+        public IEnumerable<Favorite> GetFavoriteShows(int visitorId)
+        {
+            IEnumerable<Favorite> FiltredList = _favoriteList;
+            FiltredList = FiltredList.Where(favorite => favorite.VisitorId.Equals(visitorId));
+            FiltredList = FiltredList.Where(favorite => favorite.ArtistId.Equals(0));
+
+            return FiltredList;
+        }
+
+        public IEnumerable<Favorite> GetFavoriteArtists(int visitorId)
+        {
+            IEnumerable<Favorite> FiltredList = _favoriteList;
+            FiltredList = FiltredList.Where(favorite => favorite.VisitorId.Equals(visitorId));
+            FiltredList = FiltredList.Where(favorite => favorite.ShowId.Equals(0));
+            return FiltredList;
+        }
     }
 }

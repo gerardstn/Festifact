@@ -9,6 +9,8 @@ public partial class FavoritesViewModel : BaseViewModel
 {
     public ObservableCollection<Artist> Artists { get; } = new();
     public ObservableCollection<Show> Shows { get; } = new();
+    public ObservableCollection<Favorite> Favorites { get; } = new();
+
 
     ShowService showService;
     ArtistService artistService;
@@ -71,10 +73,10 @@ public partial class FavoritesViewModel : BaseViewModel
         try
         {
             IsBusy = true;
-            var shows = await favoriteService.GetFavoriteArtists();
-            Shows.Clear();
-            foreach (var show in shows)
-                Shows.Add(show);
+            var artists = await favoriteService.GetFavoriteArtists();
+            Artists.Clear();
+            foreach (var artist in artists)
+                Artists.Add(artist);
         }
         catch (Exception ex)
         {
