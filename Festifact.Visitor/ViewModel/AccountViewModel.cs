@@ -72,10 +72,15 @@ public partial class AccountViewModel : BaseViewModel
         await Shell.Current.GoToAsync(route);
     }
     [ICommand]
-    async Task NavigateToFavorites()
+    async Task NavigateToFavoriteArtists()
     {
-        var route = $"{nameof(FavoritesPage)}";
+        var route = $"{nameof(FavoriteArtistsPage)}";
         await Shell.Current.GoToAsync(route);
     }
-
+    [ICommand]
+    async Task NavigateToFavoriteShows()
+    {
+        var route = $"{nameof(FavoriteShowsPage)}";
+        await Shell.Current.GoToAsync(route);
+    }
 }

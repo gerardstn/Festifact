@@ -30,6 +30,4 @@ public partial class MainPage : ContentPage
         if (vm.Festivals.Count == 0)
 			await vm.GetFestivalsCommand.ExecuteAsync(null);
 	}
-
-
 }

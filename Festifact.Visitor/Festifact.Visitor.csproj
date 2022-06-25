@@ -58,11 +58,14 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="View\FavoriteShowsPage.xaml.cs">
+	    <DependentUpon>FavoriteShowsPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="View\VisitedShowsPage.xaml.cs">
 	    <DependentUpon>VisitedShowsPage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="View\FavoritesPage.xaml.cs">
-	    <DependentUpon>FavoritesPage.xaml</DependentUpon>
+	  <Compile Update="View\FavoriteArtistsPage.xaml.cs">
+	    <DependentUpon>FavoriteArtistsPage.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="View\ArtistPage.xaml.cs">
 	    <DependentUpon>ArtistPage.xaml</DependentUpon>
@@ -91,10 +94,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="View\FavoriteShowsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="View\VisitedShowsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="View\FavoritesPage.xaml">
+	  <MauiXaml Update="View\FavoriteArtistsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\ArtistPage.xaml">

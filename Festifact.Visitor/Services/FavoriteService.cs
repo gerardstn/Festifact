@@ -76,29 +76,30 @@ public class FavoriteService
         }
     }
 
-    List<Show> favoriteShowsList = new();
-    public async Task<List<Show>> GetFavoriteShows()
+    List<Favorite> favoriteShowsList = new();
+    public async Task<List<Favorite>> GetFavoriteShows()
     {
 
         var response = await client.GetAsync("/api/favorite/show/" + Preferences.Get("VisitorId", 0));
 
         if (response.IsSuccessStatusCode)
         {
-            favoriteShowsList = await response.Content.ReadFromJsonAsync<List<Show>>();
+            favoriteShowsList = await response.Content.ReadFromJsonAsync<List<Favorite>>();
         }
 
         return favoriteShowsList;
     }
 
-    List<Artist> favoriteArtistsList = new();
-    public async Task<List<Artist>> GetFavoriteArtists()
+    List<Favorite> favoriteArtistsList = new();
+    public async Task<List<Favorite>> GetFavoriteArtists()
     {
+        var vistiorId = Preferences.Get("VisitorId", 0);
 
-        var response = await client.GetAsync("/api/favorite/artist/" + Preferences.Get("VisitorId", 0));
+        var response = await client.GetAsync("/api/favorite/artist/" + vistiorId);
 
         if (response.IsSuccessStatusCode)
         {
-            favoriteArtistsList = await response.Content.ReadFromJsonAsync<List<Artist>>();
+            favoriteArtistsList = await response.Content.ReadFromJsonAsync<List<Favorite>>();
         }
 
         return favoriteArtistsList;

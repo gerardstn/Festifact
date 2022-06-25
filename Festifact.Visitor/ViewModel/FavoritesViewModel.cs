@@ -1,4 +1,5 @@
 ﻿using Festifact.Visitor.Services;
+using System.Linq;
 
 namespace Festifact.Visitor.ViewModel;
 
@@ -18,7 +19,6 @@ public partial class FavoritesViewModel : BaseViewModel
 
     public FavoritesViewModel(ShowService showService, ArtistService artistService, FavoriteService favoriteService)
     {
-        Title = "Favorite artists and shows";
         this.showService = showService;
         this.artistService = artistService;
         this.favoriteService = favoriteService;
@@ -46,11 +46,12 @@ public partial class FavoritesViewModel : BaseViewModel
         try
         {
             IsBusy = true;
-            var shows = await favoriteService.GetFavoriteShows();
+            var favorites = await favoriteService.GetFavoriteShows();
 
             Shows.Clear();
-            foreach (var show in shows)
-                Shows.Add(show);
+            foreach (var favorite in favorites)
+            Shows.Add(await showService.GetShowById((int)favorite.ShowId));
+            Favorites.Add(favorite);
 
         }
         catch (Exception ex)
@@ -73,10 +74,12 @@ public partial class FavoritesViewModel : BaseViewModel
         try
         {
             IsBusy = true;
-            var artists = await favoriteService.GetFavoriteArtists();
-            Artists.Clear();
-            foreach (var artist in artists)
-                Artists.Add(artist);
+            var favorites = await favoriteService.GetFavoriteArtists();
+
+            Favorites.Clear();
+            foreach (var favorite in favorites)
+            Artists.Add(await artistService.GetArtist((int)favorite.ArtistId));
+                Favorites.Add(favorite);
         }
         catch (Exception ex)
         {
@@ -89,26 +92,31 @@ public partial class FavoritesViewModel : BaseViewModel
         }
     }
 
-
-
     [ICommand]
-    async Task RemoveFavorite()
+    async void DeleteShow (Show show)
     {
-        if (IsBusy)
-            return;
-        try
+        if (Shows.Contains(show))
         {
-            IsBusy = true;
-            await favoriteService.RemoveFavorite(favorite);
-        }
-        catch (Exception ex)
-        {
-            Debug.WriteLine($"Unable to get Login details: {ex.Message}");
-            await Application.Current.MainPage.DisplayAlert("Error!", ex.Message, "OK");
-        }
-        finally
-        {
-            IsBusy = false;
+            var favorites = await favoriteService.GetFavoriteShows();
+            foreach (var favorite in favorites)
+                if(favorite.ShowId.Equals(show.ShowId))
+                    await favoriteService.RemoveFavorite(favorite);
+            Shows.Remove(show);
         }
     }
+
+    [ICommand]
+    async void DeleteArtist(Artist artist)
+    {
+        if (Artists.Contains(artist))
+        {
+            var favorites = await favoriteService.GetFavoriteArtists();
+            foreach (var favorite in favorites)
+                if (favorite.ArtistId.Equals(artist.ArtistId))
+                    await favoriteService.RemoveFavorite(favorite);
+            Artists.Remove(artist);
+        }
+    }
+
+
 }

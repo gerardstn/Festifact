@@ -69,7 +69,7 @@ namespace Festifact.API.Services
                 Name = "CHAOS IN THE CBD",
                 Genre = "Dance/Electro",
                 Description= "New Zealand brothers Ben and Louis Helliker-Hales are Chaos In The CBD. With their ever strengthening production credentials, the brothers have been able to mark themselves out as one of the most eminent underground duos to emerge out of the South Pacific.",
-                Image= "https://imgproxy.ra.co/_/quality:100/plain/https://static.ra.co/images/events/flyer/2020/1/uk-0131-1369435-front.jpg",
+                Image= "https://pbs.twimg.com/profile_images/1246383278736789509/HfKRHyah_400x400.jpg",
                 CountryOrigin = "New Zealand",
                 Type = "Music"
             };

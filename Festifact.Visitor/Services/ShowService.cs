@@ -38,4 +38,18 @@ namespace Festifact.Visitor.Services;
 
         return showList;
     }
+
+    Show show = new();
+    public async Task<Show> GetShowById(int showId)
+    {
+
+        var response = await client.GetAsync("/api/show/" + showId.ToString());
+
+        if (response.IsSuccessStatusCode)
+        {
+            show = await response.Content.ReadFromJsonAsync<Show>();
+        }
+
+        return show;
+    }
 }

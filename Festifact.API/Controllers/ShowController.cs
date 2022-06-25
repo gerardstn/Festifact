@@ -1,5 +1,6 @@
 ﻿using Festifact.API.Interfaces;
 using Festifact.API.Models;
+using Festifact.API.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Festifact.API.Controllers
@@ -66,8 +67,11 @@ namespace Festifact.API.Controllers
             return Ok(_showRepository.GetArtistShows(id));
         }
 
-
-
+        [HttpGet("{id}")]
+        public IActionResult GetShow(int id)
+{
+            return Ok(_showRepository.Find(id));
+        }
 
         [HttpPut]
         public IActionResult Edit([FromBody] Show show)

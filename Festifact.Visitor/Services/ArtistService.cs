@@ -32,5 +32,18 @@ public class ArtistService
 
         return artist;
     }
+
+    public async Task<Artist> GetArtist(int artistId)
+    {
+
+        var response = await client.GetAsync("/api/artist/" + artistId.ToString());
+
+        if (response.IsSuccessStatusCode)
+        {
+            artist = await response.Content.ReadFromJsonAsync<Artist>();
+        }
+
+        return artist;
+    }
 }
 

@@ -1,8 +1,8 @@
 namespace Festifact.Visitor;
 
-public partial class FavoritesPage : ContentPage
+public partial class FavoriteArtistsPage : ContentPage
 {
-    public FavoritesPage(FavoritesViewModel viewModel)
+    public FavoriteArtistsPage(FavoritesViewModel viewModel)
 	{
 		InitializeComponent();
 		BindingContext = viewModel;
@@ -13,7 +13,6 @@ public partial class FavoritesPage : ContentPage
         var vm = (FavoritesViewModel)BindingContext;
         await vm.SetAccountText();
         if (vm.Favorites.Count == 0)
-            await vm.GetFavoriteShowsCommand.ExecuteAsync(null);
             await vm.GetFavoriteArtistsCommand.ExecuteAsync(null);
     }
 }

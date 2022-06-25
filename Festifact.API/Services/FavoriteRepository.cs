@@ -74,20 +74,19 @@ namespace Festifact.API.Services
             _favoriteList.Add(favorite3);
         }
 
-        public IEnumerable<Favorite> GetFavoriteShows(int visitorId)
+        public IEnumerable<Favorite> GetFavoriteShows(int id)
         {
             IEnumerable<Favorite> FiltredList = _favoriteList;
-            FiltredList = FiltredList.Where(favorite => favorite.VisitorId.Equals(visitorId));
-            FiltredList = FiltredList.Where(favorite => favorite.ArtistId.Equals(0));
-
+            FiltredList = FiltredList.Where(favorite => favorite.VisitorId.Equals(id));
+            FiltredList = FiltredList.Where(favorite => favorite.ArtistId.Equals(0) || favorite.ArtistId.Equals(null));
             return FiltredList;
         }
 
-        public IEnumerable<Favorite> GetFavoriteArtists(int visitorId)
+        public IEnumerable<Favorite> GetFavoriteArtists(int id)
         {
             IEnumerable<Favorite> FiltredList = _favoriteList;
-            FiltredList = FiltredList.Where(favorite => favorite.VisitorId.Equals(visitorId));
-            FiltredList = FiltredList.Where(favorite => favorite.ShowId.Equals(0));
+            FiltredList = FiltredList.Where(favorite => favorite.VisitorId.Equals(id));
+            FiltredList = FiltredList.Where(favorite => favorite.ShowId.Equals(0) || favorite.ShowId.Equals(null));
             return FiltredList;
         }
     }

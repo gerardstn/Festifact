@@ -21,7 +21,8 @@
 
         <Button Text="Your visited shows" Style="{StaticResource ButtonOutline}" Command="{Binding NavigateToVisitedShowsCommand}"/>
 
-        <Button Text="Your favorite shows and artists" Style="{StaticResource ButtonOutline}" Command="{Binding NavigateToFavoritesCommand}"/>
+        <Button Text="Your favorite shows" Style="{StaticResource ButtonOutline}" Command="{Binding NavigateToFavoriteShowsCommand}"/>
+        <Button Text="Your favorite artists" Style="{StaticResource ButtonOutline}" Command="{Binding NavigateToFavoriteArtistsCommand}"/>
 
         <Button Text="Logout" Style="{StaticResource ButtonOutline}"  Command="{Binding LogoutCommand}"/>
     </VerticalStackLayout>

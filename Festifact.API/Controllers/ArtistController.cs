@@ -31,6 +31,11 @@ namespace Festifact.API.Controllers
             return Ok(_artistRepository.Find(id));
         }
 
+        [HttpGet("{id}")]
+        public IActionResult GetArtist(int id)
+        {
+            return Ok(_artistRepository.Find(id));
+        }
 
         [HttpGet]
         public IActionResult List()

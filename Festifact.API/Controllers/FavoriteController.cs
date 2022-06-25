@@ -51,15 +51,22 @@ namespace Festifact.API.Controllers
         }
 
         [HttpGet("show/" + "{id}")]
-        public IActionResult FavoriteShow(int visitorId)
+        public IActionResult FavoriteShow(int id)
         {
-            return Ok(_favoriteRepository.GetFavoriteShows(visitorId));
+            return Ok(_favoriteRepository.GetFavoriteShows(id));
         }
 
         [HttpGet("Artist/" + "{id}")]
-        public IActionResult FavoriteArtist(int visitorId)
+        public IActionResult FavoriteArtist(int id)
         {
-            return Ok(_favoriteRepository.GetFavoriteArtists(visitorId));
+            var favorites = _favoriteRepository.GetFavoriteArtists(id);
+            if (favorites == null)
+            {
+                return NotFound(ErrorCode.RecordNotFound.ToString());
+            }
+            else { 
+            return Ok(favorites);
+            }
         }
 
         [HttpDelete("{id}")]

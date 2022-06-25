@@ -53,7 +53,8 @@ public static class MauiProgram
         builder.Services.AddTransient<AccountPage>();
 
         builder.Services.AddTransient<FavoritesViewModel>();
-        builder.Services.AddTransient<FavoritesPage>();
+        builder.Services.AddTransient<FavoriteArtistsPage>();
+        builder.Services.AddTransient<FavoriteShowsPage>();
 
         builder.Services.AddTransient<VisitedShowsViewModel>();
         builder.Services.AddTransient<VisitedShowsPage>();
