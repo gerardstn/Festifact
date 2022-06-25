@@ -78,6 +78,8 @@ public partial class FestivalTicketViewModel : BaseViewModel
         finally
         {
             IsBusy = false;
+            var route = $"//MainPage";
+            await Shell.Current.GoToAsync(route);
         }
     }
     async Task EmailTicketInfo()

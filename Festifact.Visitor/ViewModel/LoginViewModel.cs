@@ -16,8 +16,6 @@ public partial class LoginViewModel : BaseViewModel
         this.visitorService = visitorService;
     }
 
-    [ObservableProperty]
-    bool isRefreshing;
 
     [ObservableProperty]
     Model.Visitor visitor;
@@ -36,7 +34,6 @@ public partial class LoginViewModel : BaseViewModel
             {
                 await Application.Current.MainPage.DisplayAlert("Alert", "Account not found.", "OK");
                 IsBusy = false;
-                isRefreshing = false;
                 return;
             }
             Preferences.Set("VisitorId", visitor.VisitorId);
@@ -50,7 +47,6 @@ public partial class LoginViewModel : BaseViewModel
         finally
         {
             IsBusy = false;
-            isRefreshing = false;
             var route = $"//MainPage";
             await Shell.Current.GoToAsync(route);
         }
