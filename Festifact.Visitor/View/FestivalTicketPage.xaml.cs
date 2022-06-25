@@ -7,5 +7,10 @@ public partial class FestivalTicketPage : ContentPage
 		InitializeComponent();
 		BindingContext = viewModel;
 	}
-
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+        var vm = (FestivalTicketViewModel)BindingContext;
+            await vm.GetVisitorCommand.ExecuteAsync(null);
+    }
 }

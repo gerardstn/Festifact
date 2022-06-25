@@ -44,7 +44,7 @@ public partial class FestivalDetailsViewModel : BaseViewModel
         {
             IsBusy = true;
             var email = new MimeMessage();
-            email.From.Add(MailboxAddress.Parse("jeanie.lebsack48@ethereal.email"));
+            email.From.Add(MailboxAddress.Parse("maxime.purdy89@ethereal.email"));
             email.To.Add(MailboxAddress.Parse(emailInformation));
             email.Subject = "Festifact - " + festival.Name.ToString();
             email.Body = new TextPart(TextFormat.Html) { Text = "<img width=\"350\" height=\"200\" src=\""+festival.Banner+"\"><h1>Information for: "+festival.Name+"</h1>" +
@@ -60,7 +60,7 @@ public partial class FestivalDetailsViewModel : BaseViewModel
 
             using var smtp = new SmtpClient();
             smtp.Connect("smtp.ethereal.email", 587, SecureSocketOptions.StartTls);
-            smtp.Authenticate("jeanie.lebsack48@ethereal.email", "CFHFACWnD6q5Hpzcd3");
+            smtp.Authenticate("maxime.purdy89@ethereal.email", "DNrDetJghy3Sq7fMX2");
             smtp.Send(email);
             smtp.Disconnect(true);
 

@@ -47,19 +47,32 @@
             </Grid>
 
             <VerticalStackLayout Padding="10" Spacing="10">
-                <Button Text="Buy Ticket" Style="{StaticResource ButtonOutline}" />
-
                 <Label Style="{StaticResource MediumLabel}" Text="{Binding Festival.TicketsAvailable, StringFormat='Tickets available: {0}'}" />
-                <Label Style="{StaticResource MediumLabel}" Text="{Binding Festival.Description, StringFormat='Description: {0}'}" />
-                <Label Style="{StaticResource MediumLabel}" Text="{Binding Festival.Type, StringFormat='Type: {0}'}" />
-                <Label Style="{StaticResource MediumLabel}" Text="{Binding Festival.Genre, StringFormat='Genre: {0}'}" />
-                <Label Style="{StaticResource MediumLabel}" Text="{Binding Festival.AgeCatagory, StringFormat='Age: {0}'}" />
                 <Label Style="{StaticResource MediumLabel}" Text="{Binding Festival.Location, StringFormat='Location: {0}'}" />
                 <Label Style="{StaticResource MediumLabel}" Text="{Binding Festival.StartDate, StringFormat='Start date: {0}'}" />
                 <Label Style="{StaticResource MediumLabel}" Text="{Binding Festival.EndDate, StringFormat='End date: {0}'}" />
-
             </VerticalStackLayout>
-            
+            <VerticalStackLayout Padding="10" Spacing="10">
+                <Label Style="{StaticResource MediumLabel}" Text="Name:" />
+                <Entry Style="{StaticResource MediumLabel}" Text="{Binding Visitor.Name}" Placeholder="Name" />
+                <Label Style="{StaticResource MediumLabel}" Text="Email:" />
+                <Entry Style="{StaticResource MediumLabel}" Text="{Binding Visitor.Email}" Placeholder="Email" />
+                <Label Style="{StaticResource MediumLabel}" Text="Password (optional):" />
+                <Entry Style="{StaticResource MediumLabel}" IsPassword="true" Text="{Binding Visitor.Password}" Placeholder="Password (Optional)" />
+                <Label Style="{StaticResource MediumLabel}" Text="Birth Date:" />
+                <DatePicker Style="{StaticResource MediumLabel}" Date="{Binding Visitor.BirthDate}"  MinimumDate="01-01-1990" MaximumDate="01-01-2022" />
+                <Label Style="{StaticResource MediumLabel}" Text="Street:" />
+                <Entry Style="{StaticResource MediumLabel}" Text="{Binding Visitor.Street}" Placeholder="Street" />
+                <Label Style="{StaticResource MediumLabel}" Text="House Number:" />
+                <Entry Style="{StaticResource MediumLabel}" Text="{Binding Visitor.HouseNumber}" Placeholder="House nr" />
+                <Label Style="{StaticResource MediumLabel}" Text="Zip Code:" />
+                <Entry Style="{StaticResource MediumLabel}" Text="{Binding Visitor.ZipCode}" Placeholder="Zip Code" />
+                <Label Style="{StaticResource MediumLabel}" Text="IBAN:" />
+                <Entry Style="{StaticResource MediumLabel}" Text="{Binding Visitor.Iban}" Placeholder="NL12 ABNA1234567890" />
+            </VerticalStackLayout>
+
+
+            <Button Text="Buy Ticket" Style="{StaticResource ButtonSolid}" Command="{Binding TicketPaymentCommand}" />
         </VerticalStackLayout>
     </ScrollView>
 

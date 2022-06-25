@@ -12,6 +12,7 @@ public class Visitor
     public string HouseNumber { get; set; }
     public string Mobile { get; set; }
     public DateTime BirthDate { get; set; }
+    public string? Iban { get; set; }
 
 }
 

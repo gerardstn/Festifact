@@ -46,6 +46,26 @@ public class VisitorService
         }
     }
 
+    public async Task<Model.Visitor> UpdateVisitor(Model.Visitor visitor)
+    {
+
+        var json = JsonConvert.SerializeObject(visitor);
+
+        var content =
+            new StringContent(json, Encoding.UTF8, "application/json");
+
+        var response = await client.PutAsync("/api/Visitor", content);
+
+        if (!response.IsSuccessStatusCode)
+        {
+
+            return visitor;
+        }
+        else
+        {
+            return visitor;
+        }
+    }
     Model.Visitor visitor = new();
     public async Task<Model.Visitor> GetVisitor(int VisitorId)
     {

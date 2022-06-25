@@ -12,7 +12,6 @@ public partial class FavoriteArtistsPage : ContentPage
         base.OnAppearing();
         var vm = (FavoritesViewModel)BindingContext;
         await vm.SetAccountText();
-        if (vm.Favorites.Count == 0)
             await vm.GetFavoriteArtistsCommand.ExecuteAsync(null);
     }
 }
