@@ -20,7 +20,7 @@ namespace Festifact.Visitor.Services;
         }
         catch
         {
-
+             
         }
         Configuration = configuration;
     }
@@ -52,8 +52,6 @@ namespace Festifact.Visitor.Services;
         }
         return festivalSearchResult;
     }
-
-
 
     Festival festival = new();
     public async Task<Festival> GetFestivalById(int festivalId)

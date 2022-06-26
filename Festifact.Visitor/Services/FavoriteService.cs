@@ -30,8 +30,6 @@ public class FavoriteService
         favorite.ShowId = showId;
         favorite.VisitorId = Preferences.Get("VisitorId", 0);
 
-        /* get favorite with same show id, if exist return exist ofzo..*/
-
         var json = JsonConvert.SerializeObject(favorite);
 
         var content =

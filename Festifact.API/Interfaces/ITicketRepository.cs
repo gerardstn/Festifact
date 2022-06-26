@@ -14,6 +14,5 @@ namespace Festifact.API.Interfaces
         void Delete(int ticketId);
         IEnumerable<Ticket> GetVisitorTickets(int visitorId);
 
-
     }
 }

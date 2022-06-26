@@ -24,9 +24,6 @@ public partial class VisitedFestivalsViewModel : BaseViewModel
     [ObservableProperty]
     Festival festival;
 
-    [ObservableProperty]
-    Model.Visitor visitor;
-
 
     [ICommand]
     async Task GetFestivalsToRate()

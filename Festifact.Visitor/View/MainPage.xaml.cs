@@ -27,6 +27,7 @@ public partial class MainPage : ContentPage
 		base.OnAppearing();
         var vm = (FestivalsViewModel)BindingContext;
 		await vm.SetAccountText();
-		await vm.GetFestivalsCommand.ExecuteAsync(null);
+			if(vm.Festivals.Count == 0)
+				await vm.GetFestivalsCommand.ExecuteAsync(null);
 	}
 }

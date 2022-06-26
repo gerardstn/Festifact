@@ -71,7 +71,7 @@ namespace Festifact.API.Controllers
 
         [HttpGet("{id}")]
         public IActionResult GetFestival(int id)
-{
+        {
             return Ok(_festivalRepository.Find(id));
         }
 

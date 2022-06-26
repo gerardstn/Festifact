@@ -14,7 +14,6 @@
                         Grid.Column="1"
                         Source="festifactlogo.png"
                         VerticalOptions="CenterAndExpand" />
-            <Label Text="{Binding Visitor.Email}" Style="{StaticResource LargeLabel}" Grid.Column="2" Margin="2"/>
         </Grid>
     </Shell.TitleView>
     <ScrollView>

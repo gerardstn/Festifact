@@ -5,9 +5,11 @@ VisualStudioVersion = 17.0.31611.283
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Festifact.Visitor", "Festifact.Visitor\Festifact.Visitor.csproj", "{12A40221-F792-458E-9851-0A0530F4A2DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Festifact.Organisation", "Festifact.Organisation\Festifact.Organisation.csproj", "{369C96DD-9F92-4472-8241-6087CE8DF3CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Festifact.Organisation", "Festifact.Organisation\Festifact.Organisation.csproj", "{369C96DD-9F92-4472-8241-6087CE8DF3CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Festifact.API", "Festifact.API\Festifact.API.csproj", "{FB727DE7-1A12-47EE-A92A-78E668D9A15A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Festifact.API", "Festifact.API\Festifact.API.csproj", "{FB727DE7-1A12-47EE-A92A-78E668D9A15A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Festifact.Tests", "Festifact.Tests\Festifact.Tests.csproj", "{09D6E94A-4860-4183-9D94-AABB59539D0D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +33,10 @@ Global
 		{FB727DE7-1A12-47EE-A92A-78E668D9A15A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB727DE7-1A12-47EE-A92A-78E668D9A15A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB727DE7-1A12-47EE-A92A-78E668D9A15A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09D6E94A-4860-4183-9D94-AABB59539D0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09D6E94A-4860-4183-9D94-AABB59539D0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09D6E94A-4860-4183-9D94-AABB59539D0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09D6E94A-4860-4183-9D94-AABB59539D0D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
