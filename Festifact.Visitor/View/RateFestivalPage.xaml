@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Festifact.Visitor.RateFestivalPage"
+             xmlns:model="clr-namespace:Festifact.Visitor.Model"
+             xmlns:viewmodel="clr-namespace:Festifact.Visitor.ViewModel"
+             x:DataType="viewmodel:RateFestivalViewModel">
+    <Shell.TitleView>
+        <Grid ColumnDefinitions="300,*,300" ColumnSpacing="5">
+            <Label Style="{StaticResource LargeLabel}" Text="{Binding Title}" Grid.Column="0" Margin="8"/>
+            <Image
+                        HorizontalOptions="CenterAndExpand"
+                        MaximumHeightRequest="35"
+                        Grid.Column="1"
+                        Source="festifactlogo.png"
+                        VerticalOptions="CenterAndExpand" />
+            <Label Text="{Binding Visitor.Email}" Style="{StaticResource LargeLabel}" Grid.Column="2" Margin="2"/>
+        </Grid>
+    </Shell.TitleView>
+    <VerticalStackLayout Padding="10" Spacing="10">
+        <Image Aspect="AspectFill" Source="{Binding Festival.Banner}"
+                                    Grid.Column="0"
+                                       WidthRequest="70"
+                                       HeightRequest="70"/>
+        <Label Style="{StaticResource LargeLabel}" Text="{Binding Festival.Name}" VerticalOptions="Center" />
+        <Label Text="Rate by 1 - 5:" Style="{StaticResource MediumLabel}"/>
+        <Slider x:Name="slider"
+                Minimum="1"
+                Maximum="5" 
+                Value="{Binding Rating.Stars}"/>
+        <Label x:Name="displayLabel"
+               Style="{StaticResource MediumLabel}"
+               Text="{Binding Source={x:Reference slider},
+                              Path=Value,
+                              StringFormat='Your rating {0:F0}'}"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+                <Label Text="Add a comment:" Style="{StaticResource MediumLabel}"/>
+        <Editor Style="{StaticResource MediumLabel}" Text="{Binding Rating.Message}" Placeholder="Leave a comment about the festival.." />
+
+        <Button Text="Add rating" Style="{StaticResource ButtonSolid}" CommandParameter="{Binding Rating}" Command="{Binding AddRatingCommand}"/>
+    </VerticalStackLayout>
+</ContentPage>

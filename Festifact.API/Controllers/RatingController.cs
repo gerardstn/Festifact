@@ -1,5 +1,6 @@
 ﻿using Festifact.API.Interfaces;
 using Festifact.API.Models;
+using Festifact.API.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Festifact.API.Controllers
@@ -30,6 +31,24 @@ namespace Festifact.API.Controllers
             return Ok(_ratingRepository.All);
         }
 
+        [HttpPost]
+        public IActionResult Create([FromBody] Rating rating)
+        {
+            try
+            {
+                bool itemExists = _ratingRepository.DoesRatingExist(rating.RatingId);
+                if (itemExists)
+                {
+                    return StatusCode(StatusCodes.Status409Conflict, ErrorCode.RatingIdInUse.ToString());
+                }
+                _ratingRepository.Insert(rating);
+            }
+            catch (Exception)
+            {
+                return BadRequest(ErrorCode.CouldNotCreateRating.ToString());
+            }
+            return Ok(rating);
+        }
 
 
         [HttpPut]

@@ -16,7 +16,7 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(nameof(AccountPage), typeof(AccountPage));
         Routing.RegisterRoute(nameof(FavoriteShowsPage), typeof(FavoriteShowsPage));
         Routing.RegisterRoute(nameof(FavoriteArtistsPage), typeof(FavoriteArtistsPage));
-        Routing.RegisterRoute(nameof(VisitedShowsPage), typeof(VisitedShowsPage));
-
+        Routing.RegisterRoute(nameof(VisitedFestivalsPage), typeof(VisitedFestivalsPage));
+        Routing.RegisterRoute(nameof(RateFestivalPage), typeof(RateFestivalPage));
     }
 }

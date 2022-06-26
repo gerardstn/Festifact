@@ -8,8 +8,7 @@ namespace Festifact.Visitor.Services;
 public class TicketService
 {
 
-
-    private IConfiguration Configuration { get; set; }
+    private IConfiguration Configuration { get; }
     static HttpClient client;
 
     public TicketService(IConfiguration configuration)
@@ -27,7 +26,7 @@ public class TicketService
     Random random = new();
     public async Task<Ticket> AddTicket(Ticket ticket, Festival festival)
     {
-        
+
         ticket.TicketId = random.Next(10, 10000);
 
         var json = JsonConvert.SerializeObject(ticket);
@@ -69,5 +68,18 @@ public class TicketService
         }
     }
 
+    List<Ticket> ticketList = new();
+    public async Task<List<Ticket>> GetTickets()
+    {
+
+        var response = await client.GetAsync("/api/ticket/visitor/" + Preferences.Get("VisitorId", 0));
+
+        if (response.IsSuccessStatusCode)
+        {
+            ticketList = await response.Content.ReadFromJsonAsync<List<Ticket>>();
+        }
+
+        return ticketList;
+    }
 
 }

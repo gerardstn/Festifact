@@ -24,6 +24,7 @@ public static class MauiProgram
 		builder.Services.AddSingleton<VisitorService>();
 		builder.Services.AddSingleton<ArtistService>();
 		builder.Services.AddSingleton<FavoriteService>();
+		builder.Services.AddSingleton<RatingService>();
 
         builder.Services.AddTransient<MainPage>();
         builder.Services.AddTransient<FestivalsViewModel>();
@@ -56,8 +57,11 @@ public static class MauiProgram
         builder.Services.AddTransient<FavoriteArtistsPage>();
         builder.Services.AddTransient<FavoriteShowsPage>();
 
-        builder.Services.AddTransient<VisitedShowsViewModel>();
-        builder.Services.AddTransient<VisitedShowsPage>();
+        builder.Services.AddTransient<VisitedFestivalsViewModel>();
+        builder.Services.AddTransient<VisitedFestivalsPage>();
+
+        builder.Services.AddTransient<RateFestivalViewModel>();
+        builder.Services.AddTransient<RateFestivalPage>();
 
         return builder.Build();
 	}

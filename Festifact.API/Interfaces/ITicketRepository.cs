@@ -12,6 +12,8 @@ namespace Festifact.API.Interfaces
         void Insert(Ticket ticket);
         void Update(Ticket ticket);
         void Delete(int ticketId);
-        
+        IEnumerable<Ticket> GetVisitorTickets(int visitorId);
+
+
     }
 }

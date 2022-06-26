@@ -103,9 +103,27 @@ namespace Festifact.API.Services
                 OrganisatorId = 2
             };
 
+            var festival4 = new Festival
+            {
+                FestivalId = 4,
+                Name = "Sziget Festival 2021",
+                Description = "The Sziget Festival is one of the largest music and cultural festivals in Europe. It is held every August in northern Budapest, Hungary, on Óbudai-sziget, a leafy 108-hectare island on the Danube. More than 1,000 performances take place each year.",
+                Banner = "https://i.imgur.com/Gpjfr81.jpg",
+                TicketsAvailable = 0,
+                TicketsLimit = 385000,
+                Type = "Music",
+                Genre = "Rock",
+                Location = "Budapest",
+                AgeCatagory = "ALL, Guidance under 14",
+                StartDate = new DateTime(2021, 8, 10, 16, 00, 00),
+                EndDate = new DateTime(2021, 8, 15, 4, 00, 00),
+                OrganisatorId = 2
+            };
+
             _festivalList.Add(festival1);
             _festivalList.Add(festival2);
             _festivalList.Add(festival3);
+            _festivalList.Add(festival4);
         }
         IEnumerable<Festival> IFestivalRepository.GetOrganisationFestivals(int organisationId)
         {

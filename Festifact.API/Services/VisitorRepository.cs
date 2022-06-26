@@ -56,7 +56,7 @@ namespace Festifact.API.Services
             var visitor1 = new Visitor
             {
                 VisitorId = 1,
-                Email = "john.Doe@gmail.com",
+                Email = "john.doe@gmail.com",
                 Password = "password",
                 Mobile = "0612345678",
                 SurName = "Doe",
@@ -111,7 +111,7 @@ namespace Festifact.API.Services
         public Visitor Login(string email, string password)
         {
             IEnumerable<Visitor> filteredVisitor = _visitorList;
-            filteredVisitor = filteredVisitor.Where(visitor => visitor.Email.ToLower() == email.ToLower());
+            filteredVisitor = filteredVisitor.Where(visitor => visitor.Email.ToLower().Equals(email.ToLower()));
             filteredVisitor = filteredVisitor.Where(visitor => visitor.Password == password);
             return filteredVisitor.First();
         }

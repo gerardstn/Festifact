@@ -52,4 +52,21 @@ namespace Festifact.Visitor.Services;
         }
         return festivalSearchResult;
     }
+
+
+
+    Festival festival = new();
+    public async Task<Festival> GetFestivalById(int festivalId)
+    {
+
+        var response = await client.GetAsync("/api/festival/" + festivalId.ToString());
+
+        if (response.IsSuccessStatusCode)
+        {
+            festival = await response.Content.ReadFromJsonAsync<Festival>();
+        }
+
+        return festival;
+    }
+
 }

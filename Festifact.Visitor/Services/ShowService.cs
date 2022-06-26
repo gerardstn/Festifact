@@ -11,17 +11,11 @@ namespace Festifact.Visitor.Services;
 
     public ShowService(IConfiguration configuration)
     {
-        try
-        {
             client = new HttpClient
             {
                 BaseAddress = new Uri(configuration["Api:BaseUrl"])
             };
-        }
-        catch
-        {
 
-        }
         Configuration = configuration;
     }
 

@@ -57,7 +57,7 @@ namespace Festifact.API.Services
                 RatingId = 1,
                 Message = "awesome show",
                 Stars = 5,
-                ShowId = 1,
+                FestivalId = 1,
                 VisitorId = 1,
             };
 
@@ -66,7 +66,7 @@ namespace Festifact.API.Services
                 RatingId = 2,
                 Message = null,
                 Stars = 4,
-                ShowId = 1,
+                FestivalId = 1,
                 VisitorId = 2,
             };
 
@@ -75,7 +75,7 @@ namespace Festifact.API.Services
                 RatingId = 3,
                 Message = "Sick atmosphere!",
                 Stars = 5,
-                ShowId = 3,
+                FestivalId = 3,
                 VisitorId = 2,
             };
 
@@ -84,7 +84,7 @@ namespace Festifact.API.Services
                 RatingId = 3,
                 Message = "Dirty facilities",
                 Stars = 2,
-                ShowId = 3,
+                FestivalId = 3,
                 VisitorId = 3,
             };
 

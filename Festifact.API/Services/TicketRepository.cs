@@ -78,12 +78,26 @@ namespace Festifact.API.Services
                 VisitorId = 1,
                 PurchaseDate = DateTime.Now,
                 Price = 27.5
+            }; 
+            var ticket4 = new Ticket
+            {
+                TicketId = 4,
+                FestivalId = 4,
+                VisitorId = 1,
+                PurchaseDate = new DateTime(2021, 5, 15),
+                Price = 27.5
             };
 
             _ticketList.Add(ticket1);
             _ticketList.Add(ticket2);
             _ticketList.Add(ticket3);
+            _ticketList.Add(ticket4);
         }
-
+        IEnumerable<Ticket> ITicketRepository.GetVisitorTickets(int visitorId)
+        {
+            IEnumerable<Ticket> FiltredList = _ticketList;
+            FiltredList = FiltredList.Where(ticket => ticket.VisitorId.Equals(visitorId));
+            return FiltredList;
+        }
     }
 }

@@ -19,8 +19,7 @@
     </Shell.TitleView>
     <VerticalStackLayout Padding="10" Spacing="10">
 
-        <Button Text="Your visited shows" Style="{StaticResource ButtonOutline}" Command="{Binding NavigateToVisitedShowsCommand}"/>
-
+        <Button Text="Your visited festivals" Style="{StaticResource ButtonOutline}" Command="{Binding NavigateToVisitedFestivalsCommand}"/>
         <Button Text="Your favorite shows" Style="{StaticResource ButtonOutline}" Command="{Binding NavigateToFavoriteShowsCommand}"/>
         <Button Text="Your favorite artists" Style="{StaticResource ButtonOutline}" Command="{Binding NavigateToFavoriteArtistsCommand}"/>
 

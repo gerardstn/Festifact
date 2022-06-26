@@ -66,11 +66,12 @@ public partial class AccountViewModel : BaseViewModel
     }
 
     [ICommand]
-    async Task NavigateToVisitedShows()
+    async Task NavigateToVisitedFestivals()
     {
-        var route = $"{nameof(VisitedShowsPage)}";
+        var route = $"{nameof(VisitedFestivalsPage)}";
         await Shell.Current.GoToAsync(route);
     }
+
     [ICommand]
     async Task NavigateToFavoriteArtists()
     {

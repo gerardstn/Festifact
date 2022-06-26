@@ -1,5 +1,6 @@
 ﻿using Festifact.API.Interfaces;
 using Festifact.API.Models;
+using Festifact.API.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Festifact.API.Controllers
@@ -66,6 +67,12 @@ namespace Festifact.API.Controllers
                 return BadRequest(ErrorCode.CouldNotCreateFestival.ToString());
             }
             return Ok(festival);
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetFestival(int id)
+{
+            return Ok(_festivalRepository.Find(id));
         }
 
         [HttpPut]

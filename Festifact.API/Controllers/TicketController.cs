@@ -1,5 +1,6 @@
 ﻿using Festifact.API.Interfaces;
 using Festifact.API.Models;
+using Festifact.API.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Festifact.API.Controllers
@@ -30,9 +31,13 @@ namespace Festifact.API.Controllers
             return Ok(_ticketRepository.All);
         }
 
+    [HttpGet("visitor/" + "{id}")]
+    public IActionResult VisitorTickets(int id)
+{
+        return Ok(_ticketRepository.GetVisitorTickets(id));
+    }
 
-
-        [HttpPut]
+    [HttpPut]
         public IActionResult Edit([FromBody] Ticket ticket)
         {
             try
