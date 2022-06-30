@@ -12,7 +12,7 @@ public partial class LoginViewModel : BaseViewModel
     public LoginViewModel(VisitorService visitorService)
     {
         Visitor = new();
-        Title = "Login";
+        Title = "Log in";
         this.visitorService = visitorService;
     }
 

@@ -17,7 +17,7 @@ public class TicketService
 
         client = new HttpClient
         {
-            BaseAddress = new Uri(configuration["Api:BaseUrl"])
+            BaseAddress = new Uri("https://festifactapi20220423103103.azurewebsites.net")
         };
 
     }

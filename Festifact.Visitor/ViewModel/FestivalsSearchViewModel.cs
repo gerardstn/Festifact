@@ -130,6 +130,19 @@ public partial class FestivalsSearchViewModel : BaseViewModel, INotifyPropertyCh
         }
 
     }
+
+    [ICommand]
+    async Task GotoFestivalDetails(Festival festival)
+    {
+        if (festival == null)
+            return;
+
+        await Shell.Current.GoToAsync(nameof(FestivalDetailsPage), true, new Dictionary<string, object>
+        {
+            {"Festival", festival }
+        });
+    }
+
     [ICommand]
     async Task NavigateToLogin()
     {

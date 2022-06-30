@@ -14,19 +14,17 @@
                         Grid.Column="1"
                         Source="festifactlogo.png"
                         VerticalOptions="CenterAndExpand" />
-            <Button Text="{Binding AccountText}" Style="{StaticResource ButtonSolid}" Command="{Binding NavigateToAccountCommand}" Grid.Column="2" Margin="2" WidthRequest="200" HorizontalOptions="End"/>
-
         </Grid>
     </Shell.TitleView>
     <Grid
-        ColumnDefinitions="*,*"
         ColumnSpacing="5"
         RowSpacing="0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="180"/>
+            <RowDefinition Height="200"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="50" />
         </Grid.RowDefinitions>
+        
         <StackLayout            
             Grid.Row="0"
             Grid.Column="0"
@@ -44,26 +42,21 @@
                 MaximumDate="08/15/2022"
                 Date="{Binding Date}" />
         </StackLayout>
-        <CollectionView 
+            <CollectionView 
                 Grid.Row="1"
                 Grid.ColumnSpan="2"
                 ItemsSource="{Binding Festivals}"
                 SelectionChanged="CollectionView_SelectionChanged"
-                SelectionMode="Single">
-            <CollectionView.EmptyView>
-                <StackLayout Padding="100">
-                    <Image
-                        Grid.Row="2"
-                        HorizontalOptions="CenterAndExpand"
-                            MaximumHeightRequest="200"
-                        Source="nodata.png"
-                        VerticalOptions="CenterAndExpand" />
-                </StackLayout>
-            </CollectionView.EmptyView>
-            <CollectionView.ItemTemplate>
+                SelectionMode="None">
+                <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:Festival">
                     <Grid Padding="10,5">
                         <Frame HeightRequest="125" Style="{StaticResource CardView}">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer 
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:FestivalsSearchViewModel}}, Path=GotoFestivalDetailsCommand}"
+                                        CommandParameter="{Binding .}"/>
+                            </Frame.GestureRecognizers>
                             <Grid Padding="0" ColumnDefinitions="125,*">
                                 <Image Aspect="AspectFill" Source="{Binding Banner}"
                                        WidthRequest="125"
@@ -81,7 +74,6 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-
         <Button Text="Search Festivals" 
                 Command="{Binding SearchFestivalsCommand}"
                 IsEnabled="{Binding IsNotBusy}"
@@ -89,21 +81,6 @@
                 Grid.Column="0"
                 Style="{StaticResource ButtonOutline}"
                 Margin="8"/>
-        
-        <Button Text="Clear Search" 
-                Command="{Binding GetFestivalsCommand}"
-                IsEnabled="{Binding IsNotBusy}"
-                Grid.Row="3"
-                Grid.Column="2"
-                Style="{StaticResource ButtonOutline}"
-                Margin="8"/>
-        
-        <ActivityIndicator IsVisible="{Binding IsBusy}"
-                           IsRunning="{Binding IsBusy}"
-                           HorizontalOptions="FillAndExpand"
-                           VerticalOptions="CenterAndExpand"
-                           Grid.RowSpan="2"
-                           Grid.ColumnSpan="2"/>
 
     </Grid>
 </ContentPage>

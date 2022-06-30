@@ -22,13 +22,4 @@ public partial class FestivalSearchPage : ContentPage
 	}
 
 
-	protected override async void OnAppearing()
-	{
-		base.OnAppearing();
-		var vm = (FestivalsSearchViewModel)BindingContext;
-        await vm.SetAccountText();
-        if (vm.Festivals.Count == 0)
-			await vm.GetFestivalsCommand.ExecuteAsync(null);
-	}
-
 }

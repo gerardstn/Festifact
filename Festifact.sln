@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Festifact.Organisation", "F
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Festifact.API", "Festifact.API\Festifact.API.csproj", "{FB727DE7-1A12-47EE-A92A-78E668D9A15A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Festifact.Tests", "Festifact.Tests\Festifact.Tests.csproj", "{09D6E94A-4860-4183-9D94-AABB59539D0D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Festifact.Tests", "Festifact.Tests\Festifact.Tests.csproj", "{09D6E94A-4860-4183-9D94-AABB59539D0D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Festifact.UITests", "Festifact.UITests\Festifact.UITests.csproj", "{4A1861DC-7D46-44C5-BA52-AE6A01DF2442}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +39,10 @@ Global
 		{09D6E94A-4860-4183-9D94-AABB59539D0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09D6E94A-4860-4183-9D94-AABB59539D0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09D6E94A-4860-4183-9D94-AABB59539D0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A1861DC-7D46-44C5-BA52-AE6A01DF2442}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A1861DC-7D46-44C5-BA52-AE6A01DF2442}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A1861DC-7D46-44C5-BA52-AE6A01DF2442}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A1861DC-7D46-44C5-BA52-AE6A01DF2442}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

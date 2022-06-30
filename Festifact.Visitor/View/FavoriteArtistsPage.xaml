@@ -20,16 +20,6 @@
     <CollectionView 
                 ItemsSource="{Binding Artists}"
                 SelectionMode="Single">
-        <CollectionView.EmptyView>
-            <StackLayout Padding="100">
-                <Image
-                        HorizontalOptions="CenterAndExpand"
-                        MaximumHeightRequest="200"
-                        Source="nodata.png"
-                        VerticalOptions="CenterAndExpand" />
-                <Button Text="Get favorite artists" Style="{StaticResource ButtonOutline}" Command="{Binding GetFavoriteArtistsCommand}"/>
-            </StackLayout>
-        </CollectionView.EmptyView>
         <CollectionView.ItemTemplate>
             <DataTemplate x:DataType="model:Artist">
                 <Grid Padding="10,5">

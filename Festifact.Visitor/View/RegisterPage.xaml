@@ -16,6 +16,7 @@
                         VerticalOptions="CenterAndExpand" />
         </Grid>
     </Shell.TitleView>
+    <ScrollView Padding="10">
     <VerticalStackLayout Padding="10" Spacing="10">
         <Label Text="Name:" Style="{StaticResource MediumLabel}"/>
         <Entry Style="{StaticResource MediumLabel}" Text="{Binding Visitor.Name}" />
@@ -38,4 +39,5 @@
         
         <Button Text="Register account" Style="{StaticResource ButtonOutline}" CommandParameter="{Binding Visitor}" Command="{Binding AddVisitorCommand}"/>
     </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

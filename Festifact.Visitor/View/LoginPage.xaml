@@ -19,9 +19,9 @@
 
     <VerticalStackLayout Padding="10" Spacing="10">
         <Label Text="Email:" Style="{StaticResource MediumLabel}"/>
-        <Entry Style="{StaticResource MediumLabel}" Text="{Binding Visitor.Email}" />
+        <Entry Style="{StaticResource MediumLabel}" Text="{Binding Visitor.Email}" Placeholder="example@example.com"/>
         <Label Text="Password:" Style="{StaticResource MediumLabel}"/>
-        <Entry IsPassword="True" Style="{StaticResource MediumLabel}" Text="{Binding Visitor.Password}" />
+        <Entry IsPassword="True" Style="{StaticResource MediumLabel}" Text="{Binding Visitor.Password}" Placeholder="password" />
 
 
         <Button Text="Login" Style="{StaticResource ButtonSolid}" CommandParameter="{Binding Visitor}" Command="{Binding CheckLoginDetailsCommand}"/>

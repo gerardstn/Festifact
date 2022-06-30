@@ -34,31 +34,22 @@
                 Grid.ColumnSpan="2"
                 Style="{StaticResource ButtonOutline}"
                 Margin="8"/>
-        <RefreshView
-                Grid.Row="1"
-                Grid.ColumnSpan="2"
-                Command="{Binding GetFestivalsCommand}"
-                IsRefreshing="{Binding IsRefreshing}">
-            <CollectionView 
+        <CollectionView 
                 Grid.Row="1"
                 Grid.ColumnSpan="2"
                 ItemsSource="{Binding Festivals}"
                 SelectionChanged="CollectionView_SelectionChanged"
-                SelectionMode="Single">
-                <CollectionView.EmptyView>
-                    <StackLayout Padding="100">
-                        <Image
-                        HorizontalOptions="CenterAndExpand"
-                            MaximumHeightRequest="200"
-                        Source="nodata.png"
-                        VerticalOptions="CenterAndExpand" />
-                    </StackLayout>
-                </CollectionView.EmptyView>
+                SelectionMode="None">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:Festival">
                         <Grid Padding="10,5">
                             <Frame HeightRequest="125" Style="{StaticResource CardView}">
-                                <Grid Padding="0" ColumnDefinitions="125,*">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer 
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:FestivalsViewModel}}, Path=GotoFestivalDetailsCommand}"
+                                        CommandParameter="{Binding .}"/>
+                            </Frame.GestureRecognizers>
+                            <Grid Padding="0" ColumnDefinitions="125,*">
                                     <Image Aspect="AspectFill" Source="{Binding Banner}"
                                        WidthRequest="125"
                                        HeightRequest="125"/>
@@ -75,7 +66,6 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-        </RefreshView>
 
         <Button Text="Refresh Festivals" 
                 Command="{Binding GetFestivalsCommand}"
@@ -86,11 +76,5 @@
                 Style="{StaticResource ButtonOutline}"
                 Margin="8"/>
 
-        <ActivityIndicator IsVisible="{Binding IsBusy}"
-                           IsRunning="{Binding IsBusy}"
-                           HorizontalOptions="FillAndExpand"
-                           VerticalOptions="CenterAndExpand"
-                           Grid.RowSpan="2"
-                           Grid.ColumnSpan="2"/>
     </Grid>
 </ContentPage>

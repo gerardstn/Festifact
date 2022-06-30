@@ -80,6 +80,18 @@ public partial class FestivalDetailsViewModel : BaseViewModel
     }
 
     [ICommand]
+    async Task GotoShow(Show show)
+    {
+        if (festival == null)
+            return;
+
+        await Shell.Current.GoToAsync(nameof(ShowPage), true, new Dictionary<string, object>
+        {
+            {"Show", show }
+        });
+    }
+
+    [ICommand]
     async Task GetFestivalShowsAsync()
     {
         if (IsBusy)

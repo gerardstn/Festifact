@@ -64,11 +64,12 @@ public partial class FestivalTicketViewModel : BaseViewModel
                 ticket.VisitorId = visitor.VisitorId;
                 ticket.FestivalId = festival.FestivalId;
                 await ticketService.AddTicket(ticket, festival);
+                await EmailTicketInfo();
             }
             else { 
                 await Application.Current.MainPage.DisplayAlert("Error!", "No tickets available", "OK");
             }
-            await EmailTicketInfo();
+            
         }
         catch (Exception ex)
         {
@@ -91,7 +92,7 @@ public partial class FestivalTicketViewModel : BaseViewModel
             email.From.Add(MailboxAddress.Parse("maxime.purdy89@ethereal.email"));
             email.To.Add(MailboxAddress.Parse(visitor.Email));
             email.Subject = "Festifact Ticket - " + festival.Name.ToString();
-            string BarCodeValue = ticket.FestivalId.ToString() + ticket.VisitorId.ToString() + "B" + ticket.TicketId.ToString();
+            string BarCodeValue = ticket.FestivalId.ToString() + ticket.VisitorId.ToString() + ticket.TicketId.ToString();
             var BarCode = IronBarCode.BarcodeWriter.CreateBarcode(BarCodeValue, BarcodeEncoding.Code128);
             BarCode.AddAnnotationTextAboveBarcode(festival.Name);
             BarCode.AddBarcodeValueTextBelowBarcode();

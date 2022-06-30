@@ -17,22 +17,13 @@
         </Grid>
     </Shell.TitleView>
     <ScrollView>
-    <CollectionView 
+        <CollectionView 
                 Grid.Row="1"
                 Grid.ColumnSpan="2"
                 ItemsSource="{Binding Festivals}"
                 SelectionChanged="CollectionView_SelectionChanged"
                 SelectionMode="Single">
-        <CollectionView.EmptyView>
-            <StackLayout Padding="100">
-                <Image
-                        HorizontalOptions="CenterAndExpand"
-                            MaximumHeightRequest="200"
-                        Source="nodata.png"
-                        VerticalOptions="CenterAndExpand" />
-            </StackLayout>
-        </CollectionView.EmptyView>
-        <CollectionView.ItemTemplate>
+            <CollectionView.ItemTemplate>
             <DataTemplate x:DataType="model:Festival">
                 <Grid Padding="10,5">
                     <Frame HeightRequest="125" Style="{StaticResource CardView}">

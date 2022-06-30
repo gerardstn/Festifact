@@ -9,44 +9,41 @@
         <Grid ColumnDefinitions="300,*,300" ColumnSpacing="5">
             <Label Style="{StaticResource LargeLabel}" Text="{Binding Festival.Name}" Grid.Column="0" Margin="8"/>
             <Image
-                        HorizontalOptions="CenterAndExpand"
-                        MaximumHeightRequest="35"
-                        Grid.Column="1"
-                        Source="festifactlogo.png"
-                        VerticalOptions="CenterAndExpand" />
+                HorizontalOptions="CenterAndExpand"
+                MaximumHeightRequest="35"
+                Grid.Column="1"
+                Source="festifactlogo.png"
+                VerticalOptions="CenterAndExpand" />
             <Button Text="{Binding AccountText}" Style="{StaticResource ButtonSolid}" Command="{Binding NavigateToAccountCommand}" Grid.Column="2" Margin="2" WidthRequest="200" HorizontalOptions="End"/>
-
         </Grid>
     </Shell.TitleView>
     <ScrollView>
         <VerticalStackLayout>
             <Grid ColumnDefinitions="*,Auto,*" RowDefinitions="160, Auto">
-
                 <BoxView
-    Grid.ColumnSpan="3"
-    Background="{StaticResource Primary}"
-    HeightRequest="160"
-    HorizontalOptions="FillAndExpand" />
+                    Grid.ColumnSpan="3"
+                    Background="{StaticResource Primary}"
+                    HeightRequest="160"
+                    HorizontalOptions="FillAndExpand" />
                 <Frame
-    Grid.RowSpan="2"
-    Grid.Column="1"
-    Margin="0,80,0,0"
-    HeightRequest="160"
-    WidthRequest="160"
-    HorizontalOptions="Center" 
-    Padding="0"
-    IsClippedToBounds="True"
-    CornerRadius="80">
+                    Grid.RowSpan="2"
+                    Grid.Column="1"
+                    Margin="0,80,0,0"
+                    HeightRequest="160"
+                    WidthRequest="160"
+                    HorizontalOptions="Center" 
+                    Padding="0"
+                    IsClippedToBounds="True"
+                    CornerRadius="80">
                     <Image
-        Aspect="AspectFill"
-        HeightRequest="160"
-        HorizontalOptions="Center"
-        VerticalOptions="Center"
-        Source="{Binding Festival.Banner}"
-        WidthRequest="160"/>
+                        Aspect="AspectFill"
+                        HeightRequest="160"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        Source="{Binding Festival.Banner}"
+                        WidthRequest="160"/>
                 </Frame>
             </Grid>
-
             <VerticalStackLayout Padding="10" Spacing="10">
                 <Button Text="Buy Ticket" Style="{StaticResource ButtonOutline}" Command="{Binding BuyTicketPageCommand}" CommandParameter="{Binding Festival}" />
                 <Label Style="{StaticResource MediumLabel}" Text="{Binding Festival.TicketsAvailable, StringFormat='Tickets available: {0}'}" />
@@ -63,30 +60,26 @@
             <CollectionView 
                 ItemsSource="{Binding Shows}"
                 SelectionChanged="CollectionView_SelectionChanged"
-                SelectionMode="Single">
-                <CollectionView.EmptyView>
-                    <StackLayout Padding="100">
-                        <Image
-                        HorizontalOptions="CenterAndExpand"
-                            MaximumHeightRequest="200"
-                        Source="nodata.png"
-                        VerticalOptions="CenterAndExpand" />
-                    </StackLayout>
-                </CollectionView.EmptyView>
+                SelectionMode="None">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:Show">
                         <Grid Padding="10,5">
                             <Frame HeightRequest="100" Style="{StaticResource CardView}">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer 
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:FestivalDetailsViewModel}}, Path=GotoShowCommand}"
+                                        CommandParameter="{Binding .}"/>
+                                </Frame.GestureRecognizers>
                                 <Grid Padding="0" ColumnDefinitions="80, 80,200,20">
                                     <Label Style="{StaticResource LargeLabel}" Text="{Binding FestivalDay, StringFormat='Day: {0}'}" VerticalOptions="Center" Margin="10"/>
                                     <Image Aspect="AspectFill" Source="{Binding Image}"
-                                    Grid.Column="1"
-                                       WidthRequest="70"
-                                       HeightRequest="70"/> 
+                                        Grid.Column="1"
+                                        WidthRequest="70"
+                                        HeightRequest="70"/>
                                     <HorizontalStackLayout
-                                    Grid.Column="2"
-                                    Padding="10"
-                                    VerticalOptions="Center">
+                                        Grid.Column="2"
+                                        Padding="10"
+                                        VerticalOptions="Center">
                                         <Label Style="{StaticResource LargeLabel}" Text="{Binding Name}" VerticalOptions="Center"/>
                                         <HorizontalStackLayout
                                     Grid.Column="2"
@@ -106,7 +99,4 @@
             </CollectionView>
         </VerticalStackLayout>
     </ScrollView>
-
-
-
 </ContentPage>

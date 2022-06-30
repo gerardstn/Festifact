@@ -16,7 +16,6 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
-        builder.Configuration.AddJsonFile("AppSettings.json");
 
 		builder.Services.AddSingleton<FestivalService>();
 		builder.Services.AddSingleton<ShowService>();
